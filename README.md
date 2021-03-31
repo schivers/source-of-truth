@@ -1,7 +1,7 @@
 # Netbox as a Source of Truth
 This projects seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021). Netbox API can then be used as the information source to program the network.
 
-**Objects populated in Netbox**
+The following Netbox objects are populated
 - **Organization.** UEFA
 - **Site.** Baku, IBC
 - **Racks.** Eqipment rack identifiers (e.g IDF-G-A)
