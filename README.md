@@ -33,8 +33,8 @@ Objects populated in Netbox
     - Check for interface errors
     
 ## Deployed Libraries
-	- Netbox docker
-	- Webhooks - https://github.com/adnanh/webhook
-	- Nornir (3.1.0) - https://nornir.readthedocs.io/en/latest/
-	- PYATS (21.2)
-    - Ansible (3.1.0)
+- Netbox docker
+- Webhooks - https://github.com/adnanh/webhook
+- Nornir (3.1.0) - https://nornir.readthedocs.io/en/latest/
+- PYATS (21.2)
+- Ansible (3.1.0)
