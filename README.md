@@ -1,27 +1,27 @@
 # Netbox as a Source of Truth
 This projects seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021). Netbox API can then be used as the information source to program the network.
 
-Objects populated in Netbox
+**Objects populated in Netbox**
 - **Organization.** UEFA
-- Site. Baku, IBC
-- Racks. Eqipment rack identifiers (e.g IDF-G-A)
-- Tenants. UEFA
-- Tags. Used to label the zone that the device is installed into. UEFA defines zones (e.g. UEFA Org. Office (1.1)) and defines the connectivity requirement for each zone. 
-- Devices.
-- Device Roles.
-- Platforms.
-- Virtual Chassis.
-- Device types.
-- Manufacturers.
-- Cables.
-- Interfaces.
-- IP Addresses.
-- Prefixes.
-- Aggregates.
-- VRF's.
-- Route Targets.
-- VLANs.
-- VLAN Groups.
+- **Site.** Baku, IBC
+- **Racks.** Eqipment rack identifiers (e.g IDF-G-A)
+- **Tenants.** UEFA
+- **Tags.** Used to label the zone that the device is installed into. UEFA defines zones (e.g. UEFA Org. Office (1.1)) and defines the connectivity requirement for each zone. 
+- **Devices.**
+- **Device Roles.**
+- **Platforms.**
+- **Virtual Chassis.**
+- **Device types.**
+- **Manufacturers.**
+- **Cables.**
+- **Interfaces.**
+- **IP Addresses.**
+- **Prefixes.**
+- **Aggregates.**
+- **VRF's.**
+- **Route Targets.**
+- **VLANs.**
+- **VLAN Groups.**
 
 ## Sub projects
 - When an interface VLAN (access ports only) is changed in Netbox push the config automatically to the switch.
