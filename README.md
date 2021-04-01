@@ -3,7 +3,9 @@ This projects seeks to use Netbox to document the Baku stadium network for EURO2
 
 **Why use Netbox?**
 While the initial population of Netbox can be a big task the benefits of having a single source of truth and point of update are undenyable especially in a rapidly changing environment
-like the EURO's. Netbox provides the Baku team with 
+like the EURO's. The time consuming element was the population of Interface configuration which was largley manual. I will look to automate this in the future.
+
+Netbox provides the Baku team with 
 - Dynamically generated topology diagrams (no more Visio to update)
 - Patching schedules (no more excel)
 - Rack layouts (no more visio)
