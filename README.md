@@ -1,5 +1,19 @@
 # Netbox as a Source of Truth
-This projects seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021). Netbox API can then be used as the information source to program the network.
+This projects seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021).
+
+** Why use Netbox ?**
+While the initial population of Netbox can be a big task the benefits of having a single source of truth and point of update are undenyable especially in a rapidly changing environment
+like the EURO's. Netbox provides the Baku team with 
+- Dynamically generated topology diagrams (no more Visio to update)
+- Patching schedules (no more excel)
+- Rack layouts (no more visio)
+- Attach site plans to IDF locations for quick reference (no need to locate latest diagrams)
+- IP Address Management
+- An API interface that allows netbox to be used as a dynamic inventory
+  - Generate configs
+  - Backup active devices
+  - Check live interfaces for errors
+  - Push config changes from Netbox to devices
 
 The following Netbox objects are populated
 - **Site.** Used to record the site name and location. Baku and IBC are defined. IBC just because Baku has WAN links that connect to routers in the IBC.
