@@ -45,12 +45,26 @@ The following Netbox objects are populated
 Netbox is configured to generate a weebhook post when there is a change in Netbox to the 'interface' page. A trigger filter ensures that the webhook is triggered only
 if an interface is configured as an access port. This stops an unplink (trunk) from being reconfigured but the downside is that it cannot currently be used for AccessPoint
 ports. I may develop this further to allow this as the port mode in Netbox does distinguish between the 'tagged (all)' used for uplinks in my config and the 'tagged' for AccessPoints. 
+A webhook server (listener) is running on the same bare metal server as Netbox docker and uses some scripting to push the config via Netmiko, Napalm and Nornir to the device.
 
-## Toploogy Diagrams
+Reference - https://journey2theccie.wordpress.com/2020/04/07/automating-my-ccie-lab-pt-4-netmiko-napalm-nornir/
+
+## Topology Viewer
 This is a user interface plugin for Netbox that provides a dynamically generated topology. The generated topology is draggable and can be saved for future recall. 
 Replaces static Visio diagrams and removes the need to keep diagrams updated with change as they are dynamically generated using the Netbox connectivity data.
 
 The following link has the install instructions
 Reference - https://github.com/iDebugAll/nextbox-ui-plugin
 
-## 
+## Config Generator (Interfaces)
+The config generator is a modified script from Hank Preston (Cisco). The script generates a config for each device using the Netbox interface configuration as the source of truth.
+
+Reference - https://github.com/hpreston/netdevops_demos/tree/master/source-of-truth
+
+## Testing (PyATS)
+
+## Switch Config Generator (Basic system config)
+This uses Ansible to generate the switch config including uplinks using an Ansible playbook and a csv for the source data. I used this before I started using Netbox else I would have used Netbox.
+
+
+## Config Backup (Ansible)
