@@ -36,5 +36,5 @@ The following Netbox objects are populated
 - Topology viewer Netbox plugin - https://github.com/iDebugAll/nextbox-ui-plugin
 - Webhooks - https://github.com/adnanh/webhook
 - Nornir (3.1.0) - https://nornir.readthedocs.io/en/latest/
-- PYATS (21.2)
-- Ansible (3.1.0)
+- PYATS (21.2) - https://developer.cisco.com/docs/pyats/
+- Ansible (3.1.0) - https://docs.ansible.com/
