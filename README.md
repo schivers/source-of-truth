@@ -33,7 +33,7 @@ The following Netbox objects are populated
 - **Config Backup** - Use Ansible to backup configs from active devices
     
 ## Deployed Packages
-- Netbox docker - https://github.com/netbox-community/netbox-docker
+- Netbox docker (2.10.5) - https://github.com/netbox-community/netbox-docker
 - Topology viewer Netbox plugin - https://github.com/iDebugAll/nextbox-ui-plugin
 - Webhooks - https://github.com/adnanh/webhook
 - Nornir (3.1.0) - https://nornir.readthedocs.io/en/latest/
