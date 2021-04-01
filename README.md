@@ -2,25 +2,25 @@
 This projects seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021). Netbox API can then be used as the information source to program the network.
 
 The following Netbox objects are populated
-- **Site.** Baku, IBC
+- **Site.** Used to record the site name and location. Baku and IBC are defined. IBC just because Baku has WAN links that connect to routers in the IBC.
 - **Racks.** Eqipment rack identifiers (e.g IDF-G-A)
 - **Tenants.** UEFA
 - **Tags.** Used to label the zone that the device is installed into. UEFA defines zones (e.g. UEFA Org. Office (1.1)) and defines the connectivity requirement for each zone. 
 - **Devices.** All devices; Core, Distribution and Access Switches, Unmanaged Switches, 
-- **Device Roles.**
-- **Platforms.**
-- **Virtual Chassis.**
-- **Device types.**
-- **Manufacturers.**
-- **Cables.**
-- **Interfaces.**
-- **IP Addresses.**
-- **Prefixes.**
-- **Aggregates.**
-- **VRF's.**
-- **Route Targets.**
-- **VLANs.**
-- **VLAN Groups.**
+- **Device Roles.** Role example are 'Access' for 2960 access switching, 'Distribution' for the TVC 3650 distribution switch and 'Core' for the 9500 core switches. 
+- **Platforms.** Records the operating system. Note that 'IOS' is used in most instances even though the core is runnign IOS-XE. IOS-XE is not a supported type by some plugins. 
+- **Virtual Chassis.** Allow's a primary switch to be nominated for a Virtual Chassis/Stack. All interfaces are viewable from that primary switch in Netbox. 
+- **Device types.** Defines the interfaces for each model/SKU of device
+- **Manufacturers.** Cisco, Meraki etc
+- **Cables.** Cables are dynamically created when two interfaces are connected in Netbox. Cables are labeled in Netbox using the patch panel/port ID
+- **Interfaces.** Device physical and logical interface configuration
+- **IP Addresses.** IP addressing allocations
+- **Prefixes.** Site prefix allocations
+- **Aggregates.** Site IP aggregates
+- **VRF's.** Site VRF's
+- **Route Targets.** Site Route Target
+- **VLANs.** Site VLAN Database
+- **VLAN Groups.** Used to record VLAN allocations per VRF. A VLAN Group is defined for each VRF.
 
 ## Sub projects
 - **Push config** - When an interface VLAN (access ports only) is changed in Netbox push the config automatically to the switch.
