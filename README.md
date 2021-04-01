@@ -23,13 +23,14 @@ The following Netbox objects are populated
 - **VLAN Groups.**
 
 ## Sub projects
-- When an interface VLAN (access ports only) is changed in Netbox push the config automatically to the switch.
-- Dynamically generate topology diagrams
-- Generate Interface Configuration files for all devices in Netbox
-- Use PyATS to test the deployed network
+- **Push config** - When an interface VLAN (access ports only) is changed in Netbox push the config automatically to the switch.
+- **Topology Viewer** - Dynamically generate topology diagrams
+- **Config Generator** - Generate Interface Configuration files for all devices in Netbox
+- **Testing** - Use PyATS to test the deployed network
     - PyATS filters devices to include only devices with an 'active' status from Netbox
-    - Learn device status for comparison. e.g. compare network state today with yesterday - tell me what changed.
-    - Check for interface errors
+    - **Learn device status** for comparison. e.g. compare network state today with yesterday - tell me what changed.
+    - Check for **interface errors**
+- **Config Backup** - Use Ansible to backup configs from active devices
     
 ## Deployed Packages
 - Netbox docker - https://github.com/netbox-community/netbox-docker
@@ -38,3 +39,18 @@ The following Netbox objects are populated
 - Nornir (3.1.0) - https://nornir.readthedocs.io/en/latest/
 - PYATS (21.2) - https://developer.cisco.com/docs/pyats/
 - Ansible (3.1.0) - https://docs.ansible.com/
+ 
+
+## Push Config
+Netbox is configured to generate a weebhook post when there is a change in Netbox to the 'interface' page. A trigger filter ensures that the webhook is triggered only
+if an interface is configured as an access port. This stops an unplink (trunk) from being reconfigured but the downside is that it cannot currently be used for AccessPoint
+ports. I may develop this further to allow this as the port mode in Netbox does distinguish between the 'tagged (all)' used for uplinks in my config and the 'tagged' for AccessPoints. 
+
+## Toploogy Diagrams
+This is a user interface plugin for Netbox that provides a dynamically generated topology. The generated topology is draggable and can be saved for future recall. 
+Replaces static Visio diagrams and removes the need to keep diagrams updated with change as they are dynamically generated using the Netbox connectivity data.
+
+The following link has the install instructions
+Reference - https://github.com/iDebugAll/nextbox-ui-plugin
+
+## 
