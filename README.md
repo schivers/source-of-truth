@@ -32,7 +32,7 @@ The following Netbox objects are populated
     - Check for interface errors
     
 ## Deployed Packages
-- Netbox docker
+- Netbox docker - https://github.com/netbox-community/netbox-docker
 - Topology viewer Netbox plugin - https://github.com/iDebugAll/nextbox-ui-plugin
 - Webhooks - https://github.com/adnanh/webhook
 - Nornir (3.1.0) - https://nornir.readthedocs.io/en/latest/
