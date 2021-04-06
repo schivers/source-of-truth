@@ -104,4 +104,4 @@ sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
 ```
 
 Configs are backed up to 
-/opt/ansible/backups
+/home/ntt/ftp/backups
