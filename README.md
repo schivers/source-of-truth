@@ -77,6 +77,15 @@ The config generator is a modified script from Hank Preston (Cisco). The script 
 
 Reference - https://github.com/hpreston/netdevops_demos/tree/master/source-of-truth
 
+To use
+```
+cd ~/netdevops_demos/source-of-truth
+source src_env
+python3 build_configs.py
+```
+
+Configs are written to /configs
+
 ## Testing (PyATS)
 
 ## Switch Config Generator (Basic system config)
