@@ -1,5 +1,5 @@
 Sample run
-``
+`
 ntt@inspiron-3521:~/ansible$ sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
 Vault password:
 
@@ -42,7 +42,7 @@ BAKMTR1SWC01               : ok=3    changed=1    unreachable=0    failed=0    s
 BAKMTR1SWC02               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 BAKMTR2SWA01               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 BAKMTR2SWA02               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-``
+`
 
 `
 ntt@inspiron-3521:~/ansible$ cd /opt/ansible/backups/
