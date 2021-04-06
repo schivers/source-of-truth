@@ -87,6 +87,8 @@ python3 build_configs.py
 
 Configs are written to /home/ntt/ftp/config-generator
 
+Note that as there are >500 devices defined in Netbox this script will take a quite a few minutes to complete. 
+
 ## Testing (PyATS)
 
 ## Switch Config Generator (Basic system config)
