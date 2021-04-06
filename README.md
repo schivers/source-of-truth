@@ -47,6 +47,7 @@ The following Netbox objects are populated
     - **Learn device status** for comparison. e.g. compare network state today with yesterday - tell me what changed.
     - Check for **interface errors**
 - **Config Backup** - Use Ansible to backup configs from active devices
+- ** FTP server** - FTP server running on the host so that all **generated** and **backed up** config files may be accessed via FTP 
     
 ## Deployed Packages
 - Netbox docker (2.10.5) - https://github.com/netbox-community/netbox-docker
@@ -84,7 +85,7 @@ source src_env
 python3 build_configs.py
 ```
 
-Configs are written to /configs
+Configs are written to /home/ntt/ftp/config-generator
 
 ## Testing (PyATS)
 
@@ -105,3 +106,11 @@ sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
 
 Configs are backed up to 
 /home/ntt/ftp/backups
+
+## FTP Server (VSFTP)
+A single FTP account is created (ntt) to allow engineers access to the generated and the backed up config files.
+
+Reference 
+- https://www.techrepublic.com/article/how-to-quickly-setup-an-ftp-server-on-ubuntu-18-04/
+- https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-16-04
+
