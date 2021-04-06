@@ -75,3 +75,33 @@ drwxr-xr-x 3 root root  4096 Mar  3 15:24 ../
 -rw-r--r-- 1 root root  7835 Apr  6 11:56 BAKMTR2SWA02_20210406-1156.txt
 -rw-r--r-- 1 root root  7835 Apr  6 12:08 BAKMTR2SWA02_20210406-1208.txt
 `
+
+`ntt@inspiron-3521:~/ansible$ cd /opt/ansible/backups/
+ntt@inspiron-3521:/opt/ansible/backups$ ll
+total 400
+drwxr-xr-x 2 root root  4096 Apr  6 12:08 ./
+drwxr-xr-x 3 root root  4096 Mar  3 15:24 ../
+-rw-r--r-- 1 root root 10387 Mar  3 18:53 BAKMTR1SWA01_20210303-1853.txt
+-rw-r--r-- 1 root root  8045 Mar  3 19:18 BAKMTR1SWA01_20210303-1918.txt
+-rw-r--r-- 1 root root  8045 Mar  4 11:04 BAKMTR1SWA01_20210304-1103.txt
+-rw-r--r-- 1 root root  8045 Mar  4 11:10 BAKMTR1SWA01_20210304-1110.txt
+-rw-r--r-- 1 root root  8345 Apr  6 11:52 BAKMTR1SWA01_20210406-1152.txt
+-rw-r--r-- 1 root root  8345 Apr  6 11:56 BAKMTR1SWA01_20210406-1156.txt
+-rw-r--r-- 1 root root  8345 Apr  6 12:08 BAKMTR1SWA01_20210406-1208.txt
+-rw-r--r-- 1 root root 10387 Mar  3 19:18 BAKMTR1SWA02_20210303-1918.txt
+-rw-r--r-- 1 root root 10387 Mar  4 11:04 BAKMTR1SWA02_20210304-1103.txt
+-rw-r--r-- 1 root root 10387 Mar  4 11:10 BAKMTR1SWA02_20210304-1110.txt
+-rw-r--r-- 1 root root 10314 Apr  6 11:52 BAKMTR1SWA02_20210406-1152.txt
+-rw-r--r-- 1 root root 10314 Apr  6 11:56 BAKMTR1SWA02_20210406-1156.txt
+-rw-r--r-- 1 root root 10314 Apr  6 12:08 BAKMTR1SWA02_20210406-1208.txt
+-rw-r--r-- 1 root root 54587 Mar  4 11:10 BAKMTR1SWC01_20210304-1110.txt
+-rw-r--r-- 1 root root 60903 Apr  6 12:08 BAKMTR1SWC01_20210406-1208.txt
+-rw-r--r-- 1 root root 27418 Apr  6 11:52 BAKMTR1SWC02_20210406-1152.txt
+-rw-r--r-- 1 root root 27418 Apr  6 11:56 BAKMTR1SWC02_20210406-1156.txt
+-rw-r--r-- 1 root root 27418 Apr  6 12:08 BAKMTR1SWC02_20210406-1208.txt
+-rw-r--r-- 1 root root  7783 Apr  6 11:52 BAKMTR2SWA01_20210406-1152.txt
+-rw-r--r-- 1 root root  7783 Apr  6 11:56 BAKMTR2SWA01_20210406-1156.txt
+-rw-r--r-- 1 root root  7783 Apr  6 12:08 BAKMTR2SWA01_20210406-1208.txt
+-rw-r--r-- 1 root root  7835 Apr  6 11:52 BAKMTR2SWA02_20210406-1152.txt
+-rw-r--r-- 1 root root  7835 Apr  6 11:56 BAKMTR2SWA02_20210406-1156.txt
+-rw-r--r-- 1 root root  7835 Apr  6 12:08 BAKMTR2SWA02_20210406-1208.txt`
