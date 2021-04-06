@@ -110,6 +110,15 @@ Configs are backed up to
 ## FTP Server (VSFTP)
 A single FTP account is created (ntt) to allow engineers access to the generated and the backed up config files.
 
+```
+ntt@inspiron-3521:~/ftp$ ll
+total 16
+dr-xr-xr-x  4 nobody nogroup 4096 Apr  6 19:15 ./
+drwxr-xr-x 27 ntt    ntt     4096 Apr  6 19:00 ../
+drwxr-xr-x  2 ntt    ntt     4096 Apr  6 19:13 backups/
+drwxr-xr-x  2 ntt    ntt     4096 Apr  6 19:15 config-generator/
+```
+
 Reference 
 - https://www.techrepublic.com/article/how-to-quickly-setup-an-ftp-server-on-ubuntu-18-04/
 - https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-16-04
