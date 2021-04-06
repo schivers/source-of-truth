@@ -1,0 +1,25 @@
+ - name: Backup all network ios switches
+   hosts: all
+   gather_facts: true
+   connection: local
+   vars_files:
+     - group_vars/vault
+   vars:
+     ansible_connection: network_cli
+     ansible_network_os: ios
+     ansible_become: yes
+     ansible_become_method: enable
+     ansible_ssh_user: "{{ vault_ansible_ssh_user }}"
+     ansible_password: "{{ vault_ansible_password }}"
+     ansible_become_password: "{{ vault_ansible_become_password }}"
+     date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+   tasks:
+    - name: show run
+      ios_command:
+        commands:
+          - show run
+      register: config
+    - name: save output to /opt/ansible/backups
+      copy:
+        content: "{{ config.stdout[0] }}"
+        dest: "/opt/ansible/backups/{{ inventory_hostname }}_{{ date }}.txt"
