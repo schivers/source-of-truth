@@ -84,11 +84,15 @@ This uses Ansible to generate the switch config including uplinks using an Ansib
 
 
 ## Config Backup (Ansible)
-This script uses an Ansible playbook to simply backup the config of the devices marked with an 'active' status in Netbox. Configs are backed up to 
-/opt/ansible/backups
+This script uses an Ansible playbook to simply backup the config of the devices marked with an 'active' status in Netbox.
 
 Ansible uses Vault to store the device username and password credentials
 
+Run with
 ``
+cd /home/ntt/ansible
 sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
 ``
+
+Configs are backed up to 
+/opt/ansible/backups
