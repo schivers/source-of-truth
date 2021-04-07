@@ -11,6 +11,7 @@ Netbox provides the Baku team with
 - Rack layouts (no more visio)
 - Attach site plans to IDF locations for quick reference (no need to locate latest diagrams)
 - IP Address Management
+- Live system status, LLDP neigbours and run/start config get via the GUI using NAPALM
 - An API interface that allows netbox to be used as a dynamic inventory
   - Generate configs
   - Backup active devices
@@ -56,6 +57,7 @@ The following Netbox objects are populated
 - Nornir (3.1.0) - https://nornir.readthedocs.io/en/latest/
 - PYATS (21.2) - https://developer.cisco.com/docs/pyats/
 - Ansible (3.1.0) - https://docs.ansible.com/
+- NAPALM (3.2.0) - https://napalm.readthedocs.io/en/quickstart/installation.html
  
 
 ## Push Config
