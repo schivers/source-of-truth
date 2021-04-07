@@ -1,6 +1,8 @@
 # Netbox as a Source of Truth
 This projects seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021).
 
+![Netbox Top Level](screens/Netbox-main.jpg)
+
 **Why use Netbox?**
 While the initial population of Netbox can be a big task the benefits of having a single source of truth and point of update are undenyable especially in a rapidly changing environment
 like the EURO's. The time consuming element was the population of Interface configuration which was largley manual. I will look to automate this in the future.
