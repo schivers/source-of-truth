@@ -68,6 +68,56 @@ A webhook server (listener) is running on the same bare metal server as Netbox d
 
 Reference - https://journey2theccie.wordpress.com/2020/04/07/automating-my-ccie-lab-pt-4-netmiko-napalm-nornir/
 
+Netbox webhook
+screens\netbox-webhook.jpg
+
+Run the webhook
+```
+ntt@inspiron-3521:~/webhooks$ webhook -hooks hooks.json -port 8001 -verbose
+[webhook] 2021/04/07 09:15:30 version 2.5.0 starting
+[webhook] 2021/04/07 09:15:30 setting up os signal watcher
+[webhook] 2021/04/07 09:15:30 attempting to load hooks from hooks.json
+[webhook] 2021/04/07 09:15:30 found 1 hook(s) in file
+[webhook] 2021/04/07 09:15:30   loaded: interfaces
+[webhook] 2021/04/07 09:15:30 serving hooks on http://0.0.0.0:8001/hooks/{id}
+[webhook] 2021/04/07 09:15:30 os signal watcher ready
+```
+
+Update an interface configuration. In this example I update the interface with a description of 'Printer' and allocate untagged access vlan 170.
+
+Webhook logging
+```
+[webhook] 2021/04/07 09:17:58 Started POST /hooks/interfaces
+[webhook] 2021/04/07 09:17:58 interfaces got matched
+[webhook] 2021/04/07 09:17:58 interfaces hook triggered successfully
+[webhook] 2021/04/07 09:17:58 Completed 200 OK in 485.982µs
+[webhook] 2021/04/07 09:17:58 executing /home/ntt/webhooks/deploy.sh (/home/ntt/webhooks/deploy.sh) with arguments ["/home/ntt/webhooks/deploy.sh" "BAKMTR1SWA01" "GigabitEthernet0/4" "170" "Printer"] and environment [] using /home/ntt/webhooks as cwd
+[webhook] 2021/04/07 09:18:08 command output:
+[webhook] 2021/04/07 09:18:08 finished handling interfaces
+```
+
+```
+BAKMTR1SWA01#sho run int g0/4
+Building configuration...
+
+Current configuration : 119 bytes
+!
+interface GigabitEthernet0/4
+ description Printer
+ switchport access vlan 170
+ switchport mode access
+end
+```
+
+Note that there are currently some restrictions in the trigger. I will develop the trigger and attributes further.
+- The trigger currently triggers on mode=access. i.e. trunk ports will not trigger a config change
+- Does not support spaces in description fields. 
+- Only a few argumants are currently passed; 
+-   data.device.name
+-   data.name
+-   data.untagged_vlan.vid
+-   data.description
+
 ## Topology Viewer
 This is a user interface plugin for Netbox that provides a dynamically generated topology. The generated topology is draggable and can be saved for future recall. 
 Replaces static Visio diagrams and removes the need to keep diagrams updated with change as they are dynamically generated using the Netbox connectivity data.
