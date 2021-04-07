@@ -68,8 +68,8 @@ A webhook server (listener) is running on the same bare metal server as Netbox d
 
 Reference - https://journey2theccie.wordpress.com/2020/04/07/automating-my-ccie-lab-pt-4-netmiko-napalm-nornir/
 
-Netbox webhook
-screens\netbox-webhook.jpg
+Configure Netbox to generate a webhook when the Interface configuration is updated
+![Netbox Webhook](https://scm.dimensiondata.com/Shaun.Chivers/source-of-truth/-/blob/master/screens/interface_webhook.JPG?raw=true)
 
 Run the webhook
 ```
