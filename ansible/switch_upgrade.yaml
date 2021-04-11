@@ -1,0 +1,34 @@
+---
+# Ansible Playbook to upgrade Cisco IOS
+
+- name: Upgrade CISCO IOS
+  hosts: all
+  gather_facts: true
+  connection: local
+  vars_files:
+    - group_vars/vault
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_become: yes
+    ansible_become_method: enable
+    ansible_ssh_user: "{{ vault_ansible_ssh_user }}"
+    ansible_password: "{{ vault_ansible_password }}"
+    ansible_become_password: "{{ vault_ansible_become_password }}"
+    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+    upgrade_ios_version: 15.2(7)E3
+
+  tasks:
+    - name: CHECK CURRENT VERSION
+      ios_facts:
+
+    - debug:
+        msg:
+        - "Current version is {{ ansible_net_version }}"
+        - "Upgrade image is 15.2.7-E3"
+
+    - debug:
+        msg:
+        - "Image is not compliant and will be upgraded"
+
+      when: ansible_net_version != upgrade_ios_version
