@@ -24,7 +24,7 @@ Example inventory files
 | Filename | Purpose |
 | ------ | ------ |
 | nb_inventory.yaml | Use to return all devices with a state = active |
-| nb_inv_upgrade.yaml | Used to return devices that require a code upgrade. The device state in Netbox is set to "staged" and then the Ansible "switch_upgrade.yaml" playbook is run using the nb_inv_upgrade.yaml to upgrade the device | 
+| nb_inventory_SWA.yaml | Use to return all access switches |
 
 **Upgrade switches**
 This playbook will gather facts for each device in the inventory file and compare the learnt IOS version against the version defined in the playbook. The inventory file used in my example returns all devices will and active status.
