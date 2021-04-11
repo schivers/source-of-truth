@@ -61,7 +61,7 @@ The following Netbox objects are populated
  
 
 ## Push Config
-Netbox is configured to generate a weebhook post when there is a change in Netbox to the 'interface' page. A trigger filter ensures that the webhook is triggered only
+Netbox is configured to generate a webhook post when there is a change in Netbox to the 'interface' page. A trigger filter ensures that the webhook is triggered only
 if an interface is configured as an access port. This stops an unplink (trunk) from being reconfigured but the downside is that it cannot currently be used for AccessPoint
 ports. I may develop this further to allow this as the port mode in Netbox does distinguish between the 'tagged (all)' used for uplinks in my config and the 'tagged' for AccessPoints. 
 A webhook server (listener) is running on the same bare metal server as Netbox docker and uses some scripting to push the config via Netmiko, Napalm and Nornir to the device.
@@ -142,6 +142,10 @@ Configs are written to /home/ntt/ftp/config-generator
 Note that as there are >500 devices defined in Netbox this script will take a quite a few minutes to complete. 
 
 ## Testing (PyATS)
+Uses PyATS and Genie to run test scripts against the network topology
+PyATS is also used to record each device state at a given point in time. PyATS Diff can then be used to compare state and produce a 'what changed' output which can be useful for troublsehooting
+
+see /pyats folder for README.md
 
 ## Switch Config Generator (Basic system config)
 This uses Ansible to generate the switch config including uplinks using an Ansible playbook and a csv for the source data. I used this before I started using Netbox else I would have used Netbox.
