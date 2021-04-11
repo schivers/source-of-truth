@@ -26,7 +26,33 @@ Example inventory files
 | nb_inventory.yaml | Use to return all devices with a state = active |
 | nb_inv_upgrade.yaml | Used to return devices that require a code upgrade. The device state in Netbox is set to "staged" and then the Ansible "switch_upgrade.yaml" playbook is run using the nb_inv_upgrade.yaml to upgrade the device | 
 
-***Upgrade switches**
+**Upgrade switches**
+This playbook will gather facts for each device in the inventory file and compare the learnt IOS version against the version defined in the playbook. The inventory file used in my example returns all devices will and active status.
+I use the core Catalyst 9500 as the SCP server
+
+Playbook steps
+1. Gather facts for each device returned from the Netbox inventory and compare the learnt IOS version to the required version. the Task debug will print a list of those switches that require an upgrade.
+2. Create a dated folder and backup the device running-configs
+3. Copy the IOS image to the switch. **Note that the script assumes there is sufficient space on the flash**
+
+
+Configure the core 9500 switch as an SCP server
+``
+ip scp server enable
+```
+
+
+Confirm that the inventory is working
+```
+ansible-inventory -v --list -i nb_inventory.yaml
+```
+
+Perform a dry run to see which devices will be upgraded
+``
+sudo ansible-playbook -i nb_inv_upgrade.yaml switch_upgrade_check.yaml --ask-vault-pass
+``
+
+Run the full upgrade playbook
 ```
 sudo ansible-playbook -i nb_inv_upgrade.yaml switch_upgrade.yaml --ask-vault-pass
 ```
