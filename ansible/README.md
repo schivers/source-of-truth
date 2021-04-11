@@ -1,3 +1,32 @@
+Ansible requires an inventory to run against and we can use this to be selective (filter) which inventory items we feen into Ansible. The inventory file ia in YAML format and defines
+how Ansible accesses Netbox (URL and Token) and contains an optional grouping and filiter section.
+
+The following will return a JSON formatted output of all devices in Netbox with the status 'active'. The returned output will group devices by device_roles and platforms.
+```
+---
+plugin: netbox
+api_endpoint: http://192.168.1.191:8000/
+token: '0123456789abcdef0123456789abcdef01234567'
+validate_certs: false
+config_context: true
+group_by:
+ - device_roles
+ - platforms
+compose:
+ ansible_network_os: platform.slug
+query_filters:
+ - has_primary_ip: True
+ - status: "active"
+ ```
+
+Example inventory files
+| Filename | Purpose |
+| ------ | ------ |
+| nb_inventory.yaml | Use to return all devices with a state = active |
+| nb_inv_upgrade.yaml | Used to return devices that require a code upgrade. The device state in Netbox is set to 'staged' and then the Ansible 'switch_upgrade.yaml'
+playbook is run using the nb_inv_upgrade.yaml to upgrade the device| 
+
+**Config Backup of all devices with status = 'active'**
 Sample run
 ```
 ntt@inspiron-3521:~/ansible$ sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
