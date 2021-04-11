@@ -60,6 +60,8 @@ Run the full upgrade playbook
 sudo ansible-playbook -i nb_inventory.yaml switch_upgrade.yaml --ask-vault-pass
 ```
 
+
+
 **Backup the config of all devices with status = 'active'**
 
 This playbook simply pulls the devices marked with an active status from Netbox and backs up the config from each to ~/ftp/backups
@@ -67,7 +69,9 @@ This playbook simply pulls the devices marked with an active status from Netbox 
 ntt@inspiron-3521:~/ansible$ sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
 ```
 
-***Push out a config update**
+
+
+**Push out a config update**
 This playbook will use the filtered Netbox inventory to push out a config update to all davices returned by Netbox. the example playbook enables the SCP server and revised access-list 11.
 ```
 sudo ansible-playbook config_update_v105b.yaml -i nb_inventory.yaml --ask-vault-pass
