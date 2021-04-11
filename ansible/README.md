@@ -34,6 +34,10 @@ Playbook steps
 1. Gather facts for each device returned from the Netbox inventory and compare the learnt IOS version to the required version. the Task debug will print a list of those switches that require an upgrade.
 2. Create a dated folder and backup the device running-configs
 3. Copy the IOS image to the switch. **Note that the script assumes there is sufficient space on the flash**
+4. Update the switch boot variable to point at the new IOS image
+5. Reload the switch
+6. Use the wait_for module to wait 90 sec before starting to try and connect to the device on tcp22 (SSH). 
+7. Run the ios_facts module again to verify the switch has been upgraded to the correct version
 
 
 Configure the core 9500 switch as an SCP server
