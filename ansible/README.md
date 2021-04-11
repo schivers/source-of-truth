@@ -41,10 +41,9 @@ Playbook steps
 
 
 Configure the core 9500 switch as an SCP server
-``
+```
 ip scp server enable
 ```
-
 
 Confirm that the inventory is working
 ```
