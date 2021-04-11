@@ -29,7 +29,7 @@ playbook is run using the nb_inv_upgrade.yaml to upgrade the device|
 | Filename | Purpose |
 | ------ | ------ |
 | nb_inventory.yaml | Use to return all devices with a state = active |
-| cell | cell | 
+| nb_inv_upgrade.yaml | Used to return devices that require a code upgrade. The device state in Netbox is set to 'staged' and then the Ansible 'switch_upgrade.yaml' playbook is run using the nb_inv_upgrade.yaml to upgrade the device | 
 
 **Config Backup of all devices with status = 'active'**
 Sample run
