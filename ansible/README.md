@@ -60,7 +60,8 @@ Run the full upgrade playbook
 sudo ansible-playbook -i nb_inv_upgrade.yaml switch_upgrade.yaml --ask-vault-pass
 ```
 
-**Config Backup of all devices with status = 'active'**
+**Backup the config of all devices with status = 'active'**
+
 Sample run
 ```
 ntt@inspiron-3521:~/ansible$ sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
