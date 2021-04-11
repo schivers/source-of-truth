@@ -26,9 +26,9 @@ Example inventory files
 | nb_inv_upgrade.yaml | Used to return devices that require a code upgrade. The device state in Netbox is set to 'staged' and then the Ansible 'switch_upgrade.yaml'
 playbook is run using the nb_inv_upgrade.yaml to upgrade the device| 
 
-| header | header |
+| Filename | Purpose |
 | ------ | ------ |
-| cell | cell |
+| nb_inventory.yaml | cell |
 | cell | cell | 
 
 **Config Backup of all devices with status = 'active'**
