@@ -139,3 +139,9 @@ drwxr-xr-x 3 root root  4096 Mar  3 15:24 ../
 -rw-r--r-- 1 root root  7835 Apr  6 11:56 BAKMTR2SWA02_20210406-1156.txt
 -rw-r--r-- 1 root root  7835 Apr  6 12:08 BAKMTR2SWA02_20210406-1208.txt
 ```
+
+***Push out a config update**
+This playbook will use the filtered Netbox inventory to push out a config update to all davices returned by Netbox. the example playbook enables the SCP server and revised access-list 11.
+```
+sudo ansible-playbook config_update_v105b.yaml -i nb_inventory.yaml --ask-vault-pass
+```
