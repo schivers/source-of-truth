@@ -1,0 +1,50 @@
+# sudo ansible-playbook config_update_v105b.yaml -i nb_inventory.yaml --ask-vault-pass
+ - name: Backup all network ios switches
+   hosts: all
+   gather_facts: true
+   connection: local
+   vars_files:
+     - group_vars/vault
+   vars:
+     ansible_connection: network_cli
+     ansible_network_os: ios
+     ansible_become: yes
+     ansible_become_method: enable
+     ansible_ssh_user: "{{ vault_ansible_ssh_user }}"
+     ansible_password: "{{ vault_ansible_password }}"
+     ansible_become_password: "{{ vault_ansible_become_password }}"
+     date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+
+
+   tasks:
+    - name: ENABLE SCP SERVER ON DEVICE
+      ios_config:
+        lines:
+           - ip scp server enable
+
+    - debug:
+        msg:
+        - "SCP enabled on device"
+
+    - name: APPLY v1.05b ACL UPDATE
+      ios_config:
+        lines:
+           - no ip access-list standard 11
+           - ip access-list standard 11
+           - 10 permit 10.7.0.0 0.0.1.255
+           - 20 permit 10.7.84.0 0.0.3.255
+           - 30 permit 10.0.0.0 0.0.255.255
+           - 40 permit 10.2.0.0 0.0.0.255
+           - 50 permit 10.208.255.0 0.0.0.255
+           - no 60 deny any
+           - 60 permit 172.18.106.0 0.0.1.255
+           - 61 permit 172.18.102.0 0.0.1.255
+           - 99 deny   any
+
+    - debug:
+        msg:
+        - "v1.05b Updates applied"
+
+    - name: SAVE RUNNING TO STARTUP WHEN MODIFIED
+      ios_config:
+        save_when: modified
