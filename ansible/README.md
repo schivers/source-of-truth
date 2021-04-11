@@ -51,9 +51,9 @@ ansible-inventory -v --list -i nb_inventory.yaml
 ```
 
 Perform a dry run to see which devices will be upgraded
-``
+```
 sudo ansible-playbook -i nb_inv_upgrade.yaml switch_upgrade_check.yaml --ask-vault-pass
-``
+```
 
 Run the full upgrade playbook
 ```
