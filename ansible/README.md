@@ -28,7 +28,7 @@ playbook is run using the nb_inv_upgrade.yaml to upgrade the device|
 
 | Filename | Purpose |
 | ------ | ------ |
-| nb_inventory.yaml | cell |
+| nb_inventory.yaml | Use to return all devices with a state = active |
 | cell | cell | 
 
 **Config Backup of all devices with status = 'active'**
