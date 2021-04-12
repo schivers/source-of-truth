@@ -25,5 +25,5 @@ genie learn all --testbed-file testbed.yaml --output learn
 ## Check Interfaces for errors
 The following will check each interface in the testbed for errors.
 ```
-easypy checkerrors_job.py -html_logs SAThtml -no_archive -testbed_file testbed.yaml
+easypy checkerrors_job.py -html_logs REPORTS -testbed_file testbed.yaml
 ```
