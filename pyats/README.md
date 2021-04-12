@@ -17,7 +17,7 @@ pyats create testbed netbox --output testbed.yaml --netbox-url=${NETBOX_URL} --u
 Issue: Currently need to manually add BAKMTR2SWC01 and BAKMTR2SWC02 to the testbed.
 
 ## Device State
-PyATS can be used to capture the device state. The following learns the state of all devices in the testbed and saves the information in /learn 
+PyATS can be used to capture the device state. The following learns the state of all devices in the testbed and saves the information in /learn. Running against the whole stadium network will likley take about 1h to complete.
 ```
 genie learn all --testbed-file testbed.yaml --output learn
 ```
