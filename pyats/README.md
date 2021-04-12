@@ -145,6 +145,8 @@ Pro Tip
 
 
 ##Test files
-***hostname_checker.py*** - Checks each device's configured hostname against that defined in the testbed.yaml
-***interface_errors.py*** - Checks each interface in the testbed.yaml for errors
-***interface_snmp_linkstatus.py**
+
+*  ***hostname_checker.py*** - Checks each device's configured hostname against that defined in the testbed.yaml
+*  ***interface_errors.py*** - Checks each interface in the testbed.yaml for errors
+*  ***interface_snmp_linkstatus.py*** 
+*  ***version_checker.py*** - checks the IOS version against a hardcoded value within the script
