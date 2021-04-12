@@ -50,7 +50,7 @@ The following Netbox objects are populated
     - **Learn device status** for comparison. e.g. compare network state today with yesterday - tell me what changed.
     - Check for **interface errors**
 - **Config Backup** - Use Ansible to backup configs from active devices
-- ** FTP server** - FTP server running on the host so that all **generated** and **backed up** config files may be accessed via FTP 
+- **FTP server** - FTP server running on the host so that all **generated** and **backed up** config files may be accessed via FTP 
     
 ## Deployed Packages
 - Netbox docker (2.10.5) - https://github.com/netbox-community/netbox-docker
