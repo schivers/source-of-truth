@@ -9,11 +9,12 @@ source src_env
 ```
 
 Now we can create the testbed.yaml file. The following example will create a testbed.yaml containing all devices with a role of access, distribution or core and includes the topology connections.
-NOte: This may take a while to complete. You can speed up the task by removing the --topology from the end of the command line.
+Note: This may take a while to complete. You can speed up the task by removing the --topology from the end of the command line.
 ```
 cd pyats
 pyats create testbed netbox --output testbed.yaml --netbox-url=${NETBOX_URL} --user-token=${NETBOX_TOKEN} --def_user=admin --def_pass=3uro2o2o --url_filter='q=&status=active&role=access&role=core&role=distribution&mac_address=&has_primary_ip=&local_context_data=&virtual_chassis_member=&console_ports=&console_server_ports=&power_ports=&power_outlets=&interfaces=&pass_through_ports=' --topology
 ```
+Issue: Currently need to manually add BAKMTR2SWC01 and BAKMTR2SWC02 to the textbed.
 
 ## Device State
 PyATS can be used to capture the device state. The following learns the state of all devices in the testbed and saves the information in /learn 
