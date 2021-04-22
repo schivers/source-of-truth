@@ -1,0 +1,5228 @@
+devices:
+  BAK1DSWA01:
+    alias: BAK1DSWA01
+    connections:
+      cli:
+        ip: 10.2.0.59
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK1DSWA02:
+    alias: BAK1DSWA02
+    connections:
+      cli:
+        ip: 10.2.0.60
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK1JSWA01:
+    alias: BAK1JSWA01
+    connections:
+      cli:
+        ip: 10.2.0.57
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK1JSWA02:
+    alias: BAK1JSWA02
+    connections:
+      cli:
+        ip: 10.2.0.58
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK2ASWA01:
+    alias: BAK2ASWA01
+    connections:
+      cli:
+        ip: 10.2.0.29
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK2BSWA01:
+    alias: BAK2BSWA01
+    connections:
+      cli:
+        ip: 10.2.0.30
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK2CSWA01:
+    alias: BAK2CSWA01
+    connections:
+      cli:
+        ip: 10.2.0.31
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK2DSWA01:
+    alias: BAK2DSWA01
+    connections:
+      cli:
+        ip: 10.2.0.32
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK2GSWA01:
+    alias: BAK2GSWA01
+    connections:
+      cli:
+        ip: 10.2.0.33
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-48PS-LL
+  BAK2HSWA01:
+    alias: BAK2HSWA01
+    connections:
+      cli:
+        ip: 10.2.0.34
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK2JSWA01:
+    alias: BAK2JSWA01
+    connections:
+      cli:
+        ip: 10.2.0.36
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-48PS-LL
+  BAK4GSWA01:
+    alias: BAK4GSWA01
+    connections:
+      cli:
+        ip: 10.2.0.45
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK4GSWA02:
+    alias: BAK4GSWA02
+    connections:
+      cli:
+        ip: 10.2.0.46
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK4ISWA01:
+    alias: BAK4ISWA01
+    connections:
+      cli:
+        ip: 10.2.0.47
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK4ISWA02:
+    alias: BAK4ISWA02
+    connections:
+      cli:
+        ip: 10.2.0.48
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAK4JSWA02:
+    alias: BAK4JSWA02
+    connections:
+      cli:
+        ip: 10.2.0.50
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGA1SWA01:
+    alias: BAKGA1SWA01
+    connections:
+      cli:
+        ip: 10.2.0.78
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGA1SWA02:
+    alias: BAKGA1SWA02
+    connections:
+      cli:
+        ip: 10.2.0.79
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGA3SWA01:
+    alias: BAKGA3SWA01
+    connections:
+      cli:
+        ip: 10.2.0.65
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-48PS-LL
+  BAKGA3SWA02:
+    alias: BAKGA3SWA02
+    connections:
+      cli:
+        ip: 10.2.0.66
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-48PS-LL
+  BAKGASWA01:
+    alias: BAKGASWA01
+    connections:
+      cli:
+        ip: 10.2.0.27
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGASWA02:
+    alias: BAKGASWA02
+    connections:
+      cli:
+        ip: 10.2.0.28
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGBSWA01:
+    alias: BAKGBSWA01
+    connections:
+      cli:
+        ip: 10.2.0.55
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-48PS-LL
+  BAKGBSWA02:
+    alias: BAKGBSWA02
+    connections:
+      cli:
+        ip: 10.2.0.56
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-48PS-LL
+  BAKGCSWA01:
+    alias: BAKGCSWA01
+    connections:
+      cli:
+        ip: 10.2.0.53
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-48PS-LL
+  BAKGDSWA01:
+    alias: BAKGDSWA01
+    connections:
+      cli:
+        ip: 10.2.0.88
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGFSWA01:
+    alias: BAKGFSWA01
+    connections:
+      cli:
+        ip: 10.2.0.89
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGGSWA01:
+    alias: BAKGGSWA01
+    connections:
+      cli:
+        ip: 10.2.0.90
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGHSWA01:
+    alias: BAKGHSWA01
+    connections:
+      cli:
+        ip: 10.2.0.68
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKGISWA01:
+    alias: BAKGISWA01
+    connections:
+      cli:
+        ip: 10.2.0.70
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKMTR1SWA01:
+    alias: BAKMTR1SWA01
+    connections:
+      cli:
+        ip: 10.2.0.72
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKMTR1SWA02:
+    alias: BAKMTR1SWA02
+    connections:
+      cli:
+        ip: 10.2.0.73
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKMTR1SWC01:
+    alias: BAKMTR1SWC01
+    connections:
+      cli:
+        ip: 10.2.0.1
+        protocol: ssh
+    os: iosxe
+    platform: iosxe
+    type: Catalyst 9500-40X
+  BAKMTR1SWC02:
+    alias: BAKMTR1SWC02
+    connections:
+      cli:
+        ip: 10.2.0.85
+        protocol: ssh
+    os: iosxe
+    platform: iosxe
+    type: Catalyst 9500-40X
+  BAKMTR2SWC01:
+    alias: BAKMTR2SWC01
+    connections:
+      cli:
+        ip: 10.2.0.1
+        protocol: ssh
+    os: iosxe
+    platform: iosxe
+    type: Catalyst 9500-40X
+  BAKMTR2SWC02:
+    alias: BAKMTR2SWC02
+    connections:
+      cli:
+        ip: 10.2.0.85
+        protocol: ssh
+    os: iosxe
+    platform: iosxe
+    type: Catalyst 9500-40X
+  BAKMTR2SWA01:
+    alias: BAKMTR2SWA01
+    connections:
+      cli:
+        ip: 10.2.0.74
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+  BAKMTR2SWA02:
+    alias: BAKMTR2SWA02
+    connections:
+      cli:
+        ip: 10.2.0.75
+        protocol: ssh
+    os: ios
+    platform: ios
+    type: Catalyst WS-C2960L-24PS-LL
+testbed:
+  credentials:
+    default:
+      password: 3uro2o2o
+      username: admin
+topology:
+  BAK1DSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK1DSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK1DSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK1DSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK1DSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK1DSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK1DSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK1DSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK1DSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK1DSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK1DSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK1DSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK1DSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK1DSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK1DSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK1DSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK1DSWA01_GigabitEthernet0/23
+        link: cable_num_281
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK1DSWA01_GigabitEthernet0/24
+        link: cable_num_282
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK1DSWA01_GigabitEthernet0/25
+        link: cable_num_16
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK1DSWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK1DSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK1DSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK1DSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK1DSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK1DSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK1DSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK1DSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK1DSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK1DSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK1DSWA01_Vlan100
+        ipv4: 10.2.0.59/23
+        type: vlan
+  BAK1DSWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK1DSWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK1DSWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK1DSWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK1DSWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK1DSWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK1DSWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK1DSWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK1DSWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK1DSWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK1DSWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK1DSWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK1DSWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK1DSWA02_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK1DSWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK1DSWA02_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK1DSWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK1DSWA02_GigabitEthernet0/24
+        link: cable_num_282
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK1DSWA02_GigabitEthernet0/25
+        link: cable_num_61
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK1DSWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK1DSWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK1DSWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK1DSWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK1DSWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK1DSWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK1DSWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK1DSWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK1DSWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK1DSWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK1DSWA02_Vlan100
+        ipv4: 10.2.0.60/23
+        type: vlan
+  BAK1JSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK1JSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK1JSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK1JSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK1JSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK1JSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK1JSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK1JSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK1JSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK1JSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK1JSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK1JSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK1JSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK1JSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK1JSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK1JSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK1JSWA01_GigabitEthernet0/23
+        link: cable_num_283
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK1JSWA01_GigabitEthernet0/24
+        link: cable_num_284
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK1JSWA01_GigabitEthernet0/25
+        link: cable_num_17
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK1JSWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK1JSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK1JSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK1JSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK1JSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK1JSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK1JSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK1JSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK1JSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK1JSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK1JSWA01_Vlan100
+        ipv4: 10.2.0.57/23
+        type: vlan
+  BAK1JSWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK1JSWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK1JSWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK1JSWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK1JSWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK1JSWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK1JSWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK1JSWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK1JSWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK1JSWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK1JSWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK1JSWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK1JSWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK1JSWA02_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK1JSWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK1JSWA02_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK1JSWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK1JSWA02_GigabitEthernet0/24
+        link: cable_num_284
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK1JSWA02_GigabitEthernet0/25
+        link: cable_num_62
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK1JSWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK1JSWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK1JSWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK1JSWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK1JSWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK1JSWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK1JSWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK1JSWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK1JSWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK1JSWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK1JSWA02_Vlan100
+        ipv4: 10.2.0.58/23
+        type: vlan
+  BAK2ASWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK2ASWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK2ASWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK2ASWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK2ASWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK2ASWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK2ASWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK2ASWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK2ASWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK2ASWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK2ASWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK2ASWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK2ASWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK2ASWA01_GigabitEthernet0/20
+        link: cable_num_285
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK2ASWA01_GigabitEthernet0/21
+        link: cable_num_286
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK2ASWA01_GigabitEthernet0/22
+        link: cable_num_287
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK2ASWA01_GigabitEthernet0/23
+        link: cable_num_288
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK2ASWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK2ASWA01_GigabitEthernet0/25
+        link: cable_num_18
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK2ASWA01_GigabitEthernet0/26
+        link: cable_num_63
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK2ASWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK2ASWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK2ASWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK2ASWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK2ASWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK2ASWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK2ASWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK2ASWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK2ASWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK2ASWA01_Vlan100
+        ipv4: 10.2.0.29/23
+        type: vlan
+  BAK2BSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK2BSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK2BSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK2BSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK2BSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK2BSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK2BSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK2BSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK2BSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK2BSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK2BSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK2BSWA01_GigabitEthernet0/19
+        link: cable_num_289
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK2BSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK2BSWA01_GigabitEthernet0/20
+        link: cable_num_290
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK2BSWA01_GigabitEthernet0/21
+        link: cable_num_291
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK2BSWA01_GigabitEthernet0/22
+        link: cable_num_292
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK2BSWA01_GigabitEthernet0/23
+        link: cable_num_293
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK2BSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK2BSWA01_GigabitEthernet0/25
+        link: cable_num_19
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK2BSWA01_GigabitEthernet0/26
+        link: cable_num_64
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK2BSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK2BSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK2BSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK2BSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK2BSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK2BSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK2BSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK2BSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK2BSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK2BSWA01_Vlan100
+        ipv4: 10.2.0.30/23
+        type: vlan
+  BAK2CSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK2CSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK2CSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK2CSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK2CSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK2CSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK2CSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK2CSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK2CSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK2CSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK2CSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK2CSWA01_GigabitEthernet0/19
+        link: cable_num_294
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK2CSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK2CSWA01_GigabitEthernet0/20
+        link: cable_num_295
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK2CSWA01_GigabitEthernet0/21
+        link: cable_num_296
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK2CSWA01_GigabitEthernet0/22
+        link: cable_num_297
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK2CSWA01_GigabitEthernet0/23
+        link: cable_num_298
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK2CSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK2CSWA01_GigabitEthernet0/25
+        link: cable_num_20
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK2CSWA01_GigabitEthernet0/26
+        link: cable_num_65
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK2CSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK2CSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK2CSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK2CSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK2CSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK2CSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK2CSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK2CSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK2CSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK2CSWA01_Vlan100
+        ipv4: 10.2.0.31/23
+        type: vlan
+  BAK2DSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK2DSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK2DSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK2DSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK2DSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK2DSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK2DSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK2DSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK2DSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK2DSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK2DSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK2DSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK2DSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK2DSWA01_GigabitEthernet0/20
+        link: cable_num_299
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK2DSWA01_GigabitEthernet0/21
+        link: cable_num_300
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK2DSWA01_GigabitEthernet0/22
+        link: cable_num_301
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK2DSWA01_GigabitEthernet0/23
+        link: cable_num_302
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK2DSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK2DSWA01_GigabitEthernet0/25
+        link: cable_num_21
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK2DSWA01_GigabitEthernet0/26
+        link: cable_num_66
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK2DSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK2DSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK2DSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK2DSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK2DSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK2DSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK2DSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK2DSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK2DSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK2DSWA01_Vlan100
+        ipv4: 10.2.0.32/23
+        type: vlan
+  BAK2GSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK2GSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK2GSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK2GSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK2GSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK2GSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK2GSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK2GSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK2GSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK2GSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK2GSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK2GSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK2GSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK2GSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK2GSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK2GSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK2GSWA01_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK2GSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK2GSWA01_GigabitEthernet0/25
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK2GSWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK2GSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK2GSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/29:
+        alias: BAK2GSWA01_GigabitEthernet0/29
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK2GSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/30:
+        alias: BAK2GSWA01_GigabitEthernet0/30
+        type: ethernet
+      GigabitEthernet0/31:
+        alias: BAK2GSWA01_GigabitEthernet0/31
+        type: ethernet
+      GigabitEthernet0/32:
+        alias: BAK2GSWA01_GigabitEthernet0/32
+        type: ethernet
+      GigabitEthernet0/33:
+        alias: BAK2GSWA01_GigabitEthernet0/33
+        type: ethernet
+      GigabitEthernet0/34:
+        alias: BAK2GSWA01_GigabitEthernet0/34
+        type: ethernet
+      GigabitEthernet0/35:
+        alias: BAK2GSWA01_GigabitEthernet0/35
+        type: ethernet
+      GigabitEthernet0/36:
+        alias: BAK2GSWA01_GigabitEthernet0/36
+        type: ethernet
+      GigabitEthernet0/37:
+        alias: BAK2GSWA01_GigabitEthernet0/37
+        type: ethernet
+      GigabitEthernet0/38:
+        alias: BAK2GSWA01_GigabitEthernet0/38
+        type: ethernet
+      GigabitEthernet0/39:
+        alias: BAK2GSWA01_GigabitEthernet0/39
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK2GSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/40:
+        alias: BAK2GSWA01_GigabitEthernet0/40
+        link: cable_num_303
+        type: ethernet
+      GigabitEthernet0/41:
+        alias: BAK2GSWA01_GigabitEthernet0/41
+        link: cable_num_304
+        type: ethernet
+      GigabitEthernet0/42:
+        alias: BAK2GSWA01_GigabitEthernet0/42
+        link: cable_num_305
+        type: ethernet
+      GigabitEthernet0/43:
+        alias: BAK2GSWA01_GigabitEthernet0/43
+        link: cable_num_306
+        type: ethernet
+      GigabitEthernet0/44:
+        alias: BAK2GSWA01_GigabitEthernet0/44
+        link: cable_num_307
+        type: ethernet
+      GigabitEthernet0/45:
+        alias: BAK2GSWA01_GigabitEthernet0/45
+        link: cable_num_308
+        type: ethernet
+      GigabitEthernet0/46:
+        alias: BAK2GSWA01_GigabitEthernet0/46
+        link: cable_num_309
+        type: ethernet
+      GigabitEthernet0/47:
+        alias: BAK2GSWA01_GigabitEthernet0/47
+        link: cable_num_310
+        type: ethernet
+      GigabitEthernet0/48:
+        alias: BAK2GSWA01_GigabitEthernet0/48
+        type: ethernet
+      GigabitEthernet0/49:
+        alias: BAK2GSWA01_GigabitEthernet0/49
+        link: cable_num_22
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK2GSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/50:
+        alias: BAK2GSWA01_GigabitEthernet0/50
+        link: cable_num_67
+        type: ethernet
+      GigabitEthernet0/51:
+        alias: BAK2GSWA01_GigabitEthernet0/51
+        type: ethernet
+      GigabitEthernet0/52:
+        alias: BAK2GSWA01_GigabitEthernet0/52
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK2GSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK2GSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK2GSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK2GSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK2GSWA01_Vlan100
+        ipv4: 10.2.0.33/23
+        type: vlan
+  BAK2HSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK2HSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK2HSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK2HSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK2HSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK2HSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK2HSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK2HSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK2HSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK2HSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK2HSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK2HSWA01_GigabitEthernet0/19
+        link: cable_num_311
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK2HSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK2HSWA01_GigabitEthernet0/20
+        link: cable_num_312
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK2HSWA01_GigabitEthernet0/21
+        link: cable_num_313
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK2HSWA01_GigabitEthernet0/22
+        link: cable_num_314
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK2HSWA01_GigabitEthernet0/23
+        link: cable_num_315
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK2HSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK2HSWA01_GigabitEthernet0/25
+        link: cable_num_23
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK2HSWA01_GigabitEthernet0/26
+        link: cable_num_68
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK2HSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK2HSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK2HSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK2HSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK2HSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK2HSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK2HSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK2HSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK2HSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK2HSWA01_Vlan100
+        ipv4: 10.2.0.34/23
+        type: vlan
+  BAK2JSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK2JSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK2JSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK2JSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK2JSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK2JSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK2JSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK2JSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK2JSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK2JSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK2JSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK2JSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK2JSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK2JSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK2JSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK2JSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK2JSWA01_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK2JSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK2JSWA01_GigabitEthernet0/25
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK2JSWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK2JSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK2JSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/29:
+        alias: BAK2JSWA01_GigabitEthernet0/29
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK2JSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/30:
+        alias: BAK2JSWA01_GigabitEthernet0/30
+        type: ethernet
+      GigabitEthernet0/31:
+        alias: BAK2JSWA01_GigabitEthernet0/31
+        type: ethernet
+      GigabitEthernet0/32:
+        alias: BAK2JSWA01_GigabitEthernet0/32
+        type: ethernet
+      GigabitEthernet0/33:
+        alias: BAK2JSWA01_GigabitEthernet0/33
+        type: ethernet
+      GigabitEthernet0/34:
+        alias: BAK2JSWA01_GigabitEthernet0/34
+        type: ethernet
+      GigabitEthernet0/35:
+        alias: BAK2JSWA01_GigabitEthernet0/35
+        type: ethernet
+      GigabitEthernet0/36:
+        alias: BAK2JSWA01_GigabitEthernet0/36
+        type: ethernet
+      GigabitEthernet0/37:
+        alias: BAK2JSWA01_GigabitEthernet0/37
+        type: ethernet
+      GigabitEthernet0/38:
+        alias: BAK2JSWA01_GigabitEthernet0/38
+        type: ethernet
+      GigabitEthernet0/39:
+        alias: BAK2JSWA01_GigabitEthernet0/39
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK2JSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/40:
+        alias: BAK2JSWA01_GigabitEthernet0/40
+        type: ethernet
+      GigabitEthernet0/41:
+        alias: BAK2JSWA01_GigabitEthernet0/41
+        type: ethernet
+      GigabitEthernet0/42:
+        alias: BAK2JSWA01_GigabitEthernet0/42
+        link: cable_num_321
+        type: ethernet
+      GigabitEthernet0/43:
+        alias: BAK2JSWA01_GigabitEthernet0/43
+        link: cable_num_322
+        type: ethernet
+      GigabitEthernet0/44:
+        alias: BAK2JSWA01_GigabitEthernet0/44
+        link: cable_num_323
+        type: ethernet
+      GigabitEthernet0/45:
+        alias: BAK2JSWA01_GigabitEthernet0/45
+        link: cable_num_324
+        type: ethernet
+      GigabitEthernet0/46:
+        alias: BAK2JSWA01_GigabitEthernet0/46
+        link: cable_num_325
+        type: ethernet
+      GigabitEthernet0/47:
+        alias: BAK2JSWA01_GigabitEthernet0/47
+        link: cable_num_326
+        type: ethernet
+      GigabitEthernet0/48:
+        alias: BAK2JSWA01_GigabitEthernet0/48
+        type: ethernet
+      GigabitEthernet0/49:
+        alias: BAK2JSWA01_GigabitEthernet0/49
+        link: cable_num_25
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK2JSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/50:
+        alias: BAK2JSWA01_GigabitEthernet0/50
+        link: cable_num_70
+        type: ethernet
+      GigabitEthernet0/51:
+        alias: BAK2JSWA01_GigabitEthernet0/51
+        type: ethernet
+      GigabitEthernet0/52:
+        alias: BAK2JSWA01_GigabitEthernet0/52
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK2JSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK2JSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK2JSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK2JSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK2JSWA01_Vlan100
+        ipv4: 10.2.0.36/23
+        type: vlan
+  BAK4GSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK4GSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK4GSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK4GSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK4GSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK4GSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK4GSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK4GSWA01_GigabitEthernet0/15
+        link: cable_num_503
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK4GSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK4GSWA01_GigabitEthernet0/17
+        link: cable_num_363
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK4GSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK4GSWA01_GigabitEthernet0/19
+        link: cable_num_364
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK4GSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK4GSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK4GSWA01_GigabitEthernet0/21
+        link: cable_num_365
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK4GSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK4GSWA01_GigabitEthernet0/23
+        link: cable_num_366
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK4GSWA01_GigabitEthernet0/24
+        link: cable_num_367
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK4GSWA01_GigabitEthernet0/25
+        link: cable_num_35
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK4GSWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK4GSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK4GSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK4GSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK4GSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK4GSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK4GSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK4GSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK4GSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK4GSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK4GSWA01_Vlan100
+        ipv4: 10.2.0.45/23
+        type: vlan
+  BAK4GSWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK4GSWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK4GSWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK4GSWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK4GSWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK4GSWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK4GSWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK4GSWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK4GSWA02_GigabitEthernet0/16
+        link: cable_num_368
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK4GSWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK4GSWA02_GigabitEthernet0/18
+        link: cable_num_369
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK4GSWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK4GSWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK4GSWA02_GigabitEthernet0/20
+        link: cable_num_370
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK4GSWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK4GSWA02_GigabitEthernet0/22
+        link: cable_num_371
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK4GSWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK4GSWA02_GigabitEthernet0/24
+        link: cable_num_367
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK4GSWA02_GigabitEthernet0/25
+        link: cable_num_77
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK4GSWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK4GSWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK4GSWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK4GSWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK4GSWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK4GSWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK4GSWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK4GSWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK4GSWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK4GSWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK4GSWA02_Vlan100
+        ipv4: 10.2.0.46/23
+        type: vlan
+  BAK4ISWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK4ISWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK4ISWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK4ISWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK4ISWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK4ISWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK4ISWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK4ISWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK4ISWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK4ISWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK4ISWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK4ISWA01_GigabitEthernet0/19
+        link: cable_num_506
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK4ISWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK4ISWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK4ISWA01_GigabitEthernet0/21
+        link: cable_num_376
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK4ISWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK4ISWA01_GigabitEthernet0/23
+        link: cable_num_377
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK4ISWA01_GigabitEthernet0/24
+        link: cable_num_378
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK4ISWA01_GigabitEthernet0/25
+        link: cable_num_37
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK4ISWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK4ISWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK4ISWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK4ISWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK4ISWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK4ISWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK4ISWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK4ISWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK4ISWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK4ISWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK4ISWA01_Vlan100
+        ipv4: 10.2.0.47/23
+        type: vlan
+  BAK4ISWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK4ISWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK4ISWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK4ISWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK4ISWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK4ISWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK4ISWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK4ISWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK4ISWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK4ISWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK4ISWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK4ISWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK4ISWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK4ISWA02_GigabitEthernet0/20
+        link: cable_num_379
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK4ISWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK4ISWA02_GigabitEthernet0/22
+        link: cable_num_380
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK4ISWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK4ISWA02_GigabitEthernet0/24
+        link: cable_num_378
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK4ISWA02_GigabitEthernet0/25
+        link: cable_num_79
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK4ISWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK4ISWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK4ISWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK4ISWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK4ISWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK4ISWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK4ISWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK4ISWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK4ISWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK4ISWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK4ISWA02_Vlan100
+        ipv4: 10.2.0.48/23
+        type: vlan
+  BAK4JSWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAK4JSWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAK4JSWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAK4JSWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAK4JSWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAK4JSWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAK4JSWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAK4JSWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAK4JSWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAK4JSWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAK4JSWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAK4JSWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAK4JSWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAK4JSWA02_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAK4JSWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAK4JSWA02_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAK4JSWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAK4JSWA02_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAK4JSWA02_GigabitEthernet0/25
+        link: cable_num_80
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAK4JSWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAK4JSWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAK4JSWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAK4JSWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAK4JSWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAK4JSWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAK4JSWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAK4JSWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAK4JSWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAK4JSWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAK4JSWA02_Vlan100
+        ipv4: 10.2.0.50/23
+        type: vlan
+  BAKGA1SWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGA1SWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGA1SWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGA1SWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGA1SWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGA1SWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGA1SWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGA1SWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGA1SWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGA1SWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGA1SWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGA1SWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGA1SWA01_GigabitEthernet0/2
+        link: cable_num_473
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGA1SWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGA1SWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGA1SWA01_GigabitEthernet0/22
+        link: cable_num_405
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGA1SWA01_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGA1SWA01_GigabitEthernet0/24
+        link: cable_num_135
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGA1SWA01_GigabitEthernet0/25
+        link: cable_num_3
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGA1SWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGA1SWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGA1SWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGA1SWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGA1SWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGA1SWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGA1SWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGA1SWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGA1SWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGA1SWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGA1SWA01_Vlan100
+        ipv4: 10.2.0.78/23
+        type: vlan
+  BAKGA1SWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGA1SWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGA1SWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGA1SWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGA1SWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGA1SWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGA1SWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGA1SWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGA1SWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGA1SWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGA1SWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGA1SWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGA1SWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGA1SWA02_GigabitEthernet0/20
+        link: cable_num_132
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGA1SWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGA1SWA02_GigabitEthernet0/22
+        link: cable_num_133
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGA1SWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGA1SWA02_GigabitEthernet0/24
+        link: cable_num_135
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGA1SWA02_GigabitEthernet0/25
+        link: cable_num_49
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGA1SWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGA1SWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGA1SWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGA1SWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGA1SWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGA1SWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGA1SWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGA1SWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGA1SWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGA1SWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGA1SWA02_Vlan100
+        ipv4: 10.2.0.79/23
+        type: vlan
+  BAKGA3SWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGA3SWA01_GigabitEthernet0/1
+        link: cable_num_177
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGA3SWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGA3SWA01_GigabitEthernet0/11
+        link: cable_num_182
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGA3SWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGA3SWA01_GigabitEthernet0/13
+        link: cable_num_183
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGA3SWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGA3SWA01_GigabitEthernet0/15
+        link: cable_num_184
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGA3SWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGA3SWA01_GigabitEthernet0/17
+        link: cable_num_185
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGA3SWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGA3SWA01_GigabitEthernet0/19
+        link: cable_num_186
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGA3SWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGA3SWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGA3SWA01_GigabitEthernet0/21
+        link: cable_num_187
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGA3SWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGA3SWA01_GigabitEthernet0/23
+        link: cable_num_188
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGA3SWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGA3SWA01_GigabitEthernet0/25
+        link: cable_num_189
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGA3SWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGA3SWA01_GigabitEthernet0/27
+        link: cable_num_190
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGA3SWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/29:
+        alias: BAKGA3SWA01_GigabitEthernet0/29
+        link: cable_num_191
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGA3SWA01_GigabitEthernet0/3
+        link: cable_num_178
+        type: ethernet
+      GigabitEthernet0/30:
+        alias: BAKGA3SWA01_GigabitEthernet0/30
+        type: ethernet
+      GigabitEthernet0/31:
+        alias: BAKGA3SWA01_GigabitEthernet0/31
+        link: cable_num_192
+        type: ethernet
+      GigabitEthernet0/32:
+        alias: BAKGA3SWA01_GigabitEthernet0/32
+        type: ethernet
+      GigabitEthernet0/33:
+        alias: BAKGA3SWA01_GigabitEthernet0/33
+        link: cable_num_193
+        type: ethernet
+      GigabitEthernet0/34:
+        alias: BAKGA3SWA01_GigabitEthernet0/34
+        type: ethernet
+      GigabitEthernet0/35:
+        alias: BAKGA3SWA01_GigabitEthernet0/35
+        link: cable_num_194
+        type: ethernet
+      GigabitEthernet0/36:
+        alias: BAKGA3SWA01_GigabitEthernet0/36
+        type: ethernet
+      GigabitEthernet0/37:
+        alias: BAKGA3SWA01_GigabitEthernet0/37
+        type: ethernet
+      GigabitEthernet0/38:
+        alias: BAKGA3SWA01_GigabitEthernet0/38
+        link: cable_num_414
+        type: ethernet
+      GigabitEthernet0/39:
+        alias: BAKGA3SWA01_GigabitEthernet0/39
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGA3SWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/40:
+        alias: BAKGA3SWA01_GigabitEthernet0/40
+        link: cable_num_411
+        type: ethernet
+      GigabitEthernet0/41:
+        alias: BAKGA3SWA01_GigabitEthernet0/41
+        link: cable_num_410
+        type: ethernet
+      GigabitEthernet0/42:
+        alias: BAKGA3SWA01_GigabitEthernet0/42
+        type: ethernet
+      GigabitEthernet0/43:
+        alias: BAKGA3SWA01_GigabitEthernet0/43
+        link: cable_num_196
+        type: ethernet
+      GigabitEthernet0/44:
+        alias: BAKGA3SWA01_GigabitEthernet0/44
+        type: ethernet
+      GigabitEthernet0/45:
+        alias: BAKGA3SWA01_GigabitEthernet0/45
+        link: cable_num_197
+        type: ethernet
+      GigabitEthernet0/46:
+        alias: BAKGA3SWA01_GigabitEthernet0/46
+        type: ethernet
+      GigabitEthernet0/47:
+        alias: BAKGA3SWA01_GigabitEthernet0/47
+        link: cable_num_198
+        type: ethernet
+      GigabitEthernet0/48:
+        alias: BAKGA3SWA01_GigabitEthernet0/48
+        link: cable_num_176
+        type: ethernet
+      GigabitEthernet0/49:
+        alias: BAKGA3SWA01_GigabitEthernet0/49
+        link: cable_num_5
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGA3SWA01_GigabitEthernet0/5
+        link: cable_num_179
+        type: ethernet
+      GigabitEthernet0/50:
+        alias: BAKGA3SWA01_GigabitEthernet0/50
+        type: ethernet
+      GigabitEthernet0/51:
+        alias: BAKGA3SWA01_GigabitEthernet0/51
+        type: ethernet
+      GigabitEthernet0/52:
+        alias: BAKGA3SWA01_GigabitEthernet0/52
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGA3SWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGA3SWA01_GigabitEthernet0/7
+        link: cable_num_180
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGA3SWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGA3SWA01_GigabitEthernet0/9
+        link: cable_num_181
+        type: ethernet
+      Vlan100:
+        alias: BAKGA3SWA01_Vlan100
+        ipv4: 10.2.0.65/23
+        type: vlan
+  BAKGA3SWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGA3SWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGA3SWA02_GigabitEthernet0/10
+        link: cable_num_203
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGA3SWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGA3SWA02_GigabitEthernet0/12
+        link: cable_num_204
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGA3SWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGA3SWA02_GigabitEthernet0/14
+        link: cable_num_205
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGA3SWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGA3SWA02_GigabitEthernet0/16
+        link: cable_num_206
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGA3SWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGA3SWA02_GigabitEthernet0/18
+        link: cable_num_207
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGA3SWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGA3SWA02_GigabitEthernet0/2
+        link: cable_num_199
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGA3SWA02_GigabitEthernet0/20
+        link: cable_num_208
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGA3SWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGA3SWA02_GigabitEthernet0/22
+        link: cable_num_209
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGA3SWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGA3SWA02_GigabitEthernet0/24
+        link: cable_num_210
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGA3SWA02_GigabitEthernet0/25
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGA3SWA02_GigabitEthernet0/26
+        link: cable_num_211
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGA3SWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGA3SWA02_GigabitEthernet0/28
+        link: cable_num_212
+        type: ethernet
+      GigabitEthernet0/29:
+        alias: BAKGA3SWA02_GigabitEthernet0/29
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGA3SWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/30:
+        alias: BAKGA3SWA02_GigabitEthernet0/30
+        link: cable_num_213
+        type: ethernet
+      GigabitEthernet0/31:
+        alias: BAKGA3SWA02_GigabitEthernet0/31
+        type: ethernet
+      GigabitEthernet0/32:
+        alias: BAKGA3SWA02_GigabitEthernet0/32
+        link: cable_num_214
+        type: ethernet
+      GigabitEthernet0/33:
+        alias: BAKGA3SWA02_GigabitEthernet0/33
+        type: ethernet
+      GigabitEthernet0/34:
+        alias: BAKGA3SWA02_GigabitEthernet0/34
+        link: cable_num_215
+        type: ethernet
+      GigabitEthernet0/35:
+        alias: BAKGA3SWA02_GigabitEthernet0/35
+        type: ethernet
+      GigabitEthernet0/36:
+        alias: BAKGA3SWA02_GigabitEthernet0/36
+        link: cable_num_216
+        type: ethernet
+      GigabitEthernet0/37:
+        alias: BAKGA3SWA02_GigabitEthernet0/37
+        type: ethernet
+      GigabitEthernet0/38:
+        alias: BAKGA3SWA02_GigabitEthernet0/38
+        type: ethernet
+      GigabitEthernet0/39:
+        alias: BAKGA3SWA02_GigabitEthernet0/39
+        link: cable_num_412
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGA3SWA02_GigabitEthernet0/4
+        link: cable_num_200
+        type: ethernet
+      GigabitEthernet0/40:
+        alias: BAKGA3SWA02_GigabitEthernet0/40
+        type: ethernet
+      GigabitEthernet0/41:
+        alias: BAKGA3SWA02_GigabitEthernet0/41
+        link: cable_num_413
+        type: ethernet
+      GigabitEthernet0/42:
+        alias: BAKGA3SWA02_GigabitEthernet0/42
+        link: cable_num_218
+        type: ethernet
+      GigabitEthernet0/43:
+        alias: BAKGA3SWA02_GigabitEthernet0/43
+        type: ethernet
+      GigabitEthernet0/44:
+        alias: BAKGA3SWA02_GigabitEthernet0/44
+        link: cable_num_219
+        type: ethernet
+      GigabitEthernet0/45:
+        alias: BAKGA3SWA02_GigabitEthernet0/45
+        type: ethernet
+      GigabitEthernet0/46:
+        alias: BAKGA3SWA02_GigabitEthernet0/46
+        link: cable_num_220
+        type: ethernet
+      GigabitEthernet0/47:
+        alias: BAKGA3SWA02_GigabitEthernet0/47
+        type: ethernet
+      GigabitEthernet0/48:
+        alias: BAKGA3SWA02_GigabitEthernet0/48
+        link: cable_num_176
+        type: ethernet
+      GigabitEthernet0/49:
+        alias: BAKGA3SWA02_GigabitEthernet0/49
+        link: cable_num_50
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGA3SWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/50:
+        alias: BAKGA3SWA02_GigabitEthernet0/50
+        type: ethernet
+      GigabitEthernet0/51:
+        alias: BAKGA3SWA02_GigabitEthernet0/51
+        type: ethernet
+      GigabitEthernet0/52:
+        alias: BAKGA3SWA02_GigabitEthernet0/52
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGA3SWA02_GigabitEthernet0/6
+        link: cable_num_201
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGA3SWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGA3SWA02_GigabitEthernet0/8
+        link: cable_num_202
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGA3SWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGA3SWA02_Vlan100
+        ipv4: 10.2.0.66/23
+        type: vlan
+  BAKGASWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGASWA01_GigabitEthernet0/1
+        link: cable_num_479
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGASWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGASWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGASWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGASWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGASWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGASWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGASWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGASWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGASWA01_GigabitEthernet0/18
+        link: cable_num_128
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGASWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGASWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGASWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGASWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGASWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGASWA01_GigabitEthernet0/23
+        link: cable_num_480
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGASWA01_GigabitEthernet0/24
+        link: cable_num_126
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGASWA01_GigabitEthernet0/25
+        link: cable_num_2
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGASWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGASWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGASWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGASWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGASWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGASWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGASWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGASWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGASWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGASWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGASWA01_Vlan100
+        ipv4: 10.2.0.27/23
+        type: vlan
+  BAKGASWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGASWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGASWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGASWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGASWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGASWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGASWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGASWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGASWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGASWA02_GigabitEthernet0/17
+        link: cable_num_129
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGASWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGASWA02_GigabitEthernet0/19
+        link: cable_num_130
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGASWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGASWA02_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGASWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGASWA02_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGASWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGASWA02_GigabitEthernet0/24
+        link: cable_num_126
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGASWA02_GigabitEthernet0/25
+        link: cable_num_48
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGASWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGASWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGASWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGASWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGASWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGASWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGASWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGASWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGASWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGASWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGASWA02_Vlan100
+        ipv4: 10.2.0.28/23
+        type: vlan
+  BAKGBSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGBSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGBSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGBSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGBSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGBSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGBSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGBSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGBSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGBSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGBSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGBSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGBSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGBSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGBSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGBSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGBSWA01_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGBSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGBSWA01_GigabitEthernet0/25
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGBSWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGBSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGBSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/29:
+        alias: BAKGBSWA01_GigabitEthernet0/29
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGBSWA01_GigabitEthernet0/3
+        link: cable_num_222
+        type: ethernet
+      GigabitEthernet0/30:
+        alias: BAKGBSWA01_GigabitEthernet0/30
+        type: ethernet
+      GigabitEthernet0/31:
+        alias: BAKGBSWA01_GigabitEthernet0/31
+        type: ethernet
+      GigabitEthernet0/32:
+        alias: BAKGBSWA01_GigabitEthernet0/32
+        type: ethernet
+      GigabitEthernet0/33:
+        alias: BAKGBSWA01_GigabitEthernet0/33
+        type: ethernet
+      GigabitEthernet0/34:
+        alias: BAKGBSWA01_GigabitEthernet0/34
+        type: ethernet
+      GigabitEthernet0/35:
+        alias: BAKGBSWA01_GigabitEthernet0/35
+        type: ethernet
+      GigabitEthernet0/36:
+        alias: BAKGBSWA01_GigabitEthernet0/36
+        type: ethernet
+      GigabitEthernet0/37:
+        alias: BAKGBSWA01_GigabitEthernet0/37
+        type: ethernet
+      GigabitEthernet0/38:
+        alias: BAKGBSWA01_GigabitEthernet0/38
+        type: ethernet
+      GigabitEthernet0/39:
+        alias: BAKGBSWA01_GigabitEthernet0/39
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGBSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/40:
+        alias: BAKGBSWA01_GigabitEthernet0/40
+        type: ethernet
+      GigabitEthernet0/41:
+        alias: BAKGBSWA01_GigabitEthernet0/41
+        type: ethernet
+      GigabitEthernet0/42:
+        alias: BAKGBSWA01_GigabitEthernet0/42
+        type: ethernet
+      GigabitEthernet0/43:
+        alias: BAKGBSWA01_GigabitEthernet0/43
+        type: ethernet
+      GigabitEthernet0/44:
+        alias: BAKGBSWA01_GigabitEthernet0/44
+        type: ethernet
+      GigabitEthernet0/45:
+        alias: BAKGBSWA01_GigabitEthernet0/45
+        type: ethernet
+      GigabitEthernet0/46:
+        alias: BAKGBSWA01_GigabitEthernet0/46
+        type: ethernet
+      GigabitEthernet0/47:
+        alias: BAKGBSWA01_GigabitEthernet0/47
+        link: cable_num_225
+        type: ethernet
+      GigabitEthernet0/48:
+        alias: BAKGBSWA01_GigabitEthernet0/48
+        link: cable_num_226
+        type: ethernet
+      GigabitEthernet0/49:
+        alias: BAKGBSWA01_GigabitEthernet0/49
+        link: cable_num_6
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGBSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/50:
+        alias: BAKGBSWA01_GigabitEthernet0/50
+        type: ethernet
+      GigabitEthernet0/51:
+        alias: BAKGBSWA01_GigabitEthernet0/51
+        type: ethernet
+      GigabitEthernet0/52:
+        alias: BAKGBSWA01_GigabitEthernet0/52
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGBSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGBSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGBSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGBSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGBSWA01_Vlan100
+        ipv4: 10.2.0.55/23
+        type: vlan
+  BAKGBSWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGBSWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGBSWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGBSWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGBSWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGBSWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGBSWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGBSWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGBSWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGBSWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGBSWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGBSWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGBSWA02_GigabitEthernet0/2
+        link: cable_num_227
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGBSWA02_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGBSWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGBSWA02_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGBSWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGBSWA02_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGBSWA02_GigabitEthernet0/25
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGBSWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGBSWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGBSWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/29:
+        alias: BAKGBSWA02_GigabitEthernet0/29
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGBSWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/30:
+        alias: BAKGBSWA02_GigabitEthernet0/30
+        type: ethernet
+      GigabitEthernet0/31:
+        alias: BAKGBSWA02_GigabitEthernet0/31
+        type: ethernet
+      GigabitEthernet0/32:
+        alias: BAKGBSWA02_GigabitEthernet0/32
+        type: ethernet
+      GigabitEthernet0/33:
+        alias: BAKGBSWA02_GigabitEthernet0/33
+        type: ethernet
+      GigabitEthernet0/34:
+        alias: BAKGBSWA02_GigabitEthernet0/34
+        type: ethernet
+      GigabitEthernet0/35:
+        alias: BAKGBSWA02_GigabitEthernet0/35
+        type: ethernet
+      GigabitEthernet0/36:
+        alias: BAKGBSWA02_GigabitEthernet0/36
+        type: ethernet
+      GigabitEthernet0/37:
+        alias: BAKGBSWA02_GigabitEthernet0/37
+        type: ethernet
+      GigabitEthernet0/38:
+        alias: BAKGBSWA02_GigabitEthernet0/38
+        link: cable_num_228
+        type: ethernet
+      GigabitEthernet0/39:
+        alias: BAKGBSWA02_GigabitEthernet0/39
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGBSWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/40:
+        alias: BAKGBSWA02_GigabitEthernet0/40
+        link: cable_num_229
+        type: ethernet
+      GigabitEthernet0/41:
+        alias: BAKGBSWA02_GigabitEthernet0/41
+        type: ethernet
+      GigabitEthernet0/42:
+        alias: BAKGBSWA02_GigabitEthernet0/42
+        type: ethernet
+      GigabitEthernet0/43:
+        alias: BAKGBSWA02_GigabitEthernet0/43
+        type: ethernet
+      GigabitEthernet0/44:
+        alias: BAKGBSWA02_GigabitEthernet0/44
+        link: cable_num_231
+        type: ethernet
+      GigabitEthernet0/45:
+        alias: BAKGBSWA02_GigabitEthernet0/45
+        type: ethernet
+      GigabitEthernet0/46:
+        alias: BAKGBSWA02_GigabitEthernet0/46
+        type: ethernet
+      GigabitEthernet0/47:
+        alias: BAKGBSWA02_GigabitEthernet0/47
+        type: ethernet
+      GigabitEthernet0/48:
+        alias: BAKGBSWA02_GigabitEthernet0/48
+        link: cable_num_226
+        type: ethernet
+      GigabitEthernet0/49:
+        alias: BAKGBSWA02_GigabitEthernet0/49
+        link: cable_num_51
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGBSWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/50:
+        alias: BAKGBSWA02_GigabitEthernet0/50
+        type: ethernet
+      GigabitEthernet0/51:
+        alias: BAKGBSWA02_GigabitEthernet0/51
+        type: ethernet
+      GigabitEthernet0/52:
+        alias: BAKGBSWA02_GigabitEthernet0/52
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGBSWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGBSWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGBSWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGBSWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGBSWA02_Vlan100
+        ipv4: 10.2.0.56/23
+        type: vlan
+  BAKGCSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGCSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGCSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGCSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGCSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGCSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGCSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGCSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGCSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGCSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGCSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGCSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGCSWA01_GigabitEthernet0/2
+        link: cable_num_481
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGCSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGCSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGCSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGCSWA01_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGCSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGCSWA01_GigabitEthernet0/25
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGCSWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGCSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGCSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/29:
+        alias: BAKGCSWA01_GigabitEthernet0/29
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGCSWA01_GigabitEthernet0/3
+        link: cable_num_234
+        type: ethernet
+      GigabitEthernet0/30:
+        alias: BAKGCSWA01_GigabitEthernet0/30
+        type: ethernet
+      GigabitEthernet0/31:
+        alias: BAKGCSWA01_GigabitEthernet0/31
+        type: ethernet
+      GigabitEthernet0/32:
+        alias: BAKGCSWA01_GigabitEthernet0/32
+        type: ethernet
+      GigabitEthernet0/33:
+        alias: BAKGCSWA01_GigabitEthernet0/33
+        type: ethernet
+      GigabitEthernet0/34:
+        alias: BAKGCSWA01_GigabitEthernet0/34
+        type: ethernet
+      GigabitEthernet0/35:
+        alias: BAKGCSWA01_GigabitEthernet0/35
+        link: cable_num_235
+        type: ethernet
+      GigabitEthernet0/36:
+        alias: BAKGCSWA01_GigabitEthernet0/36
+        type: ethernet
+      GigabitEthernet0/37:
+        alias: BAKGCSWA01_GigabitEthernet0/37
+        type: ethernet
+      GigabitEthernet0/38:
+        alias: BAKGCSWA01_GigabitEthernet0/38
+        type: ethernet
+      GigabitEthernet0/39:
+        alias: BAKGCSWA01_GigabitEthernet0/39
+        link: cable_num_237
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGCSWA01_GigabitEthernet0/4
+        link: cable_num_478
+        type: ethernet
+      GigabitEthernet0/40:
+        alias: BAKGCSWA01_GigabitEthernet0/40
+        type: ethernet
+      GigabitEthernet0/41:
+        alias: BAKGCSWA01_GigabitEthernet0/41
+        type: ethernet
+      GigabitEthernet0/42:
+        alias: BAKGCSWA01_GigabitEthernet0/42
+        type: ethernet
+      GigabitEthernet0/43:
+        alias: BAKGCSWA01_GigabitEthernet0/43
+        link: cable_num_239
+        type: ethernet
+      GigabitEthernet0/44:
+        alias: BAKGCSWA01_GigabitEthernet0/44
+        type: ethernet
+      GigabitEthernet0/45:
+        alias: BAKGCSWA01_GigabitEthernet0/45
+        link: cable_num_240
+        type: ethernet
+      GigabitEthernet0/46:
+        alias: BAKGCSWA01_GigabitEthernet0/46
+        type: ethernet
+      GigabitEthernet0/47:
+        alias: BAKGCSWA01_GigabitEthernet0/47
+        link: cable_num_241
+        type: ethernet
+      GigabitEthernet0/48:
+        alias: BAKGCSWA01_GigabitEthernet0/48
+        link: cable_num_242
+        type: ethernet
+      GigabitEthernet0/49:
+        alias: BAKGCSWA01_GigabitEthernet0/49
+        link: cable_num_7
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGCSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/50:
+        alias: BAKGCSWA01_GigabitEthernet0/50
+        type: ethernet
+      GigabitEthernet0/51:
+        alias: BAKGCSWA01_GigabitEthernet0/51
+        type: ethernet
+      GigabitEthernet0/52:
+        alias: BAKGCSWA01_GigabitEthernet0/52
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGCSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGCSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGCSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGCSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGCSWA01_Vlan100
+        ipv4: 10.2.0.53/23
+        type: vlan
+  BAKGDSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGDSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGDSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGDSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGDSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGDSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGDSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGDSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGDSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGDSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGDSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGDSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGDSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGDSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGDSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGDSWA01_GigabitEthernet0/22
+        link: cable_num_247
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGDSWA01_GigabitEthernet0/23
+        link: cable_num_248
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGDSWA01_GigabitEthernet0/24
+        link: cable_num_249
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGDSWA01_GigabitEthernet0/25
+        link: cable_num_8
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGDSWA01_GigabitEthernet0/26
+        link: cable_num_53
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGDSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGDSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGDSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGDSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGDSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGDSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGDSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGDSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGDSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGDSWA01_Vlan100
+        ipv4: 10.2.0.88/23
+        type: vlan
+  BAKGFSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGFSWA01_GigabitEthernet0/1
+        link: cable_num_474
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGFSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGFSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGFSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGFSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGFSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGFSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGFSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGFSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGFSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGFSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGFSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGFSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGFSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGFSWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGFSWA01_GigabitEthernet0/23
+        link: cable_num_257
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGFSWA01_GigabitEthernet0/24
+        link: cable_num_258
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGFSWA01_GigabitEthernet0/25
+        link: cable_num_10
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGFSWA01_GigabitEthernet0/26
+        link: cable_num_55
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGFSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGFSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGFSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGFSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGFSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGFSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGFSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGFSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGFSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGFSWA01_Vlan100
+        ipv4: 10.2.0.89/23
+        type: vlan
+  BAKGGSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGGSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGGSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGGSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGGSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGGSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGGSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGGSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGGSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGGSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGGSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGGSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGGSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGGSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGGSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGGSWA01_GigabitEthernet0/22
+        link: cable_num_259
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGGSWA01_GigabitEthernet0/23
+        link: cable_num_260
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGGSWA01_GigabitEthernet0/24
+        link: cable_num_261
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGGSWA01_GigabitEthernet0/25
+        link: cable_num_11
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGGSWA01_GigabitEthernet0/26
+        link: cable_num_56
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGGSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGGSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGGSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGGSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGGSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGGSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGGSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGGSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGGSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGGSWA01_Vlan100
+        ipv4: 10.2.0.90/23
+        type: vlan
+  BAKGHSWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGHSWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGHSWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGHSWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGHSWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGHSWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGHSWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGHSWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGHSWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGHSWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGHSWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGHSWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGHSWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGHSWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGHSWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGHSWA01_GigabitEthernet0/22
+        link: cable_num_418
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGHSWA01_GigabitEthernet0/23
+        link: cable_num_263
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGHSWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGHSWA01_GigabitEthernet0/25
+        link: cable_num_12
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGHSWA01_GigabitEthernet0/26
+        link: cable_num_403
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGHSWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGHSWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGHSWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGHSWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGHSWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGHSWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGHSWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGHSWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGHSWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGHSWA01_Vlan100
+        ipv4: 10.2.0.68/23
+        type: vlan
+  BAKGISWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKGISWA01_GigabitEthernet0/1
+        link: cable_num_420
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKGISWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKGISWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKGISWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKGISWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKGISWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKGISWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKGISWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKGISWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKGISWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKGISWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKGISWA01_GigabitEthernet0/2
+        link: cable_num_476
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKGISWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKGISWA01_GigabitEthernet0/21
+        link: cable_num_269
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKGISWA01_GigabitEthernet0/22
+        link: cable_num_419
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKGISWA01_GigabitEthernet0/23
+        link: cable_num_270
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKGISWA01_GigabitEthernet0/24
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKGISWA01_GigabitEthernet0/25
+        link: cable_num_13
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKGISWA01_GigabitEthernet0/26
+        link: cable_num_404
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKGISWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKGISWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKGISWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKGISWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKGISWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKGISWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKGISWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKGISWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKGISWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKGISWA01_Vlan100
+        ipv4: 10.2.0.70/23
+        type: vlan
+  BAKMTR1SWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKMTR1SWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKMTR1SWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKMTR1SWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKMTR1SWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKMTR1SWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKMTR1SWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKMTR1SWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKMTR1SWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKMTR1SWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKMTR1SWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKMTR1SWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKMTR1SWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKMTR1SWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKMTR1SWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKMTR1SWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKMTR1SWA01_GigabitEthernet0/23
+        link: cable_num_163
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKMTR1SWA01_GigabitEthernet0/24
+        link: cable_num_124
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKMTR1SWA01_GigabitEthernet0/25
+        link: cable_num_42
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKMTR1SWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKMTR1SWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKMTR1SWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKMTR1SWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKMTR1SWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKMTR1SWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKMTR1SWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKMTR1SWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKMTR1SWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKMTR1SWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKMTR1SWA01_Vlan100
+        ipv4: 10.2.0.72/23
+        type: vlan
+  BAKMTR1SWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKMTR1SWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKMTR1SWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKMTR1SWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKMTR1SWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKMTR1SWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKMTR1SWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKMTR1SWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKMTR1SWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKMTR1SWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKMTR1SWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKMTR1SWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKMTR1SWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKMTR1SWA02_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKMTR1SWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKMTR1SWA02_GigabitEthernet0/22
+        link: cable_num_507
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKMTR1SWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKMTR1SWA02_GigabitEthernet0/24
+        link: cable_num_124
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKMTR1SWA02_GigabitEthernet0/25
+        link: cable_num_84
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKMTR1SWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKMTR1SWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKMTR1SWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKMTR1SWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKMTR1SWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKMTR1SWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKMTR1SWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKMTR1SWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKMTR1SWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKMTR1SWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKMTR1SWA02_Vlan100
+        ipv4: 10.2.0.73/23
+        type: vlan
+  BAKMTR1SWC01:
+    interfaces:
+      FortyGigabitEthernet1/1/1:
+        alias: BAKMTR1SWC01_FortyGigabitEthernet1/1/1
+        type: ethernet
+      FortyGigabitEthernet1/1/2:
+        alias: BAKMTR1SWC01_FortyGigabitEthernet1/1/2
+        type: ethernet
+      FortyGigabitEthernet2/1/1:
+        alias: BAKMTR1SWC01_FortyGigabitEthernet2/1/1
+        type: ethernet
+      FortyGigabitEthernet2/1/2:
+        alias: BAKMTR1SWC01_FortyGigabitEthernet2/1/2
+        type: ethernet
+      GigabitEthernet0/0:
+        alias: BAKMTR1SWC01_GigabitEthernet0/0
+        type: ethernet
+      TenGigabitEthernet1/0/1:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/1
+        link: cable_num_1
+        type: ethernet
+      TenGigabitEthernet1/0/10:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/10
+        link: cable_num_9
+        type: ethernet
+      TenGigabitEthernet1/0/11:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/11
+        link: cable_num_10
+        type: ethernet
+      TenGigabitEthernet1/0/12:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/12
+        link: cable_num_11
+        type: ethernet
+      TenGigabitEthernet1/0/13:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/13
+        link: cable_num_12
+        type: ethernet
+      TenGigabitEthernet1/0/14:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/14
+        link: cable_num_13
+        type: ethernet
+      TenGigabitEthernet1/0/15:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/15
+        link: cable_num_14
+        type: ethernet
+      TenGigabitEthernet1/0/16:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/16
+        link: cable_num_15
+        type: ethernet
+      TenGigabitEthernet1/0/17:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/17
+        link: cable_num_16
+        type: ethernet
+      TenGigabitEthernet1/0/18:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/18
+        link: cable_num_17
+        type: ethernet
+      TenGigabitEthernet1/0/19:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/19
+        link: cable_num_18
+        type: ethernet
+      TenGigabitEthernet1/0/2:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/2
+        type: ethernet
+      TenGigabitEthernet1/0/20:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/20
+        link: cable_num_19
+        type: ethernet
+      TenGigabitEthernet1/0/21:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/21
+        link: cable_num_20
+        type: ethernet
+      TenGigabitEthernet1/0/22:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/22
+        link: cable_num_21
+        type: ethernet
+      TenGigabitEthernet1/0/23:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/23
+        link: cable_num_22
+        type: ethernet
+      TenGigabitEthernet1/0/24:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/24
+        link: cable_num_23
+        type: ethernet
+      TenGigabitEthernet1/0/25:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/25
+        link: cable_num_24
+        type: ethernet
+      TenGigabitEthernet1/0/26:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/26
+        link: cable_num_25
+        type: ethernet
+      TenGigabitEthernet1/0/27:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/27
+        link: cable_num_26
+        type: ethernet
+      TenGigabitEthernet1/0/28:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/28
+        link: cable_num_27
+        type: ethernet
+      TenGigabitEthernet1/0/29:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/29
+        link: cable_num_28
+        type: ethernet
+      TenGigabitEthernet1/0/3:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/3
+        link: cable_num_2
+        type: ethernet
+      TenGigabitEthernet1/0/30:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/30
+        link: cable_num_29
+        type: ethernet
+      TenGigabitEthernet1/0/31:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/31
+        link: cable_num_30
+        type: ethernet
+      TenGigabitEthernet1/0/32:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/32
+        type: ethernet
+      TenGigabitEthernet1/0/33:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/33
+        link: cable_num_31
+        type: ethernet
+      TenGigabitEthernet1/0/34:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/34
+        link: cable_num_32
+        type: ethernet
+      TenGigabitEthernet1/0/35:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/35
+        link: cable_num_33
+        type: ethernet
+      TenGigabitEthernet1/0/36:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/36
+        link: cable_num_34
+        type: ethernet
+      TenGigabitEthernet1/0/37:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/37
+        link: cable_num_35
+        type: ethernet
+      TenGigabitEthernet1/0/38:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/38
+        link: cable_num_36
+        type: ethernet
+      TenGigabitEthernet1/0/39:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/39
+        link: cable_num_37
+        type: ethernet
+      TenGigabitEthernet1/0/4:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/4
+        link: cable_num_3
+        type: ethernet
+      TenGigabitEthernet1/0/40:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/40
+        link: cable_num_38
+        type: ethernet
+      TenGigabitEthernet1/0/5:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/5
+        link: cable_num_139
+        type: ethernet
+      TenGigabitEthernet1/0/6:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/6
+        link: cable_num_5
+        type: ethernet
+      TenGigabitEthernet1/0/7:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/7
+        link: cable_num_6
+        type: ethernet
+      TenGigabitEthernet1/0/8:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/8
+        link: cable_num_7
+        type: ethernet
+      TenGigabitEthernet1/0/9:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/0/9
+        link: cable_num_8
+        type: ethernet
+      TenGigabitEthernet1/1/1:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/1
+        link: cable_num_39
+        type: ethernet
+      TenGigabitEthernet1/1/2:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/2
+        link: cable_num_40
+        type: ethernet
+      TenGigabitEthernet1/1/3:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/3
+        link: cable_num_41
+        type: ethernet
+      TenGigabitEthernet1/1/4:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/4
+        link: cable_num_42
+        type: ethernet
+      TenGigabitEthernet1/1/5:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/5
+        link: cable_num_43
+        type: ethernet
+      TenGigabitEthernet1/1/6:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/6
+        link: cable_num_44
+        type: ethernet
+      TenGigabitEthernet1/1/7:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/7
+        link: cable_num_45
+        type: ethernet
+      TenGigabitEthernet1/1/8:
+        alias: BAKMTR1SWC01_TenGigabitEthernet1/1/8
+        link: cable_num_46
+        type: ethernet
+      TenGigabitEthernet2/0/1:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/1
+        link: cable_num_47
+        type: ethernet
+      TenGigabitEthernet2/0/10:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/10
+        link: cable_num_54
+        type: ethernet
+      TenGigabitEthernet2/0/11:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/11
+        link: cable_num_55
+        type: ethernet
+      TenGigabitEthernet2/0/12:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/12
+        link: cable_num_56
+        type: ethernet
+      TenGigabitEthernet2/0/13:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/13
+        link: cable_num_403
+        type: ethernet
+      TenGigabitEthernet2/0/14:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/14
+        link: cable_num_404
+        type: ethernet
+      TenGigabitEthernet2/0/15:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/15
+        link: cable_num_59
+        type: ethernet
+      TenGigabitEthernet2/0/16:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/16
+        link: cable_num_60
+        type: ethernet
+      TenGigabitEthernet2/0/17:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/17
+        link: cable_num_61
+        type: ethernet
+      TenGigabitEthernet2/0/18:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/18
+        link: cable_num_62
+        type: ethernet
+      TenGigabitEthernet2/0/19:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/19
+        link: cable_num_63
+        type: ethernet
+      TenGigabitEthernet2/0/2:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/2
+        type: ethernet
+      TenGigabitEthernet2/0/20:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/20
+        link: cable_num_64
+        type: ethernet
+      TenGigabitEthernet2/0/21:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/21
+        link: cable_num_65
+        type: ethernet
+      TenGigabitEthernet2/0/22:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/22
+        link: cable_num_66
+        type: ethernet
+      TenGigabitEthernet2/0/23:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/23
+        link: cable_num_67
+        type: ethernet
+      TenGigabitEthernet2/0/24:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/24
+        link: cable_num_68
+        type: ethernet
+      TenGigabitEthernet2/0/25:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/25
+        link: cable_num_69
+        type: ethernet
+      TenGigabitEthernet2/0/26:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/26
+        link: cable_num_70
+        type: ethernet
+      TenGigabitEthernet2/0/27:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/27
+        link: cable_num_71
+        type: ethernet
+      TenGigabitEthernet2/0/28:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/28
+        link: cable_num_27
+        type: ethernet
+      TenGigabitEthernet2/0/29:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/29
+        link: cable_num_28
+        type: ethernet
+      TenGigabitEthernet2/0/3:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/3
+        link: cable_num_48
+        type: ethernet
+      TenGigabitEthernet2/0/30:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/30
+        link: cable_num_29
+        type: ethernet
+      TenGigabitEthernet2/0/31:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/31
+        link: cable_num_30
+        type: ethernet
+      TenGigabitEthernet2/0/32:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/32
+        type: ethernet
+      TenGigabitEthernet2/0/33:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/33
+        link: cable_num_72
+        type: ethernet
+      TenGigabitEthernet2/0/34:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/34
+        link: cable_num_73
+        type: ethernet
+      TenGigabitEthernet2/0/35:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/35
+        link: cable_num_74
+        type: ethernet
+      TenGigabitEthernet2/0/36:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/36
+        link: cable_num_362
+        type: ethernet
+      TenGigabitEthernet2/0/37:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/37
+        link: cable_num_77
+        type: ethernet
+      TenGigabitEthernet2/0/38:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/38
+        link: cable_num_78
+        type: ethernet
+      TenGigabitEthernet2/0/39:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/39
+        link: cable_num_79
+        type: ethernet
+      TenGigabitEthernet2/0/4:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/4
+        link: cable_num_49
+        type: ethernet
+      TenGigabitEthernet2/0/40:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/40
+        link: cable_num_80
+        type: ethernet
+      TenGigabitEthernet2/0/5:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/5
+        link: cable_num_138
+        type: ethernet
+      TenGigabitEthernet2/0/6:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/6
+        link: cable_num_50
+        type: ethernet
+      TenGigabitEthernet2/0/7:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/7
+        link: cable_num_51
+        type: ethernet
+      TenGigabitEthernet2/0/8:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/8
+        link: cable_num_52
+        type: ethernet
+      TenGigabitEthernet2/0/9:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/0/9
+        link: cable_num_53
+        type: ethernet
+      TenGigabitEthernet2/1/1:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/1
+        link: cable_num_81
+        type: ethernet
+      TenGigabitEthernet2/1/2:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/2
+        link: cable_num_82
+        type: ethernet
+      TenGigabitEthernet2/1/3:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/3
+        type: ethernet
+      TenGigabitEthernet2/1/4:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/4
+        link: cable_num_84
+        type: ethernet
+      TenGigabitEthernet2/1/5:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/5
+        link: cable_num_83
+        type: ethernet
+      TenGigabitEthernet2/1/6:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/6
+        link: cable_num_85
+        type: ethernet
+      TenGigabitEthernet2/1/7:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/7
+        link: cable_num_86
+        type: ethernet
+      TenGigabitEthernet2/1/8:
+        alias: BAKMTR1SWC01_TenGigabitEthernet2/1/8
+        link: cable_num_87
+        type: ethernet
+      Vlan100:
+        alias: BAKMTR1SWC01_Vlan100
+        ipv4: 10.2.0.1/23
+        type: vlan
+  BAKMTR1SWC02:
+    interfaces:
+      FortyGigabitEthernet1/1/1:
+        alias: BAKMTR1SWC02_FortyGigabitEthernet1/1/1
+        type: ethernet
+      FortyGigabitEthernet1/1/2:
+        alias: BAKMTR1SWC02_FortyGigabitEthernet1/1/2
+        type: ethernet
+      FortyGigabitEthernet2/1/1:
+        alias: BAKMTR1SWC02_FortyGigabitEthernet2/1/1
+        type: ethernet
+      FortyGigabitEthernet2/1/2:
+        alias: BAKMTR1SWC02_FortyGigabitEthernet2/1/2
+        type: ethernet
+      GigabitEthernet0/0:
+        alias: BAKMTR1SWC02_GigabitEthernet0/0
+        type: ethernet
+      TenGigabitEthernet1/0/1:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/1
+        link: cable_num_165
+        type: ethernet
+      TenGigabitEthernet1/0/10:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/10
+        type: ethernet
+      TenGigabitEthernet1/0/11:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/11
+        link: cable_num_432
+        type: ethernet
+      TenGigabitEthernet1/0/12:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/12
+        type: ethernet
+      TenGigabitEthernet1/0/13:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/13
+        type: ethernet
+      TenGigabitEthernet1/0/14:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/14
+        type: ethernet
+      TenGigabitEthernet1/0/15:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/15
+        type: ethernet
+      TenGigabitEthernet1/0/16:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/16
+        type: ethernet
+      TenGigabitEthernet1/0/17:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/17
+        type: ethernet
+      TenGigabitEthernet1/0/18:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/18
+        type: ethernet
+      TenGigabitEthernet1/0/19:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/19
+        type: ethernet
+      TenGigabitEthernet1/0/2:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/2
+        link: cable_num_166
+        type: ethernet
+      TenGigabitEthernet1/0/20:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/20
+        type: ethernet
+      TenGigabitEthernet1/0/21:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/21
+        type: ethernet
+      TenGigabitEthernet1/0/22:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/22
+        type: ethernet
+      TenGigabitEthernet1/0/23:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/23
+        type: ethernet
+      TenGigabitEthernet1/0/24:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/24
+        type: ethernet
+      TenGigabitEthernet1/0/25:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/25
+        type: ethernet
+      TenGigabitEthernet1/0/26:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/26
+        type: ethernet
+      TenGigabitEthernet1/0/27:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/27
+        type: ethernet
+      TenGigabitEthernet1/0/28:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/28
+        type: ethernet
+      TenGigabitEthernet1/0/29:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/29
+        link: cable_num_120
+        type: ethernet
+      TenGigabitEthernet1/0/3:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/3
+        link: cable_num_168
+        type: ethernet
+      TenGigabitEthernet1/0/30:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/30
+        link: cable_num_121
+        type: ethernet
+      TenGigabitEthernet1/0/31:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/31
+        link: cable_num_122
+        type: ethernet
+      TenGigabitEthernet1/0/32:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/32
+        link: cable_num_123
+        type: ethernet
+      TenGigabitEthernet1/0/33:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/33
+        type: ethernet
+      TenGigabitEthernet1/0/34:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/34
+        type: ethernet
+      TenGigabitEthernet1/0/35:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/35
+        type: ethernet
+      TenGigabitEthernet1/0/36:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/36
+        type: ethernet
+      TenGigabitEthernet1/0/37:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/37
+        type: ethernet
+      TenGigabitEthernet1/0/38:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/38
+        type: ethernet
+      TenGigabitEthernet1/0/39:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/39
+        type: ethernet
+      TenGigabitEthernet1/0/4:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/4
+        link: cable_num_170
+        type: ethernet
+      TenGigabitEthernet1/0/40:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/40
+        type: ethernet
+      TenGigabitEthernet1/0/5:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/5
+        link: cable_num_172
+        type: ethernet
+      TenGigabitEthernet1/0/6:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/6
+        link: cable_num_173
+        type: ethernet
+      TenGigabitEthernet1/0/7:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/7
+        link: cable_num_94
+        type: ethernet
+      TenGigabitEthernet1/0/8:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/8
+        link: cable_num_101
+        type: ethernet
+      TenGigabitEthernet1/0/9:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/0/9
+        link: cable_num_427
+        type: ethernet
+      TenGigabitEthernet1/1/1:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/1
+        type: ethernet
+      TenGigabitEthernet1/1/2:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/2
+        type: ethernet
+      TenGigabitEthernet1/1/3:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/3
+        type: ethernet
+      TenGigabitEthernet1/1/4:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/4
+        type: ethernet
+      TenGigabitEthernet1/1/5:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/5
+        type: ethernet
+      TenGigabitEthernet1/1/6:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/6
+        type: ethernet
+      TenGigabitEthernet1/1/7:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/7
+        link: cable_num_45
+        type: ethernet
+      TenGigabitEthernet1/1/8:
+        alias: BAKMTR1SWC02_TenGigabitEthernet1/1/8
+        link: cable_num_86
+        type: ethernet
+      TenGigabitEthernet2/0/1:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/1
+        link: cable_num_117
+        type: ethernet
+      TenGigabitEthernet2/0/10:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/10
+        type: ethernet
+      TenGigabitEthernet2/0/11:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/11
+        link: cable_num_431
+        type: ethernet
+      TenGigabitEthernet2/0/12:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/12
+        type: ethernet
+      TenGigabitEthernet2/0/13:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/13
+        type: ethernet
+      TenGigabitEthernet2/0/14:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/14
+        type: ethernet
+      TenGigabitEthernet2/0/15:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/15
+        type: ethernet
+      TenGigabitEthernet2/0/16:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/16
+        type: ethernet
+      TenGigabitEthernet2/0/17:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/17
+        type: ethernet
+      TenGigabitEthernet2/0/18:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/18
+        type: ethernet
+      TenGigabitEthernet2/0/19:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/19
+        type: ethernet
+      TenGigabitEthernet2/0/2:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/2
+        link: cable_num_167
+        type: ethernet
+      TenGigabitEthernet2/0/20:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/20
+        type: ethernet
+      TenGigabitEthernet2/0/21:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/21
+        type: ethernet
+      TenGigabitEthernet2/0/22:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/22
+        type: ethernet
+      TenGigabitEthernet2/0/23:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/23
+        type: ethernet
+      TenGigabitEthernet2/0/24:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/24
+        type: ethernet
+      TenGigabitEthernet2/0/25:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/25
+        type: ethernet
+      TenGigabitEthernet2/0/26:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/26
+        type: ethernet
+      TenGigabitEthernet2/0/27:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/27
+        type: ethernet
+      TenGigabitEthernet2/0/28:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/28
+        type: ethernet
+      TenGigabitEthernet2/0/29:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/29
+        link: cable_num_120
+        type: ethernet
+      TenGigabitEthernet2/0/3:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/3
+        link: cable_num_169
+        type: ethernet
+      TenGigabitEthernet2/0/30:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/30
+        link: cable_num_121
+        type: ethernet
+      TenGigabitEthernet2/0/31:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/31
+        link: cable_num_122
+        type: ethernet
+      TenGigabitEthernet2/0/32:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/32
+        link: cable_num_123
+        type: ethernet
+      TenGigabitEthernet2/0/33:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/33
+        type: ethernet
+      TenGigabitEthernet2/0/34:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/34
+        type: ethernet
+      TenGigabitEthernet2/0/35:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/35
+        type: ethernet
+      TenGigabitEthernet2/0/36:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/36
+        type: ethernet
+      TenGigabitEthernet2/0/37:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/37
+        type: ethernet
+      TenGigabitEthernet2/0/38:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/38
+        type: ethernet
+      TenGigabitEthernet2/0/39:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/39
+        type: ethernet
+      TenGigabitEthernet2/0/4:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/4
+        link: cable_num_171
+        type: ethernet
+      TenGigabitEthernet2/0/40:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/40
+        type: ethernet
+      TenGigabitEthernet2/0/5:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/5
+        link: cable_num_175
+        type: ethernet
+      TenGigabitEthernet2/0/6:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/6
+        link: cable_num_174
+        type: ethernet
+      TenGigabitEthernet2/0/7:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/7
+        link: cable_num_118
+        type: ethernet
+      TenGigabitEthernet2/0/8:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/8
+        link: cable_num_119
+        type: ethernet
+      TenGigabitEthernet2/0/9:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/0/9
+        link: cable_num_428
+        type: ethernet
+      TenGigabitEthernet2/1/1:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/1
+        type: ethernet
+      TenGigabitEthernet2/1/2:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/2
+        type: ethernet
+      TenGigabitEthernet2/1/3:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/3
+        type: ethernet
+      TenGigabitEthernet2/1/4:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/4
+        type: ethernet
+      TenGigabitEthernet2/1/5:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/5
+        type: ethernet
+      TenGigabitEthernet2/1/6:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/6
+        type: ethernet
+      TenGigabitEthernet2/1/7:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/7
+        link: cable_num_46
+        type: ethernet
+      TenGigabitEthernet2/1/8:
+        alias: BAKMTR1SWC02_TenGigabitEthernet2/1/8
+        link: cable_num_87
+        type: ethernet
+      Vlan100:
+        alias: BAKMTR1SWC02_Vlan100
+        ipv4: 10.2.0.85/23
+        type: vlan
+  BAKMTR2SWA01:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKMTR2SWA01_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKMTR2SWA01_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKMTR2SWA01_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKMTR2SWA01_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKMTR2SWA01_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKMTR2SWA01_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKMTR2SWA01_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKMTR2SWA01_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKMTR2SWA01_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKMTR2SWA01_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKMTR2SWA01_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKMTR2SWA01_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKMTR2SWA01_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKMTR2SWA01_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKMTR2SWA01_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKMTR2SWA01_GigabitEthernet0/23
+        link: cable_num_164
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKMTR2SWA01_GigabitEthernet0/24
+        link: cable_num_125
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKMTR2SWA01_GigabitEthernet0/25
+        link: cable_num_43
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKMTR2SWA01_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKMTR2SWA01_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKMTR2SWA01_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKMTR2SWA01_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKMTR2SWA01_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKMTR2SWA01_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKMTR2SWA01_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKMTR2SWA01_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKMTR2SWA01_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKMTR2SWA01_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKMTR2SWA01_Vlan100
+        ipv4: 10.2.0.74/23
+        type: vlan
+  BAKMTR2SWA02:
+    interfaces:
+      GigabitEthernet0/1:
+        alias: BAKMTR2SWA02_GigabitEthernet0/1
+        type: ethernet
+      GigabitEthernet0/10:
+        alias: BAKMTR2SWA02_GigabitEthernet0/10
+        type: ethernet
+      GigabitEthernet0/11:
+        alias: BAKMTR2SWA02_GigabitEthernet0/11
+        type: ethernet
+      GigabitEthernet0/12:
+        alias: BAKMTR2SWA02_GigabitEthernet0/12
+        type: ethernet
+      GigabitEthernet0/13:
+        alias: BAKMTR2SWA02_GigabitEthernet0/13
+        type: ethernet
+      GigabitEthernet0/14:
+        alias: BAKMTR2SWA02_GigabitEthernet0/14
+        type: ethernet
+      GigabitEthernet0/15:
+        alias: BAKMTR2SWA02_GigabitEthernet0/15
+        type: ethernet
+      GigabitEthernet0/16:
+        alias: BAKMTR2SWA02_GigabitEthernet0/16
+        type: ethernet
+      GigabitEthernet0/17:
+        alias: BAKMTR2SWA02_GigabitEthernet0/17
+        type: ethernet
+      GigabitEthernet0/18:
+        alias: BAKMTR2SWA02_GigabitEthernet0/18
+        type: ethernet
+      GigabitEthernet0/19:
+        alias: BAKMTR2SWA02_GigabitEthernet0/19
+        type: ethernet
+      GigabitEthernet0/2:
+        alias: BAKMTR2SWA02_GigabitEthernet0/2
+        type: ethernet
+      GigabitEthernet0/20:
+        alias: BAKMTR2SWA02_GigabitEthernet0/20
+        type: ethernet
+      GigabitEthernet0/21:
+        alias: BAKMTR2SWA02_GigabitEthernet0/21
+        type: ethernet
+      GigabitEthernet0/22:
+        alias: BAKMTR2SWA02_GigabitEthernet0/22
+        type: ethernet
+      GigabitEthernet0/23:
+        alias: BAKMTR2SWA02_GigabitEthernet0/23
+        type: ethernet
+      GigabitEthernet0/24:
+        alias: BAKMTR2SWA02_GigabitEthernet0/24
+        link: cable_num_125
+        type: ethernet
+      GigabitEthernet0/25:
+        alias: BAKMTR2SWA02_GigabitEthernet0/25
+        link: cable_num_83
+        type: ethernet
+      GigabitEthernet0/26:
+        alias: BAKMTR2SWA02_GigabitEthernet0/26
+        type: ethernet
+      GigabitEthernet0/27:
+        alias: BAKMTR2SWA02_GigabitEthernet0/27
+        type: ethernet
+      GigabitEthernet0/28:
+        alias: BAKMTR2SWA02_GigabitEthernet0/28
+        type: ethernet
+      GigabitEthernet0/3:
+        alias: BAKMTR2SWA02_GigabitEthernet0/3
+        type: ethernet
+      GigabitEthernet0/4:
+        alias: BAKMTR2SWA02_GigabitEthernet0/4
+        type: ethernet
+      GigabitEthernet0/5:
+        alias: BAKMTR2SWA02_GigabitEthernet0/5
+        type: ethernet
+      GigabitEthernet0/6:
+        alias: BAKMTR2SWA02_GigabitEthernet0/6
+        type: ethernet
+      GigabitEthernet0/7:
+        alias: BAKMTR2SWA02_GigabitEthernet0/7
+        type: ethernet
+      GigabitEthernet0/8:
+        alias: BAKMTR2SWA02_GigabitEthernet0/8
+        type: ethernet
+      GigabitEthernet0/9:
+        alias: BAKMTR2SWA02_GigabitEthernet0/9
+        type: ethernet
+      Vlan100:
+        alias: BAKMTR2SWA02_Vlan100
+        ipv4: 10.2.0.75/23
+        type: vlan
+  BAKMTR2SWC01:
+    interfaces:
+      FortyGigabitEthernet2/1/1:
+        alias: BAKMTR2SWC01_FortyGigabitEthernet2/1/1
+        type: ethernet
+      FortyGigabitEthernet2/1/2:
+        alias: BAKMTR2SWC01_FortyGigabitEthernet2/1/2
+        type: ethernet
+      TenGigabitEthernet2/0/1:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/1
+        link: cable_num_47
+        type: ethernet
+      TenGigabitEthernet2/0/10:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/10
+        link: cable_num_54
+        type: ethernet
+      TenGigabitEthernet2/0/11:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/11
+        link: cable_num_55
+        type: ethernet
+      TenGigabitEthernet2/0/12:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/12
+        link: cable_num_56
+        type: ethernet
+      TenGigabitEthernet2/0/13:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/13
+        link: cable_num_403
+        type: ethernet
+      TenGigabitEthernet2/0/14:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/14
+        link: cable_num_404
+        type: ethernet
+      TenGigabitEthernet2/0/15:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/15
+        link: cable_num_59
+        type: ethernet
+      TenGigabitEthernet2/0/16:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/16
+        link: cable_num_60
+        type: ethernet
+      TenGigabitEthernet2/0/17:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/17
+        link: cable_num_61
+        type: ethernet
+      TenGigabitEthernet2/0/18:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/18
+        link: cable_num_62
+        type: ethernet
+      TenGigabitEthernet2/0/19:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/19
+        link: cable_num_63
+        type: ethernet
+      TenGigabitEthernet2/0/2:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/2
+        type: ethernet
+      TenGigabitEthernet2/0/20:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/20
+        link: cable_num_64
+        type: ethernet
+      TenGigabitEthernet2/0/21:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/21
+        link: cable_num_65
+        type: ethernet
+      TenGigabitEthernet2/0/22:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/22
+        link: cable_num_66
+        type: ethernet
+      TenGigabitEthernet2/0/23:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/23
+        link: cable_num_67
+        type: ethernet
+      TenGigabitEthernet2/0/24:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/24
+        link: cable_num_68
+        type: ethernet
+      TenGigabitEthernet2/0/25:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/25
+        link: cable_num_69
+        type: ethernet
+      TenGigabitEthernet2/0/26:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/26
+        link: cable_num_70
+        type: ethernet
+      TenGigabitEthernet2/0/27:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/27
+        link: cable_num_71
+        type: ethernet
+      TenGigabitEthernet2/0/28:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/28
+        link: cable_num_27
+        type: ethernet
+      TenGigabitEthernet2/0/29:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/29
+        link: cable_num_28
+        type: ethernet
+      TenGigabitEthernet2/0/3:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/3
+        link: cable_num_48
+        type: ethernet
+      TenGigabitEthernet2/0/30:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/30
+        link: cable_num_29
+        type: ethernet
+      TenGigabitEthernet2/0/31:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/31
+        link: cable_num_30
+        type: ethernet
+      TenGigabitEthernet2/0/32:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/32
+        type: ethernet
+      TenGigabitEthernet2/0/33:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/33
+        link: cable_num_72
+        type: ethernet
+      TenGigabitEthernet2/0/34:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/34
+        link: cable_num_73
+        type: ethernet
+      TenGigabitEthernet2/0/35:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/35
+        link: cable_num_74
+        type: ethernet
+      TenGigabitEthernet2/0/36:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/36
+        link: cable_num_362
+        type: ethernet
+      TenGigabitEthernet2/0/37:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/37
+        link: cable_num_77
+        type: ethernet
+      TenGigabitEthernet2/0/38:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/38
+        link: cable_num_78
+        type: ethernet
+      TenGigabitEthernet2/0/39:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/39
+        link: cable_num_79
+        type: ethernet
+      TenGigabitEthernet2/0/4:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/4
+        link: cable_num_49
+        type: ethernet
+      TenGigabitEthernet2/0/40:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/40
+        link: cable_num_80
+        type: ethernet
+      TenGigabitEthernet2/0/5:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/5
+        link: cable_num_138
+        type: ethernet
+      TenGigabitEthernet2/0/6:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/6
+        link: cable_num_50
+        type: ethernet
+      TenGigabitEthernet2/0/7:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/7
+        link: cable_num_51
+        type: ethernet
+      TenGigabitEthernet2/0/8:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/8
+        link: cable_num_52
+        type: ethernet
+      TenGigabitEthernet2/0/9:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/0/9
+        link: cable_num_53
+        type: ethernet
+      TenGigabitEthernet2/1/1:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/1
+        link: cable_num_81
+        type: ethernet
+      TenGigabitEthernet2/1/2:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/2
+        link: cable_num_82
+        type: ethernet
+      TenGigabitEthernet2/1/3:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/3
+        type: ethernet
+      TenGigabitEthernet2/1/4:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/4
+        link: cable_num_84
+        type: ethernet
+      TenGigabitEthernet2/1/5:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/5
+        link: cable_num_83
+        type: ethernet
+      TenGigabitEthernet2/1/6:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/6
+        link: cable_num_85
+        type: ethernet
+      TenGigabitEthernet2/1/7:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/7
+        link: cable_num_86
+        type: ethernet
+      TenGigabitEthernet2/1/8:
+        alias: BAKMTR2SWC01_TenGigabitEthernet2/1/8
+        link: cable_num_87
+        type: ethernet
+  BAKMTR2SWC02:
+    interfaces:
+      FortyGigabitEthernet2/1/1:
+        alias: BAKMTR2SWC02_FortyGigabitEthernet2/1/1
+        type: ethernet
+      FortyGigabitEthernet2/1/2:
+        alias: BAKMTR2SWC02_FortyGigabitEthernet2/1/2
+        type: ethernet
+      TenGigabitEthernet2/0/1:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/1
+        link: cable_num_117
+        type: ethernet
+      TenGigabitEthernet2/0/10:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/10
+        type: ethernet
+      TenGigabitEthernet2/0/11:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/11
+        link: cable_num_431
+        type: ethernet
+      TenGigabitEthernet2/0/12:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/12
+        type: ethernet
+      TenGigabitEthernet2/0/13:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/13
+        type: ethernet
+      TenGigabitEthernet2/0/14:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/14
+        type: ethernet
+      TenGigabitEthernet2/0/15:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/15
+        type: ethernet
+      TenGigabitEthernet2/0/16:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/16
+        type: ethernet
+      TenGigabitEthernet2/0/17:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/17
+        type: ethernet
+      TenGigabitEthernet2/0/18:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/18
+        type: ethernet
+      TenGigabitEthernet2/0/19:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/19
+        type: ethernet
+      TenGigabitEthernet2/0/2:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/2
+        link: cable_num_167
+        type: ethernet
+      TenGigabitEthernet2/0/20:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/20
+        type: ethernet
+      TenGigabitEthernet2/0/21:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/21
+        type: ethernet
+      TenGigabitEthernet2/0/22:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/22
+        type: ethernet
+      TenGigabitEthernet2/0/23:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/23
+        type: ethernet
+      TenGigabitEthernet2/0/24:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/24
+        type: ethernet
+      TenGigabitEthernet2/0/25:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/25
+        type: ethernet
+      TenGigabitEthernet2/0/26:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/26
+        type: ethernet
+      TenGigabitEthernet2/0/27:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/27
+        type: ethernet
+      TenGigabitEthernet2/0/28:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/28
+        type: ethernet
+      TenGigabitEthernet2/0/29:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/29
+        link: cable_num_120
+        type: ethernet
+      TenGigabitEthernet2/0/3:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/3
+        link: cable_num_169
+        type: ethernet
+      TenGigabitEthernet2/0/30:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/30
+        link: cable_num_121
+        type: ethernet
+      TenGigabitEthernet2/0/31:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/31
+        link: cable_num_122
+        type: ethernet
+      TenGigabitEthernet2/0/32:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/32
+        link: cable_num_123
+        type: ethernet
+      TenGigabitEthernet2/0/33:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/33
+        type: ethernet
+      TenGigabitEthernet2/0/34:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/34
+        type: ethernet
+      TenGigabitEthernet2/0/35:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/35
+        type: ethernet
+      TenGigabitEthernet2/0/36:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/36
+        type: ethernet
+      TenGigabitEthernet2/0/37:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/37
+        type: ethernet
+      TenGigabitEthernet2/0/38:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/38
+        type: ethernet
+      TenGigabitEthernet2/0/39:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/39
+        type: ethernet
+      TenGigabitEthernet2/0/4:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/4
+        link: cable_num_171
+        type: ethernet
+      TenGigabitEthernet2/0/40:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/40
+        type: ethernet
+      TenGigabitEthernet2/0/5:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/5
+        link: cable_num_175
+        type: ethernet
+      TenGigabitEthernet2/0/6:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/6
+        link: cable_num_174
+        type: ethernet
+      TenGigabitEthernet2/0/7:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/7
+        link: cable_num_118
+        type: ethernet
+      TenGigabitEthernet2/0/8:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/8
+        link: cable_num_119
+        type: ethernet
+      TenGigabitEthernet2/0/9:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/0/9
+        link: cable_num_428
+        type: ethernet
+      TenGigabitEthernet2/1/1:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/1
+        type: ethernet
+      TenGigabitEthernet2/1/2:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/2
+        type: ethernet
+      TenGigabitEthernet2/1/3:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/3
+        type: ethernet
+      TenGigabitEthernet2/1/4:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/4
+        type: ethernet
+      TenGigabitEthernet2/1/5:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/5
+        type: ethernet
+      TenGigabitEthernet2/1/6:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/6
+        type: ethernet
+      TenGigabitEthernet2/1/7:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/7
+        link: cable_num_46
+        type: ethernet
+      TenGigabitEthernet2/1/8:
+        alias: BAKMTR2SWC02_TenGigabitEthernet2/1/8
+        link: cable_num_87
+        type: ethernet
