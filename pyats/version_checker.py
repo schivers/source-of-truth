@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 
 # To get a logger for the script
