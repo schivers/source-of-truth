@@ -145,6 +145,8 @@ Pro Tip
 
 PyATS will write a dated .zip report to /home/ntt/.pyats/archive/ and a non-dated html file to /PyATS-Reports
 
+WARNING: The file saved to /PyATS-Reports uses the common file name (TaskLog.Baku_test_job.html) that gets overwritten each time the script is run.
+
 ## Test files
 
 *  ***hostname_checker.py*** - Checks each device's configured hostname against that defined in the testbed.yaml
