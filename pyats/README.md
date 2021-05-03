@@ -147,6 +147,22 @@ PyATS will write a dated .zip report to /home/ntt/.pyats/archive/ and a non-date
 
 WARNING: The file saved to /PyATS-Reports uses the common file name (TaskLog.Baku_test_job.html) that gets overwritten each time the script is run.
 
+## How to send a report in email
+
+
+
+## How to serve the .zip archive files
+I am using a small web server 'Ruby and Rails' to serve the archive files that each run of a PyATS test job will create.
+
+Install Ruby and Rails - https://ostechnix.com/install-ruby-rails-ubuntu-16-04/
+
+Run the web service
+```
+cd ~\ftp\PyATS_Reports\
+ruby -run -ehttpd . -p8000
+```
+
+
 ## Test files
 
 *  ***hostname_checker.py*** - Checks each device's configured hostname against that defined in the testbed.yaml
