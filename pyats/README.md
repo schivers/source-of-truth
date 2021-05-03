@@ -37,7 +37,7 @@ genie diff learn-20210412 learn-20210412-after 20210412-diff
 ## PyATS Job File
 The recomended way to run a series of tests is to complie the tests into a job file and then run the job file as follows. 
 ```
-easypy Baku_test_job.py -html_logs PyATS-Reports -testbed_file testbed.yaml
+pyats run job Baku_test_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter shaunchivers --archive-dir /home/ntt/ftp/PyATS_Reports/ -t testbed.yaml
 ```
 
 A sample output from running the job file with just the hostname checker.py test
