@@ -1,0 +1,9 @@
+export PYATS_USERNAME=admin
+export PYATS_PASSWORD=3uro2o2o
+export PYATS_AUTH_PASS=U3f42o2o
+export PYATS_CONFIGURATION=/etc/pyats.conf
+
+export NETBOX_TOKEN=0123456789abcdef0123456789abcdef01234567
+export NETBOX_URL=http://192.168.1.191:8000
+export NETBOX_SITE=Baku
+export NETBOX_TENANT="UEFA"
