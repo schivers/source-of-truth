@@ -12,7 +12,6 @@ Reference - https://developer.cisco.com/codeexchange/github/repo/hpreston/nxos-n
 Then run PyATS with the --webex-token and --webex-space keys
 
 ```
---webex-token OTBlNDk4NTctMWMwZC00MzE1LWEwOWItYmJkNWU5MjAzZWNiODMzNDE1OTAtOGEz_PF84_0198f08a-3880-4871-b55e-4863ccf723d5 --webex-space Y2lzY29zcGFyazovL3VzL1JPT00vNTIxOWRiYTAtYWNiMC0xMWViLTgzYjctOTVlMTRhZTBhYTE3
+pyats run job Baku_test_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter shaunchivers --archive-dir /home/ntt/ftp/PyATS_Reports/ -t testbed.yaml --webex-token OTBlNDk4NTctMWMwZC00MzE1LWEwOWItYmJkNWU5MjAzZWNiODMzNDE1OTAtOGEz_PF84_0198f08a-3880-4871-b55e-4863ccf723d5 --webex-space Y2lzY29zcGFyazovL3VzL1JPT00vNTIxOWRiYTAtYWNiMC0xMWViLTgzYjctOTVlMTRhZTBhYTE3
 ```
-
 Sample output: WebexTeams_Bot.jpg
