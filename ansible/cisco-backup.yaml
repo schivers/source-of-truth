@@ -22,4 +22,4 @@
     - name: save output to /opt/ansible/backups
       copy:
         content: "{{ config.stdout[0] }}"
-        dest: "/opt/ansible/backups/{{ inventory_hostname }}_{{ date }}.txt"
+        dest: "/home/ntt/ftp/backups/{{ inventory_hostname }}_{{ date }}.txt"
