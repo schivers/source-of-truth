@@ -1,0 +1,51 @@
+! Interface Configurations
+{% for interface in interfaces -%}
+interface {{ interface.name }}
+  description {{ interface.description }}
+  no shutdown
+{% if interface.ip_addresses -%}
+  no switchport
+{% for address in interface.ip_addresses -%}
+{% if not address.role -%}
+  ip address {{ address.ip }} {{ address.network.netmask }}
+{% endif -%}
+{% endfor -%}
+{% endif -%}
+{% if "APW" in interface.description -%}
+ spanning-tree portfast edge trunk
+ storm-control broadcast level 2.00
+ storm-control action shutdown
+ power inline static max 30000
+{% elif "SWU" in interface.description -%}
+ spanning-tree bpduguard enable
+ spanning-tree guard root
+ storm-control broadcast level 2.00
+ storm-control action shutdown
+ srr-queue bandwidth limit 50
+ switchport port-security
+ switchport port-security maximum 20
+{% elif "Printer" in interface.description -%}
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ spanning-tree guard root
+ storm-control broadcast level 2.00
+ storm-control action shutdown
+ srr-queue bandwidth limit 10
+ switchport port-security
+ switchport port-security maximum 5
+{% endif -%}
+{% if interface.mode.label == "Tagged All" -%}
+  switchport mode trunk
+{% elif interface.mode.label == "Tagged" -%}
+  switchport mode trunk
+{% for allowed_vlan in interface.tagged_vlans -%}
+  switchport trunk allowed vlan add {{ allowed_vlan.vid }}
+{% endfor -%}
+{% elif interface.mode.label == "Access" -%}
+    switchport mode access
+  switchport access vlan {{ interface.untagged_vlan.vid }}
+{% endif -%}
+!
+{% endfor -%}
+!
+!
