@@ -182,6 +182,22 @@ drwxr-xr-x  2 ntt    ntt     4096 Apr  6 19:13 backups/
 drwxr-xr-x  2 ntt    ntt     4096 Apr  6 19:15 config-generator/
 ```
 
+## Cron Scheduled Tasks
+I am using CRON to schedule tasks such as config backups.
+https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-ubuntu-1804
+
+Launch the crontab editor
+```
+crontabe -e
+```
+
+Add the following line to schedule ansible to run the Config Backup Play every 60 mins
+```
+*/60 * * * * sudo ansible-playbook ~/ansible/backup-device-configs-play.yaml -i ~/ansible/nb_inventory.yaml --vault-password-file ~/.vault_pass.txt
+```
+
+Note that the vault password is stored (in clear text) in ~/.vault_pass.txt rather than using the command line --ask-vault-pass prompt.
+
 Reference 
 - https://www.techrepublic.com/article/how-to-quickly-setup-an-ftp-server-on-ubuntu-18-04/
 - https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-16-04
