@@ -164,7 +164,7 @@ Ansible uses Vault to store the device username and password credentials
 Run with
 ```
 cd /home/ntt/ansible
-sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
+sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yaml --ask-vault-pass
 ```
 
 Configs are backed up to 
