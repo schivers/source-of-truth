@@ -1,6 +1,8 @@
+# run with
+# sudo ansible-playbook cisco-backup.yaml -i nb_inventory.yml --ask-vault-pass
  - name: Backup all network ios switches
    hosts: all
-   gather_facts: true
+   gather_facts: false
    connection: local
    vars_files:
      - group_vars/vault
@@ -12,14 +14,26 @@
      ansible_ssh_user: "{{ vault_ansible_ssh_user }}"
      ansible_password: "{{ vault_ansible_password }}"
      ansible_become_password: "{{ vault_ansible_become_password }}"
-     date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+     date: "{{ lookup('pipe', 'date +%Y%m%d') }}"
+     datetime: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+     token: OTBlNDk4NTctMWMwZC00MzE1LWEwOWItYmJkNWU5MjAzZWNiODMzNDE1OTAtOGEz_PF84_0198f08a-3880-4871-b55e-4863ccf723d5
+     room_id: Y2lzY29zcGFyazovL3VzL1JPT00vNTIxOWRiYTAtYWNiMC0xMWViLTgzYjctOTVlMTRhZTBhYTE3
+
    tasks:
+
+    - name: create directory
+      file:
+        path: "/home/ntt/ftp/backups/{{ date }}"
+        state: directory
+      delegate_to: localhost
+
     - name: show run
       ios_command:
         commands:
           - show run
       register: config
-    - name: save output to /opt/ansible/backups
+
+    - name: save output to /home/ntt/ftp/backups/
       copy:
         content: "{{ config.stdout[0] }}"
-        dest: "/home/ntt/ftp/backups/{{ inventory_hostname }}_{{ date }}.txt"
+        dest: "/home/ntt/ftp/backups/{{ date }}/{{ inventory_hostname }}_{{ datetime }}.txt"
