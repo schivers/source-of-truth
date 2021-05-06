@@ -26,6 +26,14 @@ Example inventory files
 | nb_inventory.yaml | Use to return all devices with a state = active |
 | nb_inventory_SWA.yaml | Use to return all access switches |
 
+**Ansible Vault**
+I am using Ansible Vault to securly store device login credentials rather than embed these into playbooks
+
+
+References
+*  https://docs.ansible.com/ansible/latest/user_guide/vault.html
+*  https://docs.ansible.com/ansible/2.8/user_guide/playbooks_vault.html#running-a-playbook-with-vault
+
 **Upgrade switches**
 This playbook will gather facts for each device in the inventory file and compare the learnt IOS version against the version defined in the playbook. The inventory file used in my example returns all devices will and active status.
 I use the core Catalyst 9500 as the SCP server
