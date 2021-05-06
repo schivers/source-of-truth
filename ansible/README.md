@@ -86,6 +86,7 @@ I am using a master playbook to call other playbooks when i push out configs to 
 
 Example master playbook
 ```
+# run with sudo ansible-playbook push-update-play.yaml -i nb_inventory.yaml --vault-password-file ~/.vault_pass.txt
 - include: push_start_webex_bot.yaml
 - include: config_update_v105b1.yaml
 - include: config_update_vlan100.yaml
