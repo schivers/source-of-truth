@@ -76,3 +76,19 @@ This playbook will use the filtered Netbox inventory to push out a config update
 ```
 sudo ansible-playbook config_update_v105b.yaml -i nb_inventory.yaml --ask-vault-pass
 ```
+
+** Using a play to run multiple playbooks**
+I am using a master playbook to call other playbooks when i push out configs to devices. Typically this involves 
+
+*  calling a playbook to write to Webex Teams advising that a play is about to start
+*  running multiple playbooks to push specific config updates; e.g. vLAN changes, ACL changes etc
+*  calling a playbook to write to Webex Teams advising that a play has completed
+
+Example master playbook
+``
+- include: push_start_webex_bot.yaml
+- include: config_update_v105b1.yaml
+- include: config_update_vlan100.yaml
+- include: config_update_vlan111.yaml
+- include: push_completed_webex_bot.yaml
+```
