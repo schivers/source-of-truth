@@ -1,4 +1,4 @@
-# A User Guide for Baku ICT Staff
+# Baku ICT Staff User Guide
 
 ## Netbox
 Add a browser shortcut to http://192.168.1.191:8000/dcim/sites/baku/
