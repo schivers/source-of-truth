@@ -31,7 +31,7 @@ def main(runtime):
 #        runtime=runtime,
 #        taskid="Check Configured Hostname",
 #     )
-    """
+    
     run(
         testscript=os.path.join(SCRIPT_PATH, "interface_errors.py"),
         runtime=runtime,
@@ -42,9 +42,9 @@ def main(runtime):
        runtime=runtime,
        taskid="Version Checker",
     )
-    """
+    
     run(
-       testscript=os.path.join(SCRIPT_PATH, "cdp_enabled2.py"),
+       testscript=os.path.join(SCRIPT_PATH, "cdp_enabled.py"),
        runtime=runtime,
        taskid="CDP Enabled",
     )
