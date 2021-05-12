@@ -1,4 +1,9 @@
-##
+# Overview
+
+This check connects to all devices defined in the testbed, and parses locally configured
+usernames against a list provided at runtime, the test passes if all usernames (an no additional)
+users are configured on the device.
+
 
 
 ## Running
