@@ -21,10 +21,8 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
-# Software versions:
-iosxe_os = ['16.12.5']
-ios_os = ['15.2(7)E3']
-nxos_os = ['9.3(9)']
+# interfaces:
+interface_types_to_check_list = ['Ethernet','mgmt']
 
 class MyCommonSetup(aetest.CommonSetup):
     """
@@ -55,7 +53,7 @@ class MyCommonSetup(aetest.CommonSetup):
         self.parent.parameters.update(dev=device_list)
 
 
-class Version(aetest.Testcase):
+class CDP(aetest.Testcase):
     """
     Version Testcase - extract Serial numbers information from devices
     Verify that all SNs are covered by service contract (exist in contract_sn)
@@ -69,47 +67,53 @@ class Version(aetest.Testcase):
         """
 
         devices = self.parent.parameters['dev']
-        aetest.loop.mark(self.version, device=devices)
+        aetest.loop.mark(self.cdp_enabled, device=devices)
 
     @aetest.test
-    def version(self, device):
+    def cdp_enabled(self, device):
         """
         Verify that the OS version is correct
         """
+        test_status = 'None'
+        pass_counter = 0
+        test_status_string = ''
 
         if device.os == 'iosxe':
 
-            out1 = device.parse('show version')
-            os_version = out1['version']['version']
-
-            if os_version not in iosxe_os:
-                self.failed(f'{os_version} on {device} is not the correct version')
-            else:
-                pass
+            pass
 
         elif device.os == 'ios':
 
-            out2 = device.parse('show version')
-            os_version = out2['version']['version']
-
-            if os_version not in ios_os:
-                self.failed(f'{os_version} on {device} is not the correct version')
-            else:
-                pass
-
+            pass
 
         elif device.os == 'nxos':
 
-            out3 = device.parse('show version')
-            pprint.pprint(out3)
-            #print("Keith " & out3['platform']['software'] )
-            os_version = out3['platform']['software']['system_version']
+            out = device.parse('show interface')
+            for interface in out.items():
+                for interfaces_types_to_check in interface_types_to_check_list:
+                    if interface[0].find(interfaces_types_to_check) != -1:
+                        interface_detail = device.execute('show cdp interface ' + interface[0])
+                        interface_detail_line_array = interface_detail.splitlines()
+                        line_index = 0
+                        cdp_enabled = False
+                        while line_index < len(interface_detail_line_array):
+                            if interface_detail_line_array[line_index].find('CDP enabled') != -1:
+                                cdp_enabled = True
+                            line_index += 1
+                        if cdp_enabled:
+                            log.info(f"{interface[0]} on {device} PASSED: cdp enabled")
+                            pass_counter += 1
+                        else:
+                            log.info(f"{interface[0]} on {device} FAILED: cdp disabled")
+                            test_status = 'Failed'
+                            test_status_string = f'{test_status_string} {interface[0]} on {device} FAILED: cdp disabled\n'
 
-            if os_version not in nxos_os:
-                self.failed(f'{os_version} on {device} is not the correct version')
-            else:
-                pass
-
+            if test_status == 'Failed':
+                self.failed(f"{device} FAILED: cdp disabled\n{test_status_string}")
+            if test_status =='None' and pass_counter == 0:
+                self.failed(f"{device} FAILED: no interfaces passed or failed, check script")
+            if test_status =='None' and pass_counter > 0:
+                self.passed(f'{device} all interfaces checked are enabled for cdp')
 
 
 if __name__ == '__main__':
