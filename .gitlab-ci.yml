@@ -1,0 +1,7 @@
+image: ciscotestautomation/pyats:latest
+
+
+stages:
+  - test
+  
+test:
