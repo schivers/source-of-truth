@@ -48,3 +48,8 @@ def main(runtime):
        runtime=runtime,
        taskid="CDP Enabled",
     )
+    run(
+       testscript=os.path.join(SCRIPT_PATH, "ping_ntp.py"),
+       runtime=runtime,
+       taskid="Ping NTP Server",
+    )
