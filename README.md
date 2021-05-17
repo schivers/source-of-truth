@@ -198,6 +198,19 @@ Add the following line to schedule ansible to run the Config Backup Play every 6
 
 Note that the vault password is stored (in clear text) in ~/.vault_pass.txt rather than using the command line --ask-vault-pass prompt.
 
+## Backup and Restore
+This section needs further development
+
+```
+docker-compose pull
+docker-compose down -v --remove-orphans
+docker-compose up -d postgres
+docker-compose exec -T postgres sh -c 'pg_restore -v -Fc -c -U $POSTGRES_USER -d $POSTGRES_DB' < "netbox_17_05_21_media.pgdump"
+docker-compose down
+docker-compose up
+```
+
+
 Reference 
 - https://www.techrepublic.com/article/how-to-quickly-setup-an-ftp-server-on-ubuntu-18-04/
 - https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-16-04
