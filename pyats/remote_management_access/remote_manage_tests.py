@@ -108,8 +108,9 @@ class RemoteManagement(aetest.Testcase):
         "Check domain-name configuration"
         if device.os == "iosxe" or device.os == "ios":
 
-            out1 = device.execute("show run | include ip domain name")
+            out1 = device.api.get_running_config_section("ip")
             log.info("Domain name: {0}".format(out1))
+
 
         elif device.os == "nxos":
             out1 = device.execute("show run | include domain-name")
@@ -149,7 +150,7 @@ class RemoteManagement(aetest.Testcase):
 
             out1 = device.execute("sh run | sec line vty 0")
             log.info(out1)
-            if "transport input ssh" in out1:
+            if 'transport input ssh' in out1:
                 self.passed("transport input ssh found under line vty 0")
             else:
                 self.failed("'transport input ssh' line was not found")
@@ -159,12 +160,19 @@ class RemoteManagement(aetest.Testcase):
 
     @aetest.test
     def show_aaa_settings(self, device):
-        "Verify AAA Settings"
+        "Verify AAA Settings -show run | section aaa"
         if device.os == "iosxe" or device.os == "ios":
-
-            out1 = device.execute("show run | section aaa")
+            aaaTestCase= ['aaa new-model', 'aaa authentication login default local', 'aaa authorization exec default local if-authenticated ']
+            out1 = device.api.get_running_config_section("aaa")
             log.info("AAA Settings:\n {0}".format(out1))
+            result= all(elem in out1 for elem in aaaTestCase)
 
+            if result:
+                self.passed("AAA Settings are correct")
+            else:
+                self.failed("AAA settings do not match with test case")
+                
+        
         elif device.os == "nxos":
             out1 = device.execute("show run | section aaa")
             log.info("Domain name:\n {0}".format(out1))
