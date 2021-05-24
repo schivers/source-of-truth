@@ -29,8 +29,8 @@ test_status = 'None'
 pass_counter = 0
 
 #Central NTP server details
-#ntp_server_ip_list = ['172.22.192.56','10.224.0.100','172.16.0.1']
-ntp_server_ip_list = ['172.16.0.1']
+ntp_server_ip_list = ['172.22.192.56','10.224.0.100']
+
 
 class MyCommonSetup(aetest.CommonSetup):
     """
@@ -104,13 +104,14 @@ class Check_NTP_Associations(aetest.Testcase):
         if device.os == 'WIP':
             pass
         
-        elif device.os == 'nxos' or device.os == 'iosxe':
+        elif device.os == 'nxos' or device.os == 'ios':
 
-            ntp_details = device.execute('show running-config | grep "ntp server"')
+            ntp_details = device.execute('show running-config | include ntp server')
             if ntp_details == '':
                 #self.failed(f'NTP Server on {device} not found') 
                 test_status_string = test_status_string + 'FAILED: No NTP Servers configured on {}\n'.format(device)
                 test_status = 'Failed'
+                log.info('FAILED: No NTP Servers configured on {}'.format(device))
             else:    
                 #check the NTP servers are listed
                 ntp_server_count = 0
@@ -119,24 +120,30 @@ class Check_NTP_Associations(aetest.Testcase):
                         # ntp server not found
                         test_status_string = test_status_string + 'FAILED: NTP Server {} not configured on {}\n'.format(ntp_server_ip,device)
                         test_status = 'Failed'
+                        log.info('FAILED: NTP Server {} not configured on {}'.format(ntp_server_ip,device))
                     else:
                         # ntp server found
                         test_status_string = test_status_string + 'PASSED: NTP Server {} configured on {}\n'.format(ntp_server_ip,device)
                         ntp_server_count += 1
                         pass_counter += 1
+                        log.info('PASSED: NTP Server {} configured on {}'.format(ntp_server_ip,device))
   
                 if ntp_server_count == len(ntp_server_ip_list):
                     #All required NTP Servers Listed, check NTP Associations on this device.
                     ntp_details = device.execute('show ntp status')
-                    log.info(ntp_details)
+                   
                     if ntp_details.find('Clock is synchronized') == -1:
                         test_status_string = test_status_string + 'FAILED: NTP unsynchronised on {}\n'.format(device)
                         test_status = 'Failed'
+                        log.info('FAILED: NTP unsynchronised on {}'.format(device))
                     else:
                         test_status_string = test_status_string + 'PASSED: NTP synchronised on {}\n'.format(device)
                         pass_counter += 1
-
-
+                        log.info('PASSED: NTP synchronised on {}'.format(device))
+        else:
+            test_status_string = test_status_string + 'FAILED: Device OS type {} not handled in script for device {}\n'.format(device.os,device)
+            test_status = 'Failed'
+            log.info('FAILED: Device OS type {} not handled in script for device {}'.format(device.os,device))
      
             
 class CommonCleanup(aetest.CommonCleanup):

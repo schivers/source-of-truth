@@ -44,6 +44,7 @@ class MyCommonSetup(aetest.CommonSetup):
         """
         global test_status_string 
         global test_status
+        global pass_counter
         genie_testbed = Genie.init(testbed)
         self.parent.parameters['testbed'] = genie_testbed
         device_list = []
@@ -52,6 +53,8 @@ class MyCommonSetup(aetest.CommonSetup):
             try:
                 device.connect(log_stdout=False)
                 device_list.append(device)
+                test_status_string = test_status_string + (f"PASSED: Establish "f"connection to '{device.name}'\n")
+                pass_counter += 1
                 
             except errors.ConnectionError:
                 #self.skipped(f"Failed to establish "f"connection to '{device.name}'")
@@ -91,16 +94,37 @@ class Check_LLDP(aetest.Testcase):
         if device.os == 'WIP':
             pass
 
-        elif device.os == 'nxos' or device.os == 'iosxe':
-            lldp_details = device.execute('show running-config | grep "feature lldp"')
+        elif device.os == 'nxos':
+            lldp_details = device.execute('show running-config | include feature lldp')
             if lldp_details == '': 
-                test_status_string = test_status_string + 'FAILED: LLDP on {} not set\n'.format(device)
+                test_status_string = test_status_string + 'FAILED: LLDP is not configured on {} \n'.format(device)
                 test_status = 'Failed'
+                log.info('FAILED: LLDP is not configured on {}'.format(device))
+
             elif lldp_details.find('feature lldp') != -1:
                 #check for lldp written in the returned wording
                 test_status_string = test_status_string + 'PASSED: LLDP on {} set\n'.format(device)
                 pass_counter += 1
-  
+                log.info('PASSED: LLDP is configured on {}'.format(device))
+
+        elif device.os == 'ios':
+            lldp_details = device.execute('show running-config | include lldp run')
+            if lldp_details == '': 
+                test_status_string = test_status_string + 'FAILED: LLDP is not configured on {}\n'.format(device)
+                test_status = 'Failed'
+                log.info('FAILED: LLDP is not configured on {}'.format(device))
+
+            elif lldp_details.find('lldp run') != -1:
+                #check for lldp written in the returned wording
+                test_status_string = test_status_string + 'PASSED: LLDP is configured on {}\n'.format(device)
+                pass_counter += 1
+                log.info('PASSED: LLDP is configured on {}'.format(device))
+
+        else:
+            test_status_string = test_status_string + 'FAILED: Device OS type {} not handled in script for device {}\n'.format(device.os,device)
+            test_status = 'Failed'
+            log.info('FAILED: Device OS type {} not handled in script for device {}'.format(device.os,device))
+     
             
 class CommonCleanup(aetest.CommonCleanup):
     """CommonCleanup Section
@@ -114,7 +138,6 @@ class CommonCleanup(aetest.CommonCleanup):
         global test_status
         global pass_counter
         if test_status == 'Failed':
-            log.info('Test should have failed?')
             self.failed(f"FAILED: Check LLDP Test\n{test_status_string}")
         if test_status =='None' and pass_counter == 0:
             self.failed(f"FAILED: Check LLDP anomaly, check script\n{test_status_string}")
