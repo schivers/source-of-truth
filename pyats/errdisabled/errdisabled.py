@@ -49,7 +49,6 @@ class MyCommonSetup(aetest.CommonSetup):
 
 
 class err_disabled(aetest.Testcase):
-
     @aetest.setup
     def setup(self):
         """
@@ -59,7 +58,7 @@ class err_disabled(aetest.Testcase):
 
         devices = self.parent.parameters["dev"]
         aetest.loop.mark(self.test, device=devices)
-        
+
     @aetest.test
     def test(self, device):
         "Check errdisabled recovery feature set up correctly"
@@ -69,9 +68,9 @@ class err_disabled(aetest.Testcase):
                 "errdisable recovery cause bpduguard",
                 "errdisable recovery cause mac-limit",
                 "errdisable recovery cause storm-control",
-                "errdisable recovery interval 900"
+                "errdisable recovery interval 900",
             ]
-            out1= device.api.get_running_config("errdisable")
+            out1 = device.api.get_running_config("errdisable")
             log.info("ErrDisabled:{0}".format(out1))
             # List comprehension checking all elements of a list are present
             result = all(elem in out1 for elem in errDisabledCase)
@@ -80,7 +79,6 @@ class err_disabled(aetest.Testcase):
                 self.passed("ErrDisabled Recovery configuration is valid.")
             else:
                 self.failed("ErrDisabled Recovery configuration is invalid.")
-    
 
 
 if __name__ == "__main__":

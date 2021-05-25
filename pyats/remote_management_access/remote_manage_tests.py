@@ -103,7 +103,7 @@ class RemoteManagement(aetest.Testcase):
             res = [elem for elem in out1 if any(i in elem for i in users)]
 
             log.info("Filtered Users:{0}".format(res))
-            
+
             if len(res) == len(users):
                 self.passed("Configured users were found.")
             else:
