@@ -227,8 +227,8 @@ backup_netbox_webexchat_complete.py
 import requests
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
-m = MultipartEncoder({'roomId': 'Y2lzY29zcGFyazovL3VzL1JPT00vNTIxOWRiYTAtYWNiMC0xMWViLTgzYjctOTVlMTRhZTBhYTE3',
-                      'text': 'Netbox daily backup COMPLETE',
+m = MultipartEncoder({'roomId': 'Y2lzY29zcGFyazovL3VzL1JPT00vNmM1MjI0NjAtYjAxMC0xMWViLTg0YWQtNzU1YzRiMDUzZGJk',
+                      'text': 'Netbox daily backup COMPLETE. Files copied to http://10.2.84.2:8003/ and to BakuNetbox@gmail.com Google Drive',
 #                      'files': ('example.png', open('example.png', 'rb'),
 #                      'image/png')
 })
@@ -238,12 +238,6 @@ r = requests.post('https://webexapis.com/v1/messages', data=m,
                   'Content-Type': m.content_type})
 
 #print r.text
-```
-
-I am using crontab -e to schedule daily backups at 1am
-```
-# Netbox daily backup
-0 1 * * *     /home/ntt/backup_netbox.py
 ```
 
 
