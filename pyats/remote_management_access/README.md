@@ -11,8 +11,6 @@ This test job attempts to verify the following:
 - AAA settings
 - Enable Secret
 
-This is a WIP - awaiting further requirements.
-
 # Running
 
 ```
