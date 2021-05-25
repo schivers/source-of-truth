@@ -217,12 +217,37 @@ cd /run/user/1001/gvfs/google-drive:host=gmail.com,user=bakunetbox/1EaVusNcT1eNc
 # Copy the baked up files to google drive
 cp  /home/ntt/ftp/backups/netbox_$(date +%Y-%m-%d)_media.tgz  ./
 cp  /home/ntt/ftp/backups/netbox_$(date +%Y-%m-%d).pgdump ./
+
+# Send a message to the Baku chatbot to advise the backup is complete
+python3 /home/ntt/backup_netbox_webexchat_complete.py
 ```
+
+backup_netbox_webexchat_complete.py
+```
+import requests
+from requests_toolbelt.multipart.encoder import MultipartEncoder
+
+m = MultipartEncoder({'roomId': 'Y2lzY29zcGFyazovL3VzL1JPT00vNTIxOWRiYTAtYWNiMC0xMWViLTgzYjctOTVlMTRhZTBhYTE3',
+                      'text': 'Netbox daily backup COMPLETE',
+#                      'files': ('example.png', open('example.png', 'rb'),
+#                      'image/png')
+})
+
+r = requests.post('https://webexapis.com/v1/messages', data=m,
+                  headers={'Authorization': 'Bearer OTBlNDk4NTctMWMwZC00MzE1LWEwOWItYmJkNWU5MjAzZWNiODMzNDE1OTAtOGEz_PF84_0198f08a-3880-4871-b55e-4863ccf723d5',
+                  'Content-Type': m.content_type})
+
+#print r.text
+```
+
 I am using crontab -e to schedule daily backups at 1am
 ```
 # Netbox daily backup
 0 1 * * *     /home/ntt/backup_netbox.py
 ```
+
+
+
 
 Reference 
 - https://www.techrepublic.com/article/how-to-quickly-setup-an-ftp-server-on-ubuntu-18-04/
