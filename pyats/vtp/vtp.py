@@ -65,38 +65,42 @@ class vtp_status(aetest.Testcase):
         aetest.loop.mark(self.test, device=devices)
 
     @aetest.test
-    def test(self, device,steps):
+    def test(self, device, steps):
         "Check VTP Status for domain name & operation mode."
-        with steps.start(
-                "Executing 'show vtp status' on {0}".format(device.name)):
+        with steps.start("Executing 'show vtp status' on {0}".format(device.name)):
 
             if device.os == "iosxe" or device.os == "ios":
-                out1= device.parse('show vtp status')
+                out1 = device.parse("show vtp status")
                 log.info(out1)
-            
+
             else:
                 self.failed("Test failed - Device not compatible.")
 
         with steps.start(
-                "Validating VTP Domain Name for {0}".format(device.name), continue_ = True) as step:
+            "Validating VTP Domain Name for {0}".format(device.name), continue_=True
+        ) as step:
 
             if out1:
-                    domain_name=out1['vtp']['domain_name']
-                    if domain_name == device.hostname:
-                        step.passed("Domain Name matches with Hostname")
-                    else:
-                        step.failed("Domain Name ({0}) does not match with Hostname ({1})".format(domain_name,device.hostname))
+                domain_name = out1["vtp"]["domain_name"]
+                if domain_name == device.hostname:
+                    step.passed("Domain Name matches with Hostname")
+                else:
+                    step.failed(
+                        "Domain Name ({0}) does not match with Hostname ({1})".format(
+                            domain_name, device.hostname
+                        )
+                    )
 
         with steps.start(
-                "Validating VTP Operation Mode {0}".format(device.name)) as step:
+            "Validating VTP Operation Mode {0}".format(device.name)
+        ) as step:
 
             if out1:
-                    operating_mode= out1['vtp']['operating_mode']
-                    if operating_mode == "transparent":
-                        step.passed("Operating mode is set to '{0}'".format(operating_mode))
-                    else:
-                        step.failed("Operating mode is set to '{0}'".format(operating_mode))
-
+                operating_mode = out1["vtp"]["operating_mode"]
+                if operating_mode == "transparent":
+                    step.passed("Operating mode is set to '{0}'".format(operating_mode))
+                else:
+                    step.failed("Operating mode is set to '{0}'".format(operating_mode))
 
 
 if __name__ == "__main__":

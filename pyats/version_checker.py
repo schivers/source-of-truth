@@ -22,9 +22,10 @@ log = logging.getLogger(__name__)
 log.level = logging.INFO
 
 # Software versions:
-iosxe_os = ['16.12.5']
-ios_os = ['15.2(7)E3']
-nxos_os = ['9.3(9)']
+iosxe_os = ["16.12.5"]
+ios_os = ["15.2(7)E3"]
+nxos_os = ["9.3(9)"]
+
 
 class MyCommonSetup(aetest.CommonSetup):
     """
@@ -41,15 +42,14 @@ class MyCommonSetup(aetest.CommonSetup):
         """
 
         genie_testbed = Genie.init(testbed)
-        self.parent.parameters['testbed'] = genie_testbed
+        self.parent.parameters["testbed"] = genie_testbed
         device_list = []
         for device in genie_testbed.devices.values():
             log.info(banner(f"Connect to device '{device.name}'"))
             try:
                 device.connect(log_stdout=False)
             except errors.ConnectionError:
-                self.failed(f"Failed to establish "
-                            f"connection to '{device.name}'")
+                self.failed(f"Failed to establish " f"connection to '{device.name}'")
             device_list.append(device)
         # Pass list of devices to testcases
         self.parent.parameters.update(dev=device_list)
@@ -68,7 +68,7 @@ class Version(aetest.Testcase):
         run version testcase for each device
         """
 
-        devices = self.parent.parameters['dev']
+        devices = self.parent.parameters["dev"]
         aetest.loop.mark(self.version, device=devices)
 
     @aetest.test
@@ -77,45 +77,41 @@ class Version(aetest.Testcase):
         Verify that the OS version is correct
         """
 
-        if device.os == 'iosxe':
+        if device.os == "iosxe":
 
-            out1 = device.parse('show version')
-            os_version = out1['version']['version']
+            out1 = device.parse("show version")
+            os_version = out1["version"]["version"]
 
             if os_version not in iosxe_os:
-                self.failed(f'{os_version} on {device} is not the correct version')
+                self.failed(f"{os_version} on {device} is not the correct version")
             else:
                 pass
 
-        elif device.os == 'ios':
+        elif device.os == "ios":
 
-            out2 = device.parse('show version')
-            os_version = out2['version']['version']
+            out2 = device.parse("show version")
+            os_version = out2["version"]["version"]
 
             if os_version not in ios_os:
-                self.failed(f'{os_version} on {device} is not the correct version')
+                self.failed(f"{os_version} on {device} is not the correct version")
             else:
                 pass
 
+        elif device.os == "nxos":
 
-        elif device.os == 'nxos':
-
-            out3 = device.parse('show version')
+            out3 = device.parse("show version")
             pprint.pprint(out3)
-            #print("Keith " & out3['platform']['software'] )
-            os_version = out3['platform']['software']['system_version']
+            os_version = out3["platform"]["software"]["system_version"]
 
             if os_version not in nxos_os:
-                self.failed(f'{os_version} on {device} is not the correct version')
+                self.failed(f"{os_version} on {device} is not the correct version")
             else:
                 pass
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--testbed', dest='testbed',
-                        type=loader.load)
+    parser.add_argument("--testbed", dest="testbed", type=loader.load)
 
     args, unknown = parser.parse_known_args()
 

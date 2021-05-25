@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 #                  COMMON SETUP SECTION                           #
 ###################################################################
 
+
 class CommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def load_testbed(self, testbed):
@@ -39,9 +40,11 @@ class CommonSetup(aetest.CommonSetup):
         except (TimeoutError, StateMachineError, ConnectionError):
             logger.error("Unable to connect to all devices")
 
+
 ###################################################################
 #                     TESTCASES SECTION                           #
 ###################################################################
+
 
 class running_vs_startup(aetest.Testcase):
     @aetest.setup
@@ -58,11 +61,11 @@ class running_vs_startup(aetest.Testcase):
                 startup_config = Config(startup)
                 startup_config.tree()
                 self.configs[device_name] = {}
-                self.configs[device_name]['startup'] = startup_config.config
+                self.configs[device_name]["startup"] = startup_config.config
                 running = device.execute("show running")
                 running_config = Config(running)
                 running_config.tree()
-                self.configs[device_name]['running'] = running_config.config
+                self.configs[device_name]["running"] = running_config.config
 
     @aetest.test
     def test(self, steps):
@@ -73,18 +76,26 @@ class running_vs_startup(aetest.Testcase):
             ) as device_step:
                 # Get rid of certificate comparison, as "service private-config-encryption" won't show them
                 exclusion = []
-                for key in config['startup'].keys():
-                    if key.startswith('crypto pki certificate') or key.startswith('crypto pki trust') or key.startswith('Using '):
+                for key in config["startup"].keys():
+                    if (
+                        key.startswith("crypto pki certificate")
+                        or key.startswith("crypto pki trust")
+                        or key.startswith("Using ")
+                    ):
                         exclusion.append(key)
-                for key in config['running'].keys():
-                    if key.startswith('Building configuration...') or key.startswith('Current configuration :'):
+                for key in config["running"].keys():
+                    if key.startswith("Building configuration...") or key.startswith(
+                        "Current configuration :"
+                    ):
                         exclusion.append(key)
                 # Compare configs
-                diff = Diff(config['startup'], config['running'], exclude=exclusion)
+                diff = Diff(config["startup"], config["running"], exclude=exclusion)
                 diff.findDiff()
                 if len(str(diff)) > 0:
                     device_step.failed(
-                        f'Device {device_name} has the following config difference:\n{str(diff)}')
+                        f"Device {device_name} has the following config difference:\n{str(diff)}"
+                    )
+
 
 class CommonCleanup(aetest.CommonCleanup):
     """CommonCleanup Section
