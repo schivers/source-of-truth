@@ -199,17 +199,30 @@ Add the following line to schedule ansible to run the Config Backup Play every 6
 Note that the vault password is stored (in clear text) in ~/.vault_pass.txt rather than using the command line --ask-vault-pass prompt.
 
 ## Backup and Restore
-This section needs further development
+I am running a simple script to backup the postgres database and media to a backup folder in the ntt user directory and then copy the files to a google drive. Yes, Netbox has its own google account.
 
 ```
-docker-compose pull
-docker-compose down -v --remove-orphans
-docker-compose up -d postgres
-docker-compose exec -T postgres sh -c 'pg_restore -v -Fc -c -U $POSTGRES_USER -d $POSTGRES_DB' < "netbox_17_05_21_media.pgdump"
-docker-compose down
-docker-compose up
-```
+# Backup Netbox postgress database and media into an archive for each.
+cd netbox-docker
+sudo /usr/local/bin/docker-compose exec -T netbox tar c -zvf - -C /opt/netbox/netbox/media ./ > "../netbox_$(date +%Y-%m-%d)_media.tgz"
+sudo /usr/local/bin/docker-compose exec -T postgres sh -c 'pg_dump -v -Fc -U netbox' > "../netbox_$(date +%Y-%m-%d).pgdump"
 
+# Move the files to our backups folder. This folder is published by a web service so is browseable from a custom link in Netbox.
+mv ../netbox_$(date +%Y-%m-%d)_media.tgz /home/ntt/ftp/backups
+mv ../netbox_$(date +%Y-%m-%d).pgdump /home/ntt/ftp/backups
+
+# Login to Google drive
+cd /run/user/1001/gvfs/google-drive:host=gmail.com,user=bakunetbox/1EaVusNcT1eNcsZ6DBPliJNRjh18-FOOy
+
+# Copy the baked up files to google drive
+cp  /home/ntt/ftp/backups/netbox_$(date +%Y-%m-%d)_media.tgz  ./
+cp  /home/ntt/ftp/backups/netbox_$(date +%Y-%m-%d).pgdump ./
+```
+I am using crontab -e to schedule daily backups at 1am
+```
+# Netbox daily backup
+0 1 * * *     /home/ntt/backup_netbox.py
+```
 
 Reference 
 - https://www.techrepublic.com/article/how-to-quickly-setup-an-ftp-server-on-ubuntu-18-04/
