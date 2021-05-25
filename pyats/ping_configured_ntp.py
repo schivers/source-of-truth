@@ -99,8 +99,9 @@ class Ping_NTP(aetest.Testcase):
         if device.os == 'WIP':
             pass
 
-        elif device.os == 'nxos' or device.os == 'iosxe':
-            ntp_details = device.execute('show running-config | grep "ntp server"')
+        elif device.os == 'ios':
+
+            ntp_details = device.execute('show running-config | include ntp server')
             if ntp_details == '':
                 #self.failed(f'NTP Server on {device} not found') 
                 test_status_string = test_status_string + 'FAILED: NTP Server on {} not found\n'.format(device)
@@ -108,7 +109,6 @@ class Ping_NTP(aetest.Testcase):
             ntp_detail_lines = ntp_details.splitlines()
             line_index = 0
 
-            
             while line_index < len(ntp_detail_lines):
 
                 ntp_server_ip = re.findall( r'[0-9]+(?:\.[0-9]+){3}', ntp_detail_lines[line_index])[0]          
@@ -117,12 +117,56 @@ class Ping_NTP(aetest.Testcase):
                     result = device.ping(ntp_server_ip)
 
                 except Exception as e:
-                
+                    
+                    match = re.search(r'(?P<success_rate_is>\d+) percent', str(e))
+                    success_rate = match.group('success_rate_is')
+                    test_status_string = test_status_string + 'FAILED: Ping NTP Server{} from device {} with success rate of {}%\n'.format(ntp_server_ip, device.name, success_rate)
+                    test_status = 'Failed'
+                    log.info('FAILED: Ping NTP Server{} from device {} with success rate of {}%'.format(ntp_server_ip, device.name, success_rate))
+                else:
+                    # extract success rate from ping result with regular expression
+                    match = re.search(r'(?P<success_rate_is>\d+) percent', result)
+                    success_rate = match.group('success_rate_is')
+                    if float(success_rate) > 0:
+                        #ping responded
+                        test_status_string = test_status_string + 'PASSED: Ping NTP Server {} from device {} with success rate of {}%\n'.format(ntp_server_ip, device.name, success_rate)
+                        pass_counter += 1
+                        log.info('PASSED: Ping NTP Server {} from device {} with success rate of {}%'.format(ntp_server_ip, device.name, success_rate))
+                    else:
+                        #packet loss was 100%
+                        test_status = 'Failed'
+                        test_status_string = test_status_string + 'FAILED: Ping NTP Server {} from device {} with success rate of {}%\n'.format(ntp_server_ip, device.name, success_rate)
+                        log.info('FAILED: Ping NTP Server {} from device {} with success rate of {}%'.format(ntp_server_ip, device.name, success_rate))
+                line_index += 1
+
+
+
+
+
+        elif device.os == 'nxos':
+
+            ntp_details = device.execute('show running-config | include ntp server')
+            if ntp_details == '':
+                #self.failed(f'NTP Server on {device} not found') 
+                test_status_string = test_status_string + 'FAILED: NTP Server on {} not found\n'.format(device)
+                test_status = 'Failed'
+            ntp_detail_lines = ntp_details.splitlines()
+            line_index = 0
+
+            while line_index < len(ntp_detail_lines):
+
+                ntp_server_ip = re.findall( r'[0-9]+(?:\.[0-9]+){3}', ntp_detail_lines[line_index])[0]          
+                try:
+                    # store command result for later usage
+                    result = device.ping(ntp_server_ip)
+
+                except Exception as e:
+                    
                     match = re.search(r'(?P<packet_loss_percent>\d+\.?\d+)% packet loss', str(e))
                     packet_loss= match.group('packet_loss_percent')
                     test_status_string = test_status_string + 'FAILED: Ping NTP Server{} from device {} with packet loss of {}%\n'.format(ntp_server_ip, device.name, packet_loss)
                     test_status = 'Failed'
-                    log.info('FAILED: Ping NTP Server{} from device {} with packet loss of {}%\n'.format(ntp_server_ip, device.name, packet_loss))
+                    log.info('FAILED: Ping NTP Server{} from device {} with packet loss of {}%'.format(ntp_server_ip, device.name, packet_loss))
                 else:
                     # extract success rate from ping result with regular expression
                     match = re.search(r'(?P<packet_loss_percent>\d+\.?\d+)% packet loss', result)
@@ -131,13 +175,17 @@ class Ping_NTP(aetest.Testcase):
                         #ping responded
                         test_status_string = test_status_string + 'PASSED: Ping NTP Server {} from device {} with packet loss of {}%\n'.format(ntp_server_ip, device.name, packet_loss)
                         pass_counter += 1
-                        log.info('PASSED: Ping NTP Server {} from device {} with packet loss of {}%\n'.format(ntp_server_ip, device.name, packet_loss))
+                        log.info('PASSED: Ping NTP Server {} from device {} with packet loss of {}%'.format(ntp_server_ip, device.name, packet_loss))
                     else:
-                        #packet loss was 100%?
+                        #packet loss was 100%
                         test_status = 'Failed'
                         test_status_string = test_status_string + 'FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n'.format(ntp_server_ip, device.name, packet_loss)
-                        log.info('FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n'.format(ntp_server_ip, device.name, packet_loss))
+                        log.info('FAILED: Ping NTP Server {} from device {} with packet loss of {}%'.format(ntp_server_ip, device.name, packet_loss))
                 line_index += 1
+        else:
+            test_status_string = test_status_string + 'FAILED: Device OS type {} not handled in script for device {}\n'.format(device.os,device)
+            test_status = 'Failed'
+            log.info('FAILED: Device OS type {} not handled in script for device {}\n'.format(device.os,device))
             
 class CommonCleanup(aetest.CommonCleanup):
     """CommonCleanup Section

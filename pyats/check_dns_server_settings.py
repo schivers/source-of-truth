@@ -29,7 +29,7 @@ test_status = 'None'
 pass_counter = 0
 
 #Show run search commands to make it a little more generic and reusable
-show_run_grep_commands= ['ip name-server 10.176.0.100','no ip domain lookup','ip domain name uefa.local']
+show_run_include_commands= ['ip name-server 10.224.0.100','no ip domain-lookup','ip domain-name uefa.local']
 
 test_name = 'Check DNS Server Settings'
 
@@ -79,7 +79,7 @@ class Check_DNS_Server_Settings(aetest.Testcase):
     global test_status
     global pass_counter
     #global ntp_server_ip_list
-    global show_run_grep_commands
+    global show_run_include_commands
 
     @aetest.setup
     def setup(self):
@@ -94,10 +94,7 @@ class Check_DNS_Server_Settings(aetest.Testcase):
 
     @aetest.test
     def check_dns_server_settings(self, device):
-        """
 
-
-        """
 
         global test_status_string
         global test_status
@@ -107,61 +104,35 @@ class Check_DNS_Server_Settings(aetest.Testcase):
         if device.os == 'WIP':
             pass
         
-        elif device.os == 'nxos' or device.os == 'iosxe':
-
-            for show_run_grep_command in show_run_grep_commands:
-                show_run_output = device.execute('show running-config | grep "' + show_run_grep_command + '"')
-                if show_run_output != '' and show_run_output.find(show_run_grep_command) != -1:
-                    test_status_string = test_status_string + 'PASSED: {} "{}" FOUND on {}\n'.format(test_name, show_run_grep_command, device)
+        elif device.os == 'nxos':
+            for show_run_include_command in show_run_include_commands:
+                show_run_output = device.execute('show running-config | include ' + show_run_include_command)
+                if show_run_output != '' and show_run_output.find(show_run_include_command) != -1:
+                    test_status_string = test_status_string + 'PASSED: {} "{}" FOUND on {}\n'.format(test_name, show_run_include_command, device)
                     pass_counter += 1
+                    log.info('PASSED: {} "{}" FOUND on {}'.format(test_name, show_run_include_command, device))
                 else:
-                    test_status_string = test_status_string + 'FAILED: {} "{}" NOT CONFIGURED on {}\n'.format(test_name, show_run_grep_command, device)
+                    test_status_string = test_status_string + 'FAILED: {} "{}" NOT CONFIGURED on {}\n'.format(test_name, show_run_include_command, device)
                     test_status = 'Failed'
+                    log.info('FAILED: {} "{}" NOT CONFIGURED on {}'.format(test_name, show_run_include_command, device))
 
-            
-            """
+        elif device.os == 'ios':
+            for show_run_include_command in show_run_include_commands:
+                show_run_output = device.execute('show running-config | include ' + show_run_include_command)
+                if show_run_output != '' and show_run_output.find(show_run_include_command) != -1:
+                    test_status_string = test_status_string + 'PASSED: {} "{}" FOUND on {}\n'.format(test_name, show_run_include_command, device)
+                    pass_counter += 1
+                    log.info('PASSED: {} "{}" FOUND on {}'.format(test_name, show_run_include_command, device))
+                else:
+                    test_status_string = test_status_string + 'FAILED: {} "{}" NOT CONFIGURED on {}\n'.format(test_name, show_run_include_command, device)
+                    test_status = 'Failed'
+                    log.info('FAILED: {} "{}" NOT CONFIGURED on {}'.format(test_name, show_run_include_command, device))
 
-
-
-            show_run_output = device.execute('show running-config | grep "ip name-server 10.176.0.100"')
-            if show_run_output == '' or show_run_output:
-                #self.failed(f'NTP Server on {device} not found') 
-                test_status_string = test_status_string + 'FAILED: No NTP Servers configured on {}\n'.format(device)
-                test_status = 'Failed'
-            else:    
-                if 
-
-            ntp_details = device.execute('show running-config | grep "ntp server"')
-            if ntp_details == '':
-                #self.failed(f'NTP Server on {device} not found') 
-                test_status_string = test_status_string + 'FAILED: No NTP Servers configured on {}\n'.format(device)
-                test_status = 'Failed'
-            else:    
-                #check the NTP servers are listed
-                ntp_server_count = 0
-                for ntp_server_ip in ntp_server_ip_list: 
-                    if ntp_details.find(ntp_server_ip) == -1:
-                        # ntp server not found
-                        test_status_string = test_status_string + 'FAILED: NTP Server {} not configured on {}\n'.format(ntp_server_ip,device)
-                        test_status = 'Failed'
-                    else:
-                        # ntp server found
-                        test_status_string = test_status_string + 'PASSED: NTP Server {} configured on {}\n'.format(ntp_server_ip,device)
-                        ntp_server_count += 1
-                        pass_counter += 1
-  
-                if ntp_server_count == len(ntp_server_ip_list):
-                    #All required NTP Servers Listed, check NTP Associations on this device.
-                    ntp_details = device.execute('show ntp status')
-                    log.info(ntp_details)
-                    if ntp_details.find('Clock is synchronized') == -1:
-                        test_status_string = test_status_string + 'FAILED: NTP unsynchronised on {}\n'.format(device)
-                        test_status = 'Failed'
-                    else:
-                        test_status_string = test_status_string + 'PASSED: NTP synchronised on {}\n'.format(device)
-                        pass_counter += 1
-
-            """
+        else:
+            test_status_string = test_status_string + 'FAILED: Device OS type {} not handled in script for device {}\n'.format(device.os,device)
+            test_status = 'Failed'
+            log.info('FAILED: Device OS type {} not handled in script for device {}'.format(device.os,device))
+     
      
             
 class CommonCleanup(aetest.CommonCleanup):

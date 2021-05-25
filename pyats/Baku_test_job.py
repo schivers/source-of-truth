@@ -42,14 +42,45 @@ def main(runtime):
        runtime=runtime,
        taskid="Version Checker",
     )
-    
+
+    run(
+       testscript=os.path.join(SCRIPT_PATH, "ping_central_ntp.py"),
+       runtime=runtime,
+       taskid="Ping Central NTP Server",
+    )
+
+    run(
+       testscript=os.path.join(SCRIPT_PATH, "ping_configured_ntp.py"),
+       runtime=runtime,
+       taskid="Ping Configured NTP Servers",
+    )
+
+    run(
+       testscript=os.path.join(SCRIPT_PATH, "check_snmp_settings.py"),
+       runtime=runtime,
+       taskid="Check SNMP Settings",
+    )
+
+    run(
+       testscript=os.path.join(SCRIPT_PATH, "check_ntp_associations.py"),
+       runtime=runtime,
+       taskid="Check NTP Associations",
+    )
+
+    run(
+       testscript=os.path.join(SCRIPT_PATH, "check_lldp.py"),
+       runtime=runtime,
+       taskid="Check LLDP Settings",
+    )
+
+    run(
+       testscript=os.path.join(SCRIPT_PATH, "check_dns_server_settings.py"),
+       runtime=runtime,
+       taskid="Check DNS Server Settings",
+    )
+
     run(
        testscript=os.path.join(SCRIPT_PATH, "cdp_enabled.py"),
        runtime=runtime,
-       taskid="CDP Enabled",
-    )
-    run(
-       testscript=os.path.join(SCRIPT_PATH, "ping_ntp.py"),
-       runtime=runtime,
-       taskid="Ping NTP Server",
+       taskid="Check CDP Enabled Per Interface",
     )
