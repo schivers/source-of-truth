@@ -1,5 +1,5 @@
 # Netbox as a Source of Truth
-This projects seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021).
+This project seeks to use Netbox to document the Baku stadium network for EURO2020 (held in 2021).
 
 Baku Netbox: http://90.253.245.119:8000
 
