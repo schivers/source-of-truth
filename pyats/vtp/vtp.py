@@ -10,8 +10,10 @@ from genie.conf import Genie
 
 # To handle errors with connections to devices
 from unicon.core import errors
+from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 import argparse
 from pyats.topology import loader
+from pyats.async_ import pcall
 
 # Get your logger for your script
 global log
@@ -19,7 +21,7 @@ log = logging.getLogger(__name__)
 log.level = logging.INFO
 
 
-class MyCommonSetup(aetest.CommonSetup):
+class CommonSetup(aetest.CommonSetup):
     """
     CommonSetup class to prepare for testcases
     Establishes connections to all devices in testbed
@@ -33,21 +35,41 @@ class MyCommonSetup(aetest.CommonSetup):
         :return:
         """
 
-        genie_testbed = Genie.init(testbed)
-        self.parent.parameters["testbed"] = genie_testbed
-        device_list = []
-        for device in genie_testbed.devices.values():
-            log.info(device)
-            log.info(banner(f"Connect to device '{device.name}'"))
-            try:
-                device.connect(log_stdout=False)
-            except errors.ConnectionError:
-                self.failed(f"Failed to establish " f"connection to '{device.name}'")
-                continue
-            device_list.append(device)
-        # Pass list of devices to testcases
-        self.parent.parameters.update(dev=device_list)
+        # make sure testbed is provided
+        assert testbed, "Testbed is not provided!"
 
+        try:
+            testbed.connect(log_stdout=False)
+        except (TimeoutError, StateMachineError, ConnectionError) as e:
+            log.error("NOT CONNECTED TO ALL DEVICES")
+
+    @aetest.subsection
+    def verify_connected(self, testbed, steps): 
+        device_list = []
+        d_name=[]
+        for device_name, device in testbed.devices.items():
+
+            with steps.start(
+                f"Test Connection Status of {device_name}", continue_=True
+            ) as step:
+                # Test "connected" status
+                log.info(device)
+                if device.connected:
+                    log.info(f"{device_name} connected status: {device.connected}")
+                    device_list.append(device)
+                    d_name.append(device_name)
+                else:
+                    log.error(f"{device_name} connected status: {device.connected}")
+                    step.skipped()
+                    
+        # Pass list of devices to testcases
+        if device_list:
+            #ADD NEW TESTS CASES HERE
+            aetest.loop.mark(vtp_status, device=device_list,uids=d_name)
+            
+        else:
+            self.failed()
+            
 
 class vtp_status(aetest.Testcase):
     """
@@ -61,8 +83,9 @@ class vtp_status(aetest.Testcase):
         run version testcase for each device
         """
 
-        devices = self.parent.parameters["dev"]
-        aetest.loop.mark(self.test, device=devices)
+        # devices = self.parent.parameters["dev"]
+        # aetest.loop.mark(self.test, device=devices)
+    
 
     @aetest.test
     def test(self, device, steps):
