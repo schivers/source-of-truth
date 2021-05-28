@@ -59,8 +59,9 @@ class CommonSetup(aetest.CommonSetup):
                     device_list.append(device)
                     d_name.append(device_name)
                 else:
-                    log.error(f"{device_name} connected status: {device.connected}")
+                    log.warning(f"{device_name} connected status: {device.connected}")
                     step.skipped()
+        
                     
         # Pass list of devices to testcases
         if device_list:
@@ -69,17 +70,11 @@ class CommonSetup(aetest.CommonSetup):
             
         else:
             self.failed()
+            
 
-
-# Software versions:
-iosxe_os = ["16.12.5","16.09.06","16.12.4"]
-ios_os = ["15.2(7)E3"]
-nxos_os = ["9.3(9)"]
-
-class Version(aetest.Testcase):
+class eigrp(aetest.Testcase):
     """
-    Version Testcase - extract Serial numbers information from devices
-    Verify that all SNs are covered by service contract (exist in contract_sn)
+    Validate the Core router's downlink connection torwards the Core switches.
     """
 
     @aetest.setup
@@ -89,45 +84,45 @@ class Version(aetest.Testcase):
         run version testcase for each device
         """
 
-        devices = self.parent.parameters["dev"]
-        aetest.loop.mark(self.version, device=devices)
+    
+    @aetest.test
+    def global_eigrp(self, device):
+        "Check Global routing EIGRP neighbours table has 3 EIGRP Neighbours"
+        
+        if device.os == "iosxe":
+            out1 = device.parse("show ip eigrp neigh")
+            log.info(out1)
+            uptime_eigrp=out1.q.contains('eigrp_interface').get_values('uptime')
+            if len(uptime_eigrp)==3:
+                self.passed("Three EIGRP neighbours found")
+            else:
+                self.failed("{0} EIGRP neighbours found".format(len(uptime_eigrp)))
+
+        else:
+            self.skipped("Test skipped - Device not compatible.")
+
+
+    
 
     @aetest.test
-    def version(self, device):
-        """
-        Verify that the OS version is correct
-        """
-
+    def eigrp_vrf(self, device, steps):
+        "Check EIGRP neighbours table in each VRF has 3 EIGRP Neighbours"
+        vrf_list=['AFP', 'AP', 'BROADCASTER', 'COMPETITION', 'EPA', 'GETTY', 'HOSPITALITY', 'MEDIA', 'PCI', 'REUTERS', 'SUPPLIER', 'VOIP']
         if device.os == "iosxe":
+            for i in vrf_list:
+                with steps.start(f"Test EIGRP VRF {i}", continue_=True) as step:
+                    command="show ip eigrp vrf {0} neighbors".format(i)
+                    out1 = device.parse(command)
+                    uptime_eigrp=out1.q.contains('eigrp_interface').get_values('uptime')
+                    if len(uptime_eigrp)==3:
+                        step.passed("Three EIGRP neighbours found")
+                    else:
+                        step.failed("{0} EIGRP neighbours found".format(len(uptime_eigrp)))
+                    
+        else:
+            self.skipped("Test failed - Device not compatible.")
 
-            out1 = device.parse("show version")
-            os_version = out1["version"]["version"]
-
-            if os_version not in iosxe_os:
-                self.failed(f"{os_version} on {device} is not the correct version")
-            else:
-                pass
-
-        elif device.os == "ios":
-
-            out2 = device.parse("show version")
-            os_version = out2["version"]["version"]
-
-            if os_version not in ios_os:
-                self.failed(f"{os_version} on {device} is not the correct version")
-            else:
-                pass
-
-        elif device.os == "nxos":
-
-            out3 = device.parse("show version")
-            pprint.pprint(out3)
-            os_version = out3["platform"]["software"]["system_version"]
-
-            if os_version not in nxos_os:
-                self.failed(f"{os_version} on {device} is not the correct version")
-            else:
-                pass
+   
 
 
 if __name__ == "__main__":
