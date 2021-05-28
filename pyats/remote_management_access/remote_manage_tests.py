@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 log.level = logging.INFO
 
 
-class MyCommonSetup(aetest.CommonSetup):
+class CommonSetup(aetest.CommonSetup):
     """
     CommonSetup class to prepare for testcases
     Establishes connections to all devices in testbed
@@ -33,19 +33,40 @@ class MyCommonSetup(aetest.CommonSetup):
         :return:
         """
 
-        genie_testbed = Genie.init(testbed)
-        self.parent.parameters["testbed"] = genie_testbed
+        # make sure testbed is provided
+        assert testbed, "Testbed is not provided!"
+
+        try:
+            testbed.connect(log_stdout=False)
+        except (TimeoutError, StateMachineError, ConnectionError) as e:
+            log.error("NOT CONNECTED TO ALL DEVICES")
+
+    @aetest.subsection
+    def verify_connected(self, testbed, steps): 
         device_list = []
-        for device in genie_testbed.devices.values():
-            log.info(device)
-            log.info(banner(f"Connect to device '{device.name}'"))
-            try:
-                device.connect(log_stdout=False)
-            except errors.ConnectionError:
-                self.failed(f"Failed to establish " f"connection to '{device.name}'")
-            device_list.append(device)
+        d_name=[]
+        for device_name, device in testbed.devices.items():
+
+            with steps.start(
+                f"Test Connection Status of {device_name}", continue_=True
+            ) as step:
+                # Test "connected" status
+                log.info(device)
+                if device.connected:
+                    log.info(f"{device_name} connected status: {device.connected}")
+                    device_list.append(device)
+                    d_name.append(device_name)
+                else:
+                    log.error(f"{device_name} connected status: {device.connected}")
+                    step.skipped()
+                    
         # Pass list of devices to testcases
-        self.parent.parameters.update(dev=device_list)
+        if device_list:
+            #ADD NEW TESTS CASES HERE
+            aetest.loop.mark(RemoteManagement, device=device_list,uids=d_name)
+            
+        else:
+            self.failed()
 
 
 class RemoteManagement(aetest.Testcase):
@@ -67,17 +88,8 @@ class RemoteManagement(aetest.Testcase):
         Get list of all devices in testbed and
         run version testcase for each device
         """
+        
 
-        devices = self.parent.parameters["dev"]
-        aetest.loop.mark(self.host_checker, device=devices)
-        aetest.loop.mark(self.show_users, device=devices)
-        aetest.loop.mark(self.show_domain_name, device=devices)
-        aetest.loop.mark(self.show_crypto_key, device=devices)
-        aetest.loop.mark(self.ssh_version, device=devices)
-        aetest.loop.mark(self.line_vty, device=devices)
-        aetest.loop.mark(self.show_enable_secret, device=devices)
-        aetest.loop.mark(self.show_aaa_settings, device=devices)
-        aetest.loop.mark(self.show_enable_secret, device=devices)
 
     @aetest.test
     def host_checker(self, device):
@@ -95,7 +107,7 @@ class RemoteManagement(aetest.Testcase):
     def show_users(self, device):
         "Show Users"
         if device.os == "iosxe" or device.os == "ios":
-            users = ["username admin", " username solarwinds"]
+            users = ["username admin", "username solarwinds"]
             out1 = device.api.get_running_config("username")
 
             log.info("Configured Users: \n {0}".format(out1))
