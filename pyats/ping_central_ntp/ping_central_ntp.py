@@ -11,8 +11,8 @@ from genie.conf import Genie
 
 # To handle errors with connections to devices
 from unicon.core import errors
+from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 
-import pprint
 import argparse
 import re
 from pyats.topology import loader
@@ -22,21 +22,11 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
-
-# Test result recording
-test_status_string = ""
-test_status = "None"
-pass_counter = 0
-
 # Central NTP server details - This is a list, more ip addresses can be added and will be iterated.
 ntp_server_ip_list = ["10.224.0.100"]
 
 
 class MyCommonSetup(aetest.CommonSetup):
-    """
-    CommonSetup class to prepare for testcases
-    Establishes connections to all devices in testbed
-    """
 
     @aetest.subsection
     def establish_connections(self, testbed):
@@ -45,35 +35,45 @@ class MyCommonSetup(aetest.CommonSetup):
         :param testbed:
         :return:
         """
-        global test_status_string
-        global test_status
-        global pass_counter
 
-        genie_testbed = Genie.init(testbed)
-        self.parent.parameters["testbed"] = genie_testbed
+        # make sure testbed is provided
+        assert testbed, "Testbed is not provided!"
+
+        try:
+            testbed.connect(log_stdout=False)
+        except (TimeoutError, StateMachineError, ConnectionError) as e:
+            log.error("NOT CONNECTED TO ALL DEVICES")
+            
+
+    @aetest.subsection
+    def verify_connected(self, testbed, steps): 
         device_list = []
-        for device in genie_testbed.devices.values():
+        d_name=[]
+        for device_name, device in testbed.devices.items():
 
-            try:
-                device.connect(log_stdout=False)
-                device_list.append(device)
-                pass_counter += 1
-
-            except errors.ConnectionError:
-                test_status_string = test_status_string + (
-                    f"FAILED: Unable to establish " f"connection to '{device.name}'\n"
-                )
-                test_status = "Failed"
-
+            with steps.start(
+                f"Test Connection Status of {device_name}", continue_=True
+            ) as step:
+                # Test "connected" status
+                log.info(device)
+                if device.connected:
+                    log.info(f"{device_name} connected status: {device.connected}")
+                    device_list.append(device)
+                    d_name.append(device_name)
+                else:
+                    log.error(f"{device_name} connected status: {device.connected}")
+                    step.skipped()
+                    
         # Pass list of devices to testcases
-        self.parent.parameters.update(dev=device_list)
-
+        if device_list:
+            #ADD NEW TESTS CASES HERE
+            aetest.loop.mark(Ping_Central_NTP, device=device_list,uids=d_name)
+            
+        else:
+            self.failed()
 
 class Ping_Central_NTP(aetest.Testcase):
 
-    global test_status_string
-    global test_status
-    global pass_counter
     global ntp_server_ip_list
 
     @aetest.setup
@@ -83,18 +83,24 @@ class Ping_Central_NTP(aetest.Testcase):
         run version testcase for each device
         """
 
-        devices = self.parent.parameters["dev"]
-        log.info(devices)
-        aetest.loop.mark(self.ping_central_ntp, device=devices)
+    @aetest.test
+    def host_checker(self, device):
+        "Alternative method of checking hostname - dev.connect() automatically finds the current hostname unless specified dev.connect(learn_hostname=False)"
+        if device.hostname != device.name:
+            self.failed(
+                "{0} does not match with inventory hostname - {1}".format(
+                    device.hostname, device.name
+                )
+            )
+        else:
+            pass
+
 
     @aetest.test
     def ping_central_ntp(self, device):
         """
         Ping central NTP server
         """
-        global test_status_string
-        global test_status
-        global pass_counter
 
         if device.os == "WIP":
             pass
@@ -111,13 +117,7 @@ class Ping_Central_NTP(aetest.Testcase):
                         r"(?P<packet_loss_percent>\d+\.?\d+)% packet loss", str(e)
                     )
                     packet_loss = match.group("packet_loss_percent")
-                    test_status_string = (
-                        test_status_string
-                        + "FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(
-                            ntp_server_ip, device.name, packet_loss
-                        )
-                    )
-                    test_status = "Failed"
+                    self.failed("FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(ntp_server_ip, device.name, packet_loss))
                     log.info(
                         "FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(
                             ntp_server_ip, device.name, packet_loss
@@ -130,35 +130,21 @@ class Ping_Central_NTP(aetest.Testcase):
                     )
                     packet_loss = match.group("packet_loss_percent")
                     if float(packet_loss) < 100:
-                        # ping responded
-                        test_status_string = (
-                            test_status_string
-                            + "PASSED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(
-                                ntp_server_ip, device.name, packet_loss
-                            )
-                        )
-                        pass_counter += 1
+                        self.passed("PASSED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(ntp_server_ip, device.name, packet_loss))
                         log.info(
                             "PASSED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(
                                 ntp_server_ip, device.name, packet_loss
                             )
                         )
                     else:
-                        # packet loss was 100%?
-                        test_status = "Failed"
-                        test_status_string = (
-                            test_status_string
-                            + "FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(
-                                ntp_server_ip, device.name, packet_loss
-                            )
-                        )
+                        self.failed("FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(ntp_server_ip, device.name, packet_loss))
                         log.info(
                             "FAILED: Ping NTP Server {} from device {} with packet loss of {}%\n".format(
                                 ntp_server_ip, device.name, packet_loss
                             )
                         )
 
-        elif device.os == "ios":
+        elif device.os == "ios" or device.os == "iosxe":
             for ntp_server_ip in ntp_server_ip_list:
                 try:
                     # store command result for later usage
@@ -168,13 +154,7 @@ class Ping_Central_NTP(aetest.Testcase):
 
                     match = re.search(r"(?P<success_rate_is>\d+) percent", str(e))
                     success_rate = match.group("success_rate_is")
-                    test_status_string = (
-                        test_status_string
-                        + "FAILED: Ping NTP Server {} from device {} with success rate of {}%\n".format(
-                            ntp_server_ip, device.name, success_rate
-                        )
-                    )
-                    test_status = "Failed"
+                    self.failed("FAILED: Ping NTP Server {} from device {} with success rate of {}%\n".format(ntp_server_ip, device.name, success_rate))
                     log.info(
                         "FAILED: Ping NTP Server {} from device {} with success rate of {}%".format(
                             ntp_server_ip, device.name, success_rate
@@ -186,27 +166,15 @@ class Ping_Central_NTP(aetest.Testcase):
                     success_rate = match.group("success_rate_is")
                     if float(success_rate) > 0:
                         # ping responded
-                        test_status_string = (
-                            test_status_string
-                            + "PASSED: Ping NTP Server {} from device {} with success rate of {}%\n".format(
-                                ntp_server_ip, device.name, success_rate
-                            )
-                        )
-                        pass_counter += 1
+                        self.passed("PASSED: Ping NTP Server {} from device {} with with success rate of {}%".format(ntp_server_ip, device.name, success_rate))
                         log.info(
                             "PASSED: Ping NTP Server {} from device {} with with success rate of {}%".format(
                                 ntp_server_ip, device.name, success_rate
                             )
                         )
                     else:
-                        # packet loss was 100%?
-                        test_status = "Failed"
-                        test_status_string = (
-                            test_status_string
-                            + "FAILED: Ping NTP Server {} from device {} with with success rate of {}%\n".format(
-                                ntp_server_ip, device.name, success_rate
-                            )
-                        )
+                        # packet loss was 100%
+                        self.failed("FAILED: Ping NTP Server {} from device {} with with success rate of of {}%".format(ntp_server_ip, device.name, success_rate))
                         log.info(
                             "FAILED: Ping NTP Server {} from device {} with with success rate of of {}%".format(
                                 ntp_server_ip, device.name, success_rate
@@ -214,13 +182,7 @@ class Ping_Central_NTP(aetest.Testcase):
                         )
 
         else:
-            test_status_string = (
-                test_status_string
-                + "FAILED: Device OS type {} not handled in script for device {}\n".format(
-                    device.os, device
-                )
-            )
-            test_status = "Failed"
+            self.failed("FAILED: Device OS type {} not handled in script for device {}\n".format(device.os, device))
             log.info(
                 "FAILED: Device OS type {} not handled in script for device {}\n".format(
                     device.os, device
@@ -236,20 +198,7 @@ class CommonCleanup(aetest.CommonCleanup):
     # uncomment to add new subsections
     @aetest.subsection
     def subsection_cleanup_one(self):
-        #     pass
-
-        global test_status_string
-        global test_status
-        global pass_counter
-
-        if test_status == "Failed":
-            self.failed(f"FAILED: Ping Central NTP Server Test\n{test_status_string}")
-        if test_status == "None" and pass_counter == 0:
-            self.failed(
-                f"FAILED: Ping CentralNTP anomaly, Nothing passed and it didnt fail either, check script\n{test_status_string}"
-            )
-        if test_status == "None" and pass_counter > 0:
-            self.passed(f"PASSED: Ping Central NTP Server Test\n{test_status_string}")
+        pass
 
 
 if __name__ == "__main__":
