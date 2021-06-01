@@ -25,37 +25,37 @@ def main(runtime):
 
     # run script
     run(
-        testscript=os.path.join(SCRIPT_PATH, "/home/ntt/source-of-truth/pyats/testbed_connectivity.py"),
+        testscript=os.path.join(SCRIPT_PATH, "./testbed_connectivity.py"),
         runtime=runtime,
         taskid="Validate Connectivity",
     )
     run(
-        testscript=os.path.join(SCRIPT_PATH, "/home/ntt/source-of-truth/pyats/interface_errors/interface_errors.py"),
+        testscript=os.path.join(SCRIPT_PATH, "./interface_errors/interface_errors.py"),
         runtime=runtime,
         taskid="Interface Errors",
      )
     run(
-        testscript=os.path.join(SCRIPT_PATH, "/home/ntt/source-of-truth/pyats/check_ntp/check_ntp_associations.py"),
+        testscript=os.path.join(SCRIPT_PATH, "./check_ntp/check_ntp_associations.py"),
         runtime=runtime,
         taskid="Check NTP Associations",
      )
     run(
-       testscript=os.path.join(SCRIPT_PATH, "/home/ntt/source-of-truth/pyats/eigrp/eigrp.py"),
+       testscript=os.path.join(SCRIPT_PATH, "./eigrp/eigrp.py"),
        runtime=runtime,
        taskid="Check EIGRP Adjacencies",
      )
     run(
-      testscript=os.path.join(SCRIPT_PATH, "/home/ntt/source-of-truth/pyats/half_duplex/half_duplex.py"),
+      testscript=os.path.join(SCRIPT_PATH, "./half_duplex/half_duplex.py"),
       runtime=runtime,
       taskid="Check for Half Duplex Interfaces ",
      )
     run(
-      testscript=os.path.join(SCRIPT_PATH, "/home/ntt/source-of-truth/pyats/interface_errors/interface_errors.py"),          
+      testscript=os.path.join(SCRIPT_PATH, "./interface_errors/interface_errors.py"),          
       runtime=runtime,
       taskid="Check for Interface Errors",
      )
     run(
-      testscript=os.path.join(SCRIPT_PATH, "/home/ntt/source-of-truth/pyats/ping_central_ntp/ping_central_ntp.py"),
+      testscript=os.path.join(SCRIPT_PATH, "./ping_central_ntp/ping_central_ntp.py"),
       runtime=runtime,
       taskid="Ping IBC NTP Server",
      )
