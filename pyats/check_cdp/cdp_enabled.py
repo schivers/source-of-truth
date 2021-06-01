@@ -11,8 +11,8 @@ from genie.conf import Genie
 
 # To handle errors with connections to devices
 from unicon.core import errors
+from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 
-import pprint
 import argparse
 from pyats.topology import loader
 
@@ -22,9 +22,6 @@ log = logging.getLogger(__name__)
 log.level = logging.INFO
 
 # global variables
-test_status = "None"
-pass_counter = 0
-test_status_string = ""
 test_name = "Check CDP Enabled"
 
 # interfaces:
@@ -32,10 +29,6 @@ interface_types_to_check_list = ["Ethernet", "mgmt"]
 
 
 class MyCommonSetup(aetest.CommonSetup):
-    """
-    CommonSetup class to prepare for testcases
-    Establishes connections to all devices in testbed
-    """
 
     @aetest.subsection
     def establish_connections(self, testbed):
@@ -44,37 +37,46 @@ class MyCommonSetup(aetest.CommonSetup):
         :param testbed:
         :return:
         """
-        global test_status_string
-        global test_status
-        global pass_counter
 
-        genie_testbed = Genie.init(testbed)
-        self.parent.parameters["testbed"] = genie_testbed
+        # make sure testbed is provided
+        assert testbed, "Testbed is not provided!"
+
+        try:
+            testbed.connect(log_stdout=False)
+        except (TimeoutError, StateMachineError, ConnectionError) as e:
+            log.error("NOT CONNECTED TO ALL DEVICES")
+            
+
+    @aetest.subsection
+    def verify_connected(self, testbed, steps): 
         device_list = []
-        for device in genie_testbed.devices.values():
-            log.info(banner(f"Connect to device '{device.name}'"))
-            try:
-                device.connect(log_stdout=False)
-                device_list.append(device)
-                test_status_string = test_status_string + (
-                    f"PASSED: Establish " f"connection to '{device.name}'\n"
-                )
-                pass_counter += 1
-            except errors.ConnectionError:
-                test_status_string = test_status_string + (
-                    f"FAILED: Unable to establish " f"connection to '{device.name}'\n"
-                )
-                test_status = "Failed"
+
+        d_name=[]
+        for device_name, device in testbed.devices.items():
+
+            with steps.start(
+                f"Test Connection Status of {device_name}", continue_=True
+            ) as step:
+                # Test "connected" status
+                log.info(device)
+                if device.connected:
+                    log.info(f"{device_name} connected status: {device.connected}")
+                    device_list.append(device)
+                    d_name.append(device_name)
+                else:
+                    log.error(f"{device_name} connected status: {device.connected}")    
+                    step.skipped()
 
         # Pass list of devices to testcases
-        self.parent.parameters.update(dev=device_list)
 
+        if device_list:
+            #ADD NEW TESTS CASES HERE
+            aetest.loop.mark(CDP_Enabled, device=device_list,uids=d_name)
+            
+        else:
+            self.failed()
 
-class CDP(aetest.Testcase):
-    """
-    Version Testcase - extract Serial numbers information from devices
-    Verify that all SNs are covered by service contract (exist in contract_sn)
-    """
+class CDP_Enabled(aetest.Testcase):
 
     @aetest.setup
     def setup(self):
@@ -83,23 +85,27 @@ class CDP(aetest.Testcase):
         run version testcase for each device
         """
 
-        devices = self.parent.parameters["dev"]
-        aetest.loop.mark(self.cdp_enabled, device=devices)
+    @aetest.test
+    def host_checker(self, device):
+        "Alternative method of checking hostname - dev.connect() automatically finds the current hostname unless specified dev.connect(learn_hostname=False)"
+        if device.hostname != device.name:
+            self.failed(
+                "{0} does not match with inventory hostname - {1}".format(
+                    device.hostname, device.name
+                )
+            )
+        else:
+            pass
+
+
 
     @aetest.test
     def cdp_enabled(self, device):
         """
         Verify that the OS version is correct
         """
-        global test_status_string
-        global test_status
-        global pass_counter
 
-        if device.os == "iosxe":
-
-            pass
-
-        elif device.os == "ios":
+        if device.os == "ios" or device.os == "iosxe":
 
             out = device.parse("show interfaces")
             for interface in out.items():
@@ -121,16 +127,14 @@ class CDP(aetest.Testcase):
                                 cdp_enabled = True
                             line_index += 1
                         if cdp_enabled:
-                            test_status_string = f"{test_status_string} PASSED: cdp enabled {interface[0]} on {device}\n"
-                            pass_counter += 1
+                            self.passed('PASSED: cdp enabled {} on {}'.format(interface[0],device))
                             log.info(
-                                f"{test_status_string} PASSED: cdp enabled {interface[0]} on {device}"
+                                'PASSED: cdp enabled {} on {}'.format(interface[0],device)
                             )
                         else:
-                            test_status = "Failed"
-                            test_status_string = f"{test_status_string} {interface[0]} on {device} FAILED: cdp disabled\n"
+                            self.failed('FAILED: cdp not enabled {} on {}'.format(interface[0],device))
                             log.info(
-                                f"{test_status_string} {interface[0]} on {device} FAILED: cdp disabled\n"
+                                'FAILED: cdp not enabled {} on {}'.format(interface[0],device)
                             )
 
         elif device.os == "nxos":
@@ -155,25 +159,21 @@ class CDP(aetest.Testcase):
                                 cdp_enabled = True
                             line_index += 1
                         if cdp_enabled:
-                            pass_counter += 1
+                            #pass_counter += 1
+                            self.passed('{interface[0]} on {device} PASSED: cdp enabled'.format(interface[0],device))
                             log.info(
-                                f"{test_status_string} {interface[0]} on {device} PASSED: cdp enabled\n"
+                                '{interface[0]} on {device} PASSED: cdp enabled'.format(interface[0],device)
                             )
                         else:
-                            test_status = "Failed"
-                            test_status_string = f"{test_status_string} {interface[0]} on {device} FAILED: cdp disabled\n"
+                            self.failed('{interface[0]} on {device} FAILED: cdp not enabled'.format(interface[0],device))
+
                             log.info(
-                                f"{test_status_string} {interface[0]} on {device} FAILED: cdp disabled\n"
+                                f"{interface[0]} on {device} FAILED: cdp disabled"
                             )
 
         else:
-            test_status_string = (
-                test_status_string
-                + "FAILED: Device OS type {} not handled in script for device {}\n".format(
-                    device.os, device
-                )
-            )
-            test_status = "Failed"
+
+            self.failed('FAILED: Device OS type {} not handled in script for device {}'.format(device.os, device))
             log.info(
                 "FAILED: Device OS type {} not handled in script for device {}".format(
                     device.os, device
@@ -189,21 +189,7 @@ class CommonCleanup(aetest.CommonCleanup):
     # uncomment to add new subsections
     @aetest.subsection
     def subsection_cleanup_one(self):
-        #     pass
-
-        global test_status_string
-        global test_status
-        global pass_counter
-
-        if test_status == "Failed":
-            self.failed(f"{test_name} FAILED: cdp disabled\n{test_status_string}")
-        if test_status == "None" and pass_counter == 0:
-            self.failed(
-                f"{test_name} FAILED: no interfaces passed or failed, check script"
-            )
-        if test_status == "None" and pass_counter > 0:
-            self.passed(f"{test_name} all interfaces checked are enabled for cdp")
-
+        pass
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
