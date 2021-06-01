@@ -1,5 +1,5 @@
 """
-Baku_test_job.py
+ build_test_job.py
 """
 # see https://pubhub.devnetcloud.com/media/pyats/docs/easypy/jobfile.html
 # for how job files work
