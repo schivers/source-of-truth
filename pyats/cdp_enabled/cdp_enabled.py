@@ -49,9 +49,9 @@ class MyCommonSetup(aetest.CommonSetup):
         self.parent.parameters.update(dev=device_list)
 
 
-class check_syslog(aetest.Testcase):
+class check_cdp_enabled(aetest.Testcase):
     """
-    Check Syslog settings
+    Check CDP Enabled
     """
 
     @aetest.setup
