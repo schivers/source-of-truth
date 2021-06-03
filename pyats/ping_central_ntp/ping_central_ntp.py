@@ -84,19 +84,6 @@ class Ping_Central_NTP(aetest.Testcase):
         """
 
     @aetest.test
-    def host_checker(self, device):
-        "Alternative method of checking hostname - dev.connect() automatically finds the current hostname unless specified dev.connect(learn_hostname=False)"
-        if device.hostname != device.name:
-            self.failed(
-                "{0} does not match with inventory hostname - {1}".format(
-                    device.hostname, device.name
-                )
-            )
-        else:
-            pass
-
-
-    @aetest.test
     def ping_central_ntp(self, device):
         """
         Ping central NTP server
