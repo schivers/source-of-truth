@@ -5,3 +5,4 @@
 /share
 pyvenv.cfg
 small-testbed.yml
+.DS_Store

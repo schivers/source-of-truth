@@ -88,18 +88,6 @@ class Check_STP_Priority(aetest.Testcase):
         """
 
     @aetest.test
-    def host_checker(self, device):
-        "Alternative method of checking hostname - dev.connect() automatically finds the current hostname unless specified dev.connect(learn_hostname=False)"
-        if device.hostname != device.name:
-            self.failed(
-                "{0} does not match with inventory hostname - {1}".format(
-                    device.hostname, device.name
-                )
-            )
-        else:
-            pass
-
-    @aetest.test
     def check_stp_priority(self, device):
         """
         Verify that the STP Priority is correct
