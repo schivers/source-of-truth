@@ -86,62 +86,64 @@ class Ping_Default_GW(aetest.Testcase):
         """
 
         if device.os == 'ios' or device.os == 'iosxe':
+            if 'SWC' not in device.name:
+                out_details = device.execute('show ip route')
+                if out_details == '':
+                    self.failed("FAILED: default route on {} not found".format(device))
+                out_detail_lines = out_details.splitlines()
+                line_index = 0
+                found_default_gateway = False
+                while line_index < len(out_detail_lines):
+                    if device.os == 'ios':
+                        match = re.search(r"Default gateway is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})", out_detail_lines[line_index])
+                    if device.os == 'iosxe':
+                        match = re.search(r"Gateway of last resort is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})", out_detail_lines[line_index])
+            
+                    if match != None:
+                        default_gateway = match.group("default_gateway")
+                        found_default_gateway = True
 
-            out_details = device.execute('show ip route')
-            if out_details == '':
-                self.failed("FAILED: default route on {} not found".format(device))
-            out_detail_lines = out_details.splitlines()
-            line_index = 0
-            found_default_gateway = False
-            while line_index < len(out_detail_lines):
-                if device.os == 'ios':
-                    match = re.search(r"Default gateway is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})", out_detail_lines[line_index])
-                if device.os == 'iosxe':
-                    match = re.search(r"Gateway of last resort is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})", out_detail_lines[line_index])
-           
-                if match != None:
-                    default_gateway = match.group("default_gateway")
-                    found_default_gateway = True
+                        try:
+                            # store command result for later usage
+                            result = device.ping(default_gateway)
 
-                    try:
-                        # store command result for later usage
-                        result = device.ping(default_gateway)
+                        except Exception as e:
 
-                    except Exception as e:
-
-                        match = re.search(r"(?P<success_rate_is>\d+) percent", str(e))
-                        success_rate = match.group("success_rate_is")
-                        self.failed("FAILED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
-                        log.info(
-                            "FAILED: Ping default gateway {} from device {} with success rate of {}%".format(
-                                default_gateway, device.name, success_rate
-                            )
-                        )
-                    else:
-                        # extract success rate from ping result with regular expression
-                        match = re.search(r"(?P<success_rate_is>\d+) percent", result)
-                        success_rate = match.group("success_rate_is")
-                        if float(success_rate) > 0:
-                            # ping responded
-                            self.passed("PASSED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
-                            log.info(
-                                "PASSED: Ping default gateway {} from device {} with success rate of {}%".format(
-                                    default_gateway, device.name, success_rate
-                                )
-                            )
-                        else:
-                            # packet loss was 100%
+                            match = re.search(r"(?P<success_rate_is>\d+) percent", str(e))
+                            success_rate = match.group("success_rate_is")
                             self.failed("FAILED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
                             log.info(
                                 "FAILED: Ping default gateway {} from device {} with success rate of {}%".format(
                                     default_gateway, device.name, success_rate
                                 )
                             )
-                line_index += 1
+                        else:
+                            # extract success rate from ping result with regular expression
+                            match = re.search(r"(?P<success_rate_is>\d+) percent", result)
+                            success_rate = match.group("success_rate_is")
+                            if float(success_rate) > 0:
+                                # ping responded
+                                self.passed("PASSED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
+                                log.info(
+                                    "PASSED: Ping default gateway {} from device {} with success rate of {}%".format(
+                                        default_gateway, device.name, success_rate
+                                    )
+                                )
+                            else:
+                                # packet loss was 100%
+                                self.failed("FAILED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
+                                log.info(
+                                    "FAILED: Ping default gateway {} from device {} with success rate of {}%".format(
+                                        default_gateway, device.name, success_rate
+                                    )
+                                )
+                    line_index += 1
 
-            if not found_default_gateway:
-                self.failed("FAILED: Default gateway on device {} not found".format(device.name))
-                log.info("FAILED: Default gateway on device {} not found".format(device.name))
+                if not found_default_gateway:
+                    self.failed("FAILED: Default gateway on device {} not found".format(device.name))
+                    log.info("FAILED: Default gateway on device {} not found".format(device.name))
+            else:
+                self.skipped("SKIPPED: Device {} is a switch (has SWC in hostname) ".format(device.name))
         else:
             self.failed("FAILED: Device OS type {} not handled in script for {}".format(device.os, device))
             log.info(
