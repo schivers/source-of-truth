@@ -15,7 +15,6 @@ from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 
 import pprint
 import argparse
-import re
 from pyats.topology import loader
 
 # Get your logger for your script
@@ -23,12 +22,19 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
+# Software versions:
+iosxe_os = ["16.12.5"]
+ios_os = ["15.2(7)E3"]
+nxos_os = ["9.3(9)"]
 
-# test result recording
-test_status_string = ""
-test_status = "None"
-pass_counter = 0
-
+#software version dictionary, just copy the key value pairs below to add more device types and versions.
+software_version_dictionary = {
+    "Catalyst 9500-40X":"16.12.4",
+    "Catalyst WS-C2960L-24PS-LL":"15.2(7)E3",
+    "Catalyst WS-C2960L-48PS-LL":"15.2(7)E3",
+    "WS-C3650-12X48UR":"16.09.06",
+    "ASR1001-HX":"16.12.5"
+    }
 
 class MyCommonSetup(aetest.CommonSetup):
 
@@ -52,7 +58,6 @@ class MyCommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def verify_connected(self, testbed, steps): 
         device_list = []
-
         d_name=[]
         for device_name, device in testbed.devices.items():
 
@@ -66,22 +71,21 @@ class MyCommonSetup(aetest.CommonSetup):
                     device_list.append(device)
                     d_name.append(device_name)
                 else:
-                    log.error(f"{device_name} connected status: {device.connected}")    
+                    log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-
+                    
         # Pass list of devices to testcases
-
         if device_list:
             #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Check_LLDP, device=device_list,uids=d_name)           
+            aetest.loop.mark(Check_Version_By_Type, device=device_list,uids=d_name)
+            
         else:
             self.failed()
 
-
-
-class Check_LLDP(aetest.Testcase):
+class Check_Version_By_Type(aetest.Testcase):
     """
-    Version Testcase - extract LLDP config from devices
+    Version Testcase - extract Serial numbers information from devices
+    Verify that all SNs are covered by service contract (exist in contract_sn)
     """
 
     @aetest.setup
@@ -90,36 +94,28 @@ class Check_LLDP(aetest.Testcase):
         Get list of all devices in testbed and
         run version testcase for each device
         """
-        pass
 
     @aetest.test
-    def check_lldp(self, device):
-        if device.os == "ios" or device.os == "iosxe" or device.os == "iosxr" or device.os == "nxos":
+    def check_version_by_type(self, device):
+        """
+        Verify that the OS version is correct
+        """
 
-            test = device.api.verify_lldp_in_state(device)
-            if test:
-                self.passed('lldp is enabled on device {}'.format(device))
-            else:
-                self.failed('lldp is not enabled on device {}'.format(device))
+        try:
+            out = device.parse("show version")
 
+        except Exception as e:
+            self.failed('Exception occured '.format(str(e)))
         else:
-            self.failed("FAILED: Device OS type {} not handled in script for device {}".format(device.os, device))
-            log.info(
-                "FAILED: Device OS type {} not handled in script for device {}".format(
-                    device.os, device
-                )
-            )
-
-class CommonCleanup(aetest.CommonCleanup):
-    """CommonCleanup Section
-    < common cleanup docstring >
-    """
-
-    # uncomment to add new subsections
-    @aetest.subsection
-    def subsection_cleanup_one(self):
-        pass
-
+            if device.type in software_version_dictionary:
+                if software_version_dictionary[device.type] == out["version"]["version"]:
+                    #log.info('software version from dictionary is {} and version on device is {}'.format(software_version_dictionary[device.type],out["version"]["version"]))
+                    self.passed('Software version for {} should be {} and version on device is {}'.format(device.type,software_version_dictionary[device.type],out["version"]["version"]))
+                else:
+                    self.failed('Software version for {} should be {} and version on device is {}'.format(device.type,software_version_dictionary[device.type],out["version"]["version"]))
+                    #log.info('software version from dictionary is {} and version on device is {}'.format(software_version_dictionary[device.type],out["version"]["version"]))
+            else:
+                self.failed('device type {} not found in dictionary for device {}, update script to include this'.format(device.type, device.name))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

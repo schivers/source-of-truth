@@ -4,7 +4,7 @@ testbed:
 
 
 devices:
-  sbx-n9kv-ao:
+  sbx-ao:
     connections:
       cli:
         ip: sbx-nxos-mgmt.cisco.com

@@ -2,7 +2,6 @@
 
 # To get a logger for the script
 import logging
-
 from pyats import aetest
 from pyats.log.utils import banner
 
@@ -12,11 +11,9 @@ from genie.conf import Genie
 # To handle errors with connections to devices
 from unicon.core import errors
 from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
-
-import pprint
 import argparse
-import re
 from pyats.topology import loader
+from pyats.async_ import pcall
 
 # Get your logger for your script
 global log
@@ -24,13 +21,11 @@ log = logging.getLogger(__name__)
 log.level = logging.INFO
 
 
-# test result recording
-test_status_string = ""
-test_status = "None"
-pass_counter = 0
-
-
-class MyCommonSetup(aetest.CommonSetup):
+class CommonSetup(aetest.CommonSetup):
+    """
+    CommonSetup class to prepare for testcases
+    Establishes connections to all devices in testbed
+    """
 
     @aetest.subsection
     def establish_connections(self, testbed):
@@ -47,12 +42,10 @@ class MyCommonSetup(aetest.CommonSetup):
             testbed.connect(log_stdout=False)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
-            
 
     @aetest.subsection
     def verify_connected(self, testbed, steps): 
         device_list = []
-
         d_name=[]
         for device_name, device in testbed.devices.items():
 
@@ -66,22 +59,22 @@ class MyCommonSetup(aetest.CommonSetup):
                     device_list.append(device)
                     d_name.append(device_name)
                 else:
-                    log.error(f"{device_name} connected status: {device.connected}")    
+                    log.warning(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-
+        
+                    
         # Pass list of devices to testcases
-
         if device_list:
             #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Check_LLDP, device=device_list,uids=d_name)           
+            aetest.loop.mark(eigrp, device=device_list,uids=d_name)
+            
         else:
             self.failed()
+            
 
-
-
-class Check_LLDP(aetest.Testcase):
+class eigrp(aetest.Testcase):
     """
-    Version Testcase - extract LLDP config from devices
+    Validate the Core router's downlink connection torwards the Core switches.
     """
 
     @aetest.setup
@@ -90,35 +83,46 @@ class Check_LLDP(aetest.Testcase):
         Get list of all devices in testbed and
         run version testcase for each device
         """
-        pass
 
+    
     @aetest.test
-    def check_lldp(self, device):
-        if device.os == "ios" or device.os == "iosxe" or device.os == "iosxr" or device.os == "nxos":
-
-            test = device.api.verify_lldp_in_state(device)
-            if test:
-                self.passed('lldp is enabled on device {}'.format(device))
+    def global_eigrp(self, device):
+        "Check Global routing EIGRP neighbours table has 3 EIGRP Neighbours"
+        
+        if device.os == "iosxe":
+            out1 = device.parse("show ip eigrp neigh")
+            log.info(out1)
+            uptime_eigrp=out1.q.contains('eigrp_interface').get_values('uptime')
+            if len(uptime_eigrp)==3:
+                self.passed("Three EIGRP neighbours found")
             else:
-                self.failed('lldp is not enabled on device {}'.format(device))
+                self.failed("{0} EIGRP neighbours found".format(len(uptime_eigrp)))
 
         else:
-            self.failed("FAILED: Device OS type {} not handled in script for device {}".format(device.os, device))
-            log.info(
-                "FAILED: Device OS type {} not handled in script for device {}".format(
-                    device.os, device
-                )
-            )
+            self.skipped("Test skipped - Device not compatible.")
 
-class CommonCleanup(aetest.CommonCleanup):
-    """CommonCleanup Section
-    < common cleanup docstring >
-    """
 
-    # uncomment to add new subsections
-    @aetest.subsection
-    def subsection_cleanup_one(self):
-        pass
+    
+
+    @aetest.test
+    def eigrp_vrf(self, device, steps):
+        "Check EIGRP neighbours table in each VRF has 3 EIGRP Neighbours"
+        vrf_list=['AFP', 'AP', 'BROADCASTER', 'COMPETITION', 'EPA', 'GETTY', 'HOSPITALITY', 'MEDIA', 'PCI', 'REUTERS', 'SUPPLIER', 'VOIP']
+        if device.os == "iosxe":
+            for i in vrf_list:
+                with steps.start(f"Test EIGRP VRF {i}", continue_=True) as step:
+                    command="show ip eigrp vrf {0} neighbors".format(i)
+                    out1 = device.parse(command)
+                    uptime_eigrp=out1.q.contains('eigrp_interface').get_values('uptime')
+                    if len(uptime_eigrp)==3:
+                        step.passed("Three EIGRP neighbours found")
+                    else:
+                        step.failed("{0} EIGRP neighbours found".format(len(uptime_eigrp)))
+                    
+        else:
+            self.skipped("Test failed - Device not compatible.")
+
+   
 
 
 if __name__ == "__main__":

@@ -13,22 +13,23 @@ from genie.conf import Genie
 from unicon.core import errors
 from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 
-import pprint
 import argparse
 import re
 from pyats.topology import loader
+import pprint
 
 # Get your logger for your script
 global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
-
-# test result recording
-test_status_string = ""
-test_status = "None"
-pass_counter = 0
-
+#device types and STP commands to check
+access_switch = ['Catalyst WS-C2960L-24PS-LL','Catalyst WS-C2960L-48PS-LL'] #list of access switches
+access_switch_config = 'spanning-tree vlan 1-4094 priority 24576' #what to look for in show running-config if its an access switch
+distribution_switch = ['WS-C3650-12X48UR'] #like above, This might need the word 'Catalyst in there'
+distribution_switch_config = 'spanning-tree vlan 1-4093 priority 8192'
+core_switch = ['tbc'] #for Shaun to complete
+core_switch_config = 'tbc'
 
 class MyCommonSetup(aetest.CommonSetup):
 
@@ -52,7 +53,6 @@ class MyCommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def verify_connected(self, testbed, steps): 
         device_list = []
-
         d_name=[]
         for device_name, device in testbed.devices.items():
 
@@ -66,23 +66,19 @@ class MyCommonSetup(aetest.CommonSetup):
                     device_list.append(device)
                     d_name.append(device_name)
                 else:
-                    log.error(f"{device_name} connected status: {device.connected}")    
+                    log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-
+                    
         # Pass list of devices to testcases
-
         if device_list:
             #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Check_LLDP, device=device_list,uids=d_name)           
+            aetest.loop.mark(Check_STP_Priority, device=device_list,uids=d_name)
+            
         else:
             self.failed()
 
 
-
-class Check_LLDP(aetest.Testcase):
-    """
-    Version Testcase - extract LLDP config from devices
-    """
+class Check_STP_Priority(aetest.Testcase):
 
     @aetest.setup
     def setup(self):
@@ -90,25 +86,41 @@ class Check_LLDP(aetest.Testcase):
         Get list of all devices in testbed and
         run version testcase for each device
         """
-        pass
 
     @aetest.test
-    def check_lldp(self, device):
-        if device.os == "ios" or device.os == "iosxe" or device.os == "iosxr" or device.os == "nxos":
-
-            test = device.api.verify_lldp_in_state(device)
-            if test:
-                self.passed('lldp is enabled on device {}'.format(device))
+    def check_stp_priority(self, device):
+        """
+        Verify that the STP Priority is correct
+        """
+        config_to_find = ''
+        if device.os == 'ios' or device.os == 'iosxe':
+            try:
+                out = device.parse("show running-config")
+                
+            except Exception as e:
+                self.failed('Exception occured '.format(str(e)))
             else:
-                self.failed('lldp is not enabled on device {}'.format(device))
-
+                if device.type in access_switch:
+                    config_to_find = access_switch_config
+                elif device.type in distribution_switch:
+                    config_to_find = distribution_switch_config
+                elif device.type in core_switch:
+                    config_to_find = core_switch_config
+                else:
+                    self.failed('Unknown device type "{}" on device "{}"'.format(device.type,device))
+                
+                if config_to_find in out:
+                    self.passed('Config "{}" was found on device {}'.format(config_to_find,device))
+                else:
+                    self.failed('Config "{}" not found on device {}'.format(config_to_find,device))
         else:
-            self.failed("FAILED: Device OS type {} not handled in script for device {}".format(device.os, device))
+            self.failed("FAILED: Device OS type {} not handled in script for {}".format(device.os, device))
             log.info(
-                "FAILED: Device OS type {} not handled in script for device {}".format(
+                "FAILED: Device OS type {} not handled in script for {}".format(
                     device.os, device
                 )
             )
+
 
 class CommonCleanup(aetest.CommonCleanup):
     """CommonCleanup Section
@@ -119,7 +131,6 @@ class CommonCleanup(aetest.CommonCleanup):
     @aetest.subsection
     def subsection_cleanup_one(self):
         pass
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

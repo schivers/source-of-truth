@@ -10,6 +10,7 @@ from genie.conf import Genie
 
 # To handle errors with connections to devices
 from unicon.core import errors
+from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 import argparse
 from pyats.topology import loader
 
@@ -37,7 +38,7 @@ class CommonSetup(aetest.CommonSetup):
         assert testbed, "Testbed is not provided!"
 
         try:
-            testbed.connect(log_stdout=False)
+            testbed.connect(log_stdout=False,learn_hostname=True)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
 
