@@ -40,7 +40,6 @@ test_name = "Check DNS Server Settings"
 
 
 class MyCommonSetup(aetest.CommonSetup):
-
     @aetest.subsection
     def establish_connections(self, testbed):
         """
@@ -56,12 +55,11 @@ class MyCommonSetup(aetest.CommonSetup):
             testbed.connect(log_stdout=False)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
-            
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -76,12 +74,12 @@ class MyCommonSetup(aetest.CommonSetup):
                 else:
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-                    
+
         # Pass list of devices to testcases
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Check_DNS_Server_Settings, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(Check_DNS_Server_Settings, device=device_list, uids=d_name)
+
         else:
             self.failed()
 
@@ -101,15 +99,24 @@ class Check_DNS_Server_Settings(aetest.Testcase):
     @aetest.test
     def check_dns_server_settings(self, device):
 
-        test_status_string = ''
+        test_status_string = ""
         test_passed = True
-        if device.os == 'nxos' or device.os == 'ios' or device.os == 'iosxe':
+        if device.os == "nxos" or device.os == "ios" or device.os == "iosxe":
             for show_run_include_command in show_run_include_commands:
-                if device.os == 'nxos':
-                    show_run_output = device.execute('show running-config | include "' + show_run_include_command + '"')
+                if device.os == "nxos":
+                    show_run_output = device.execute(
+                        'show running-config | include "'
+                        + show_run_include_command
+                        + '"'
+                    )
                 else:
-                    show_run_output = device.execute('show running-config | include ' + show_run_include_command)
-                if (show_run_output != "" and show_run_output.find(show_run_include_command) != -1):
+                    show_run_output = device.execute(
+                        "show running-config | include " + show_run_include_command
+                    )
+                if (
+                    show_run_output != ""
+                    and show_run_output.find(show_run_include_command) != -1
+                ):
                     test_status_string = (
                         test_status_string
                         + 'PASSED: {} "{}" FOUND on {}\n'.format(
@@ -139,9 +146,13 @@ class Check_DNS_Server_Settings(aetest.Testcase):
                 self.passed(test_status_string)
             else:
                 self.failed(test_status_string)
-  
+
         else:
-            self.failed("FAILED: Device OS type {} not handled in script for {}".format(device.os, device))
+            self.failed(
+                "FAILED: Device OS type {} not handled in script for {}".format(
+                    device.os, device
+                )
+            )
             log.info(
                 "FAILED: Device OS type {} not handled in script for {}".format(
                     device.os, device

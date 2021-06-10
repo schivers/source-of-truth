@@ -27,17 +27,17 @@ iosxe_os = ["16.12.5"]
 ios_os = ["15.2(7)E3"]
 nxos_os = ["9.3(9)"]
 
-#software version dictionary, just copy the key value pairs below to add more device types and versions.
+# software version dictionary, just copy the key value pairs below to add more device types and versions.
 software_version_dictionary = {
-    "Catalyst 9500-40X":"16.12.4",
-    "Catalyst WS-C2960L-24PS-LL":"15.2(7)E3",
-    "Catalyst WS-C2960L-48PS-LL":"15.2(7)E3",
-    "WS-C3650-12X48UR":"16.09.06",
-    "ASR1001-HX":"16.12.5"
-    }
+    "Catalyst 9500-40X": "16.12.4",
+    "Catalyst WS-C2960L-24PS-LL": "15.2(7)E3",
+    "Catalyst WS-C2960L-48PS-LL": "15.2(7)E3",
+    "WS-C3650-12X48UR": "16.09.06",
+    "ASR1001-HX": "16.12.5",
+}
+
 
 class MyCommonSetup(aetest.CommonSetup):
-
     @aetest.subsection
     def establish_connections(self, testbed):
         """
@@ -53,12 +53,11 @@ class MyCommonSetup(aetest.CommonSetup):
             testbed.connect(log_stdout=False)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
-            
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -73,14 +72,15 @@ class MyCommonSetup(aetest.CommonSetup):
                 else:
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-                    
+
         # Pass list of devices to testcases
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Check_Version_By_Type, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(Check_Version_By_Type, device=device_list, uids=d_name)
+
         else:
             self.failed()
+
 
 class Check_Version_By_Type(aetest.Testcase):
     """
@@ -105,17 +105,37 @@ class Check_Version_By_Type(aetest.Testcase):
             out = device.parse("show version")
 
         except Exception as e:
-            self.failed('Exception occured '.format(str(e)))
+            self.failed("Exception occured ".format(str(e)))
         else:
             if device.type in software_version_dictionary:
-                if software_version_dictionary[device.type] == out["version"]["version"]:
-                    #log.info('software version from dictionary is {} and version on device is {}'.format(software_version_dictionary[device.type],out["version"]["version"]))
-                    self.passed('Software version for {} should be {} and version on device is {}'.format(device.type,software_version_dictionary[device.type],out["version"]["version"]))
+                if (
+                    software_version_dictionary[device.type]
+                    == out["version"]["version"]
+                ):
+                    # log.info('software version from dictionary is {} and version on device is {}'.format(software_version_dictionary[device.type],out["version"]["version"]))
+                    self.passed(
+                        "Software version for {} should be {} and version on device is {}".format(
+                            device.type,
+                            software_version_dictionary[device.type],
+                            out["version"]["version"],
+                        )
+                    )
                 else:
-                    self.failed('Software version for {} should be {} and version on device is {}'.format(device.type,software_version_dictionary[device.type],out["version"]["version"]))
-                    #log.info('software version from dictionary is {} and version on device is {}'.format(software_version_dictionary[device.type],out["version"]["version"]))
+                    self.failed(
+                        "Software version for {} should be {} and version on device is {}".format(
+                            device.type,
+                            software_version_dictionary[device.type],
+                            out["version"]["version"],
+                        )
+                    )
+                    # log.info('software version from dictionary is {} and version on device is {}'.format(software_version_dictionary[device.type],out["version"]["version"]))
             else:
-                self.failed('device type {} not found in dictionary for device {}, update script to include this'.format(device.type, device.name))
+                self.failed(
+                    "device type {} not found in dictionary for device {}, update script to include this".format(
+                        device.type, device.name
+                    )
+                )
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

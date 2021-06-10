@@ -14,31 +14,48 @@ logger = logging.getLogger(__name__)
 ###################################################################
 
 
+###################################################################
+#                  COMMON SETUP SECTION                           #
+###################################################################
+
+
 class CommonSetup(aetest.CommonSetup):
-    @aetest.subsection
-    def load_testbed(self, testbed):
-        # Convert pyATS testbed to Genie Testbed
-        logger.info(
-            "Converting pyATS testbed to Genie Testbed to support pyATS Library features"
-        )
-        testbed = load(testbed)
-        self.parent.parameters.update(testbed=testbed)
+    """
+    CommonSetup class to prepare for testcases
+    Establishes connections to all devices in testbed
+    """
 
     @aetest.subsection
-    def connect(self, testbed):
+    def establish_connections(self, testbed):
         """
-        establishes connection to all your testbed devices.
+        Establishes connections to all devices in testbed
+        :param testbed:
+        :return:
         """
+
         # make sure testbed is provided
         assert testbed, "Testbed is not provided!"
 
-        # connect to all testbed devices
-        #   By default ANY error in the CommonSetup will fail the entire test run
-        #   Here we catch common exceptions if a device is unavailable to allow test to continue
         try:
-            testbed.connect()
-        except (TimeoutError, StateMachineError, ConnectionError):
-            logger.error("Unable to connect to all devices")
+            testbed.connect(
+                learn_hostname=True, log_stdout=False, connection_timeout=60
+            )
+        except (TimeoutError, StateMachineError, ConnectionError) as e:
+            logger.error("NOT CONNECTED TO ALL DEVICES")
+
+    @aetest.subsection
+    def verify_connected(self, testbed, steps):
+        for device_name, device in testbed.devices.items():
+            with steps.start(
+                f"Test Connection Status of {device_name}", continue_=True
+            ) as step:
+                # Test "connected" status
+                logger.info(device)
+                if device.connected:
+                    logger.info(f"{device_name} connected status: {device.connected}")
+                else:
+                    logger.error(f"{device_name} connected status: {device.connected}")
+                    step.skipped()
 
 
 ###################################################################
@@ -54,8 +71,8 @@ class running_vs_startup(aetest.Testcase):
         for device_name, device in testbed.devices.items():
             # Only attempt to learn details on supported network operation systems
             # (does not work for IOSXR)
-            if device.os in ("ios", "iosxe", "nxos"):
-                logger.info(f"{device_name} connected status: {device.connected}")
+            logger.info(f"{device_name} connected status: {device.connected}")
+            if device.os in ("ios", "iosxe", "nxos") and device.connected:
                 logger.info(f"Learning configs for {device_name}")
                 startup = device.execute("show startup")
                 startup_config = Config(startup)

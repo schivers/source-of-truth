@@ -29,7 +29,6 @@ interface_types_to_check_list = ["Ethernet", "mgmt"]
 
 
 class MyCommonSetup(aetest.CommonSetup):
-
     @aetest.subsection
     def establish_connections(self, testbed):
         """
@@ -45,13 +44,12 @@ class MyCommonSetup(aetest.CommonSetup):
             testbed.connect(log_stdout=False)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
-            
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
 
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -64,20 +62,20 @@ class MyCommonSetup(aetest.CommonSetup):
                     device_list.append(device)
                     d_name.append(device_name)
                 else:
-                    log.error(f"{device_name} connected status: {device.connected}")    
+                    log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
 
         # Pass list of devices to testcases
 
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(CDP_Enabled, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(CDP_Enabled, device=device_list, uids=d_name)
+
         else:
             self.failed()
 
-class CDP_Enabled(aetest.Testcase):
 
+class CDP_Enabled(aetest.Testcase):
     @aetest.setup
     def setup(self):
         """
@@ -96,8 +94,6 @@ class CDP_Enabled(aetest.Testcase):
             )
         else:
             pass
-
-
 
     @aetest.test
     def cdp_enabled(self, device):
@@ -127,14 +123,26 @@ class CDP_Enabled(aetest.Testcase):
                                 cdp_enabled = True
                             line_index += 1
                         if cdp_enabled:
-                            self.passed('PASSED: cdp enabled {} on {}'.format(interface[0],device))
+                            self.passed(
+                                "PASSED: cdp enabled {} on {}".format(
+                                    interface[0], device
+                                )
+                            )
                             log.info(
-                                'PASSED: cdp enabled {} on {}'.format(interface[0],device)
+                                "PASSED: cdp enabled {} on {}".format(
+                                    interface[0], device
+                                )
                             )
                         else:
-                            self.failed('FAILED: cdp not enabled {} on {}'.format(interface[0],device))
+                            self.failed(
+                                "FAILED: cdp not enabled {} on {}".format(
+                                    interface[0], device
+                                )
+                            )
                             log.info(
-                                'FAILED: cdp not enabled {} on {}'.format(interface[0],device)
+                                "FAILED: cdp not enabled {} on {}".format(
+                                    interface[0], device
+                                )
                             )
 
         elif device.os == "nxos":
@@ -159,21 +167,33 @@ class CDP_Enabled(aetest.Testcase):
                                 cdp_enabled = True
                             line_index += 1
                         if cdp_enabled:
-                            #pass_counter += 1
-                            self.passed('{interface[0]} on {device} PASSED: cdp enabled'.format(interface[0],device))
+                            # pass_counter += 1
+                            self.passed(
+                                "{interface[0]} on {device} PASSED: cdp enabled".format(
+                                    interface[0], device
+                                )
+                            )
                             log.info(
-                                '{interface[0]} on {device} PASSED: cdp enabled'.format(interface[0],device)
+                                "{interface[0]} on {device} PASSED: cdp enabled".format(
+                                    interface[0], device
+                                )
                             )
                         else:
-                            self.failed('{interface[0]} on {device} FAILED: cdp not enabled'.format(interface[0],device))
-
-                            log.info(
-                                f"{interface[0]} on {device} FAILED: cdp disabled"
+                            self.failed(
+                                "{interface[0]} on {device} FAILED: cdp not enabled".format(
+                                    interface[0], device
+                                )
                             )
+
+                            log.info(f"{interface[0]} on {device} FAILED: cdp disabled")
 
         else:
 
-            self.failed('FAILED: Device OS type {} not handled in script for device {}'.format(device.os, device))
+            self.failed(
+                "FAILED: Device OS type {} not handled in script for device {}".format(
+                    device.os, device
+                )
+            )
             log.info(
                 "FAILED: Device OS type {} not handled in script for device {}".format(
                     device.os, device
@@ -190,6 +210,7 @@ class CommonCleanup(aetest.CommonCleanup):
     @aetest.subsection
     def subsection_cleanup_one(self):
         pass
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -66,14 +66,12 @@ class check_cdp_enabled(aetest.Testcase):
 
     @aetest.test
     def test(self, device):
-       if device.os in ("ios", "iosxe", "nxos","iosxr"):
-            out1= device.api.verify_cdp_in_state()
+        if device.os in ("ios", "iosxe", "nxos", "iosxr"):
+            out1 = device.api.verify_cdp_in_state()
             if out1:
                 self.passed("CDP is enabled globally on the device")
-            else: 
+            else:
                 self.failed("CDP is not enabled on this device")
-
-                
 
 
 if __name__ == "__main__":

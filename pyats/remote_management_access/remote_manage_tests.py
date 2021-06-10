@@ -38,14 +38,14 @@ class CommonSetup(aetest.CommonSetup):
         assert testbed, "Testbed is not provided!"
 
         try:
-            testbed.connect(log_stdout=False,learn_hostname=True)
+            testbed.connect(log_stdout=False, learn_hostname=True)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -60,12 +60,12 @@ class CommonSetup(aetest.CommonSetup):
                 else:
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-                    
+
         # Pass list of devices to testcases
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(RemoteManagement, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(RemoteManagement, device=device_list, uids=d_name)
+
         else:
             self.failed()
 
@@ -89,8 +89,6 @@ class RemoteManagement(aetest.Testcase):
         Get list of all devices in testbed and
         run version testcase for each device
         """
-        
-
 
     @aetest.test
     def host_checker(self, device):

@@ -21,10 +21,10 @@ logger = logging.basicConfig(
     level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
 )
 logger = logging.getLogger("rich")
-path_store = 'some value'
+path_store = "some value"
+
 
 class CommonSetup(aetest.CommonSetup):
-
     @aetest.subsection
     def connect(self, testbed):
         """
@@ -40,8 +40,11 @@ class CommonSetup(aetest.CommonSetup):
             testbed.connect(learn_hostname=True)
         except (TimeoutError, StateMachineError, ConnectionError):
             logger.error("Unable to connect to all devices")
+
     def set_store_num(self, store):
         aetest.loop.mark
+
+
 class CPU_utilisation_checks(aetest.Testcase):
     """
     Check the CPU Utilisation of all the devices in the testbed.yaml
@@ -55,38 +58,41 @@ class CPU_utilisation_checks(aetest.Testcase):
     def setup(self, testbed):
         """Check the Network OS matches the Testbed.yaml file"""
         self.execute_cpu = {}
-        self.output= {}
+        self.output = {}
 
-        
         for device_name, device in testbed.devices.items():
             # Only attempt to learn details on supported network operation systems
             if device.os in ("iosxr"):
                 logger.info(f"{device_name} connected status: {device.connected}")
                 logger.info(f"Running the show processes cpu command for {device_name}")
                 self.execute_cpu[device_name] = device.parse("show processes cpu")
-                
-    
+
     @aetest.test
     def test(self, steps):
-        
+
         print(path_store)
         for device_name, device in self.execute_cpu.items():
-            header = ['PID', '1Min', '5Min', '15Min', 'Process']
-            output= self.execute_cpu[device_name]
-            #print(output)
+            header = ["PID", "1Min", "5Min", "15Min", "Process"]
+            output = self.execute_cpu[device_name]
+            # print(output)
             # output = re.sub('%',' ', output)
             # result = parsergen.oper_fill_tabular(device_output=output, device_os='iosxr', header_fields=header, index=[0])
             # output=result.entries
-            output= output["sort"]
-            cpu_bad = Dq(output).value_operator('five_min_cpu', '>=', 0.22).reconstruct()
+            output = output["sort"]
+            cpu_bad = (
+                Dq(output).value_operator("five_min_cpu", ">=", 0.22).reconstruct()
+            )
             print(output)
             process_id = str(cpu_bad.keys())
             if cpu_bad != {}:
-                self.failed(f'Very High 5 Minute CPU detected on {device_name} with the following Process ID {process_id}')
-                
+                self.failed(
+                    f"Very High 5 Minute CPU detected on {device_name} with the following Process ID {process_id}"
+                )
 
             else:
-                self.passed(f'No issues found with the CPU Utilisation on {device_name}') 
+                self.passed(
+                    f"No issues found with the CPU Utilisation on {device_name}"
+                )
 
 
 class CommonCleanup(aetest.CommonCleanup):

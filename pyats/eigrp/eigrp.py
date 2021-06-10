@@ -44,9 +44,9 @@ class CommonSetup(aetest.CommonSetup):
             log.error("NOT CONNECTED TO ALL DEVICES")
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -61,16 +61,15 @@ class CommonSetup(aetest.CommonSetup):
                 else:
                     log.warning(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-        
-                    
+
         # Pass list of devices to testcases
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(eigrp, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(eigrp, device=device_list, uids=d_name)
+
         else:
             self.failed()
-            
+
 
 class eigrp(aetest.Testcase):
     """
@@ -84,16 +83,15 @@ class eigrp(aetest.Testcase):
         run version testcase for each device
         """
 
-    
     @aetest.test
     def global_eigrp(self, device):
         "Check Global routing EIGRP neighbours table has 3 EIGRP Neighbours"
-        
+
         if device.os == "iosxe":
             out1 = device.parse("show ip eigrp neigh")
             log.info(out1)
-            uptime_eigrp=out1.q.contains('eigrp_interface').get_values('uptime')
-            if len(uptime_eigrp)==3:
+            uptime_eigrp = out1.q.contains("eigrp_interface").get_values("uptime")
+            if len(uptime_eigrp) == 3:
                 self.passed("Three EIGRP neighbours found")
             else:
                 self.failed("{0} EIGRP neighbours found".format(len(uptime_eigrp)))
@@ -101,28 +99,40 @@ class eigrp(aetest.Testcase):
         else:
             self.skipped("Test skipped - Device not compatible.")
 
-
-    
-
     @aetest.test
     def eigrp_vrf(self, device, steps):
         "Check EIGRP neighbours table in each VRF has 3 EIGRP Neighbours"
-        vrf_list=['AFP', 'AP', 'BROADCASTER', 'COMPETITION', 'EPA', 'GETTY', 'HOSPITALITY', 'MEDIA', 'PCI', 'REUTERS', 'SUPPLIER', 'VOIP']
+        vrf_list = [
+            "AFP",
+            "AP",
+            "BROADCASTER",
+            "COMPETITION",
+            "EPA",
+            "GETTY",
+            "HOSPITALITY",
+            "MEDIA",
+            "PCI",
+            "REUTERS",
+            "SUPPLIER",
+            "VOIP",
+        ]
         if device.os == "iosxe":
             for i in vrf_list:
                 with steps.start(f"Test EIGRP VRF {i}", continue_=True) as step:
-                    command="show ip eigrp vrf {0} neighbors".format(i)
+                    command = "show ip eigrp vrf {0} neighbors".format(i)
                     out1 = device.parse(command)
-                    uptime_eigrp=out1.q.contains('eigrp_interface').get_values('uptime')
-                    if len(uptime_eigrp)==3:
+                    uptime_eigrp = out1.q.contains("eigrp_interface").get_values(
+                        "uptime"
+                    )
+                    if len(uptime_eigrp) == 3:
                         step.passed("Three EIGRP neighbours found")
                     else:
-                        step.failed("{0} EIGRP neighbours found".format(len(uptime_eigrp)))
-                    
+                        step.failed(
+                            "{0} EIGRP neighbours found".format(len(uptime_eigrp))
+                        )
+
         else:
             self.skipped("Test failed - Device not compatible.")
-
-   
 
 
 if __name__ == "__main__":
