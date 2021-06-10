@@ -28,7 +28,6 @@ ntp_server_ip_list = ["172.22.192.56", "10.224.0.100"]
 
 
 class MyCommonSetup(aetest.CommonSetup):
-
     @aetest.subsection
     def establish_connections(self, testbed):
         """
@@ -44,13 +43,12 @@ class MyCommonSetup(aetest.CommonSetup):
             testbed.connect(log_stdout=False)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
-            
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
 
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -63,17 +61,18 @@ class MyCommonSetup(aetest.CommonSetup):
                     device_list.append(device)
                     d_name.append(device_name)
                 else:
-                    log.error(f"{device_name} connected status: {device.connected}")    
+                    log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
 
         # Pass list of devices to testcases
 
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Check_NTP_Associations, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(Check_NTP_Associations, device=device_list, uids=d_name)
+
         else:
             self.failed()
+
 
 class Check_NTP_Associations(aetest.Testcase):
 
@@ -100,11 +99,11 @@ class Check_NTP_Associations(aetest.Testcase):
             ntp_details = device.execute("show running-config | include ntp server")
             if ntp_details == "":
                 # self.failed(f'NTP Server on {device} not found')
-                #test_status_string = (
+                # test_status_string = (
                 #    test_status_string
                 #    + "FAILED: No NTP Servers configured on {}\n".format(device)
-                #)
-                #test_status = "Failed"
+                # )
+                # test_status = "Failed"
                 self.failed("FAILED: No NTP Servers configured on {}".format(device))
                 log.info("FAILED: No NTP Servers configured on {}".format(device))
             else:
@@ -113,14 +112,18 @@ class Check_NTP_Associations(aetest.Testcase):
                 for ntp_server_ip in ntp_server_ip_list:
                     if ntp_details.find(ntp_server_ip) == -1:
                         # ntp server not found
-                        #test_status_string = (
+                        # test_status_string = (
                         #    test_status_string
                         #    + "FAILED: NTP Server {} not configured on {}\n".format(
                         #        ntp_server_ip, device
                         #    )
-                        #)
-                        #test_status = "Failed"
-                        self.failed("FAILED: NTP Server {} not configured on {}".format(ntp_server_ip, device))
+                        # )
+                        # test_status = "Failed"
+                        self.failed(
+                            "FAILED: NTP Server {} not configured on {}".format(
+                                ntp_server_ip, device
+                            )
+                        )
                         log.info(
                             "FAILED: NTP Server {} not configured on {}".format(
                                 ntp_server_ip, device
@@ -128,15 +131,19 @@ class Check_NTP_Associations(aetest.Testcase):
                         )
                     else:
                         # ntp server found
-                        #test_status_string = (
+                        # test_status_string = (
                         #    test_status_string
                         #    + "PASSED: NTP Server {} configured on {}\n".format(
                         #    )
-                        #)
+                        # )
                         #        ntp_server_ip, device
-                        #ntp_server_count += 1
-                        #pass_counter += 1
-                        self.passed("PASSED: NTP Server {} configured on {}".format(ntp_server_ip, device))
+                        # ntp_server_count += 1
+                        # pass_counter += 1
+                        self.passed(
+                            "PASSED: NTP Server {} configured on {}".format(
+                                ntp_server_ip, device
+                            )
+                        )
                         log.info(
                             "PASSED: NTP Server {} configured on {}".format(
                                 ntp_server_ip, device
@@ -148,30 +155,34 @@ class Check_NTP_Associations(aetest.Testcase):
                     ntp_details = device.execute("show ntp status")
 
                     if ntp_details.find("Clock is synchronized") == -1:
-                        #test_status_string = (
+                        # test_status_string = (
                         #    test_status_string
                         #    + "FAILED: NTP unsynchronised on {}\n".format(device)
-                        #)
-                        #test_status = "Failed"
+                        # )
+                        # test_status = "Failed"
                         self.failed("FAILED: NTP unsynchronised on {}".format(device))
                         log.info("FAILED: NTP unsynchronised on {}".format(device))
                     else:
-                        #test_status_string = (
+                        # test_status_string = (
                         #    test_status_string
                         #    + "PASSED: NTP synchronised on {}\n".format(device)
-                        #)
-                        #pass_counter += 1
+                        # )
+                        # pass_counter += 1
                         self.passed("PASSED: NTP synchronised on {}".format(device))
                         log.info("PASSED: NTP synchronised on {}".format(device))
         else:
-            #test_status_string = (
+            # test_status_string = (
             #    test_status_string
             #    + "FAILED: Device OS type {} not handled in script for device {}\n".format(
             #        device.os, device
             #    )
-            #)
-            #test_status = "Failed"
-            self.failed("FAILED: Device OS type {} not handled in script for device {}".format(device.os, device))
+            # )
+            # test_status = "Failed"
+            self.failed(
+                "FAILED: Device OS type {} not handled in script for device {}".format(
+                    device.os, device
+                )
+            )
             log.info(
                 "FAILED: Device OS type {} not handled in script for device {}".format(
                     device.os, device
@@ -202,6 +213,7 @@ class CommonCleanup(aetest.CommonCleanup):
         if test_status == "None" and pass_counter > 0:
             self.passed(f"PASSED: Check NTP Associations\n{test_status_string}")
         """
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -23,8 +23,8 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
-class MyCommonSetup(aetest.CommonSetup):
 
+class MyCommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def establish_connections(self, testbed):
         """
@@ -40,12 +40,11 @@ class MyCommonSetup(aetest.CommonSetup):
             testbed.connect(log_stdout=False)
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
-            
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -60,18 +59,17 @@ class MyCommonSetup(aetest.CommonSetup):
                 else:
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-                    
+
         # Pass list of devices to testcases
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Ping_Default_GW, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(Ping_Default_GW, device=device_list, uids=d_name)
+
         else:
             self.failed()
 
 
 class Ping_Default_GW(aetest.Testcase):
-
     @aetest.setup
     def setup(self):
         """
@@ -85,20 +83,26 @@ class Ping_Default_GW(aetest.Testcase):
         Verify that the default gateway is correct and can be pinged.
         """
 
-        if device.os == 'ios' or device.os == 'iosxe':
-            if 'SWC' not in device.name:
-                out_details = device.execute('show ip route')
-                if out_details == '':
+        if device.os == "ios" or device.os == "iosxe":
+            if "SWC" not in device.name:
+                out_details = device.execute("show ip route")
+                if out_details == "":
                     self.failed("FAILED: default route on {} not found".format(device))
                 out_detail_lines = out_details.splitlines()
                 line_index = 0
                 found_default_gateway = False
                 while line_index < len(out_detail_lines):
-                    if device.os == 'ios':
-                        match = re.search(r"Default gateway is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})", out_detail_lines[line_index])
-                    if device.os == 'iosxe':
-                        match = re.search(r"Gateway of last resort is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})", out_detail_lines[line_index])
-            
+                    if device.os == "ios":
+                        match = re.search(
+                            r"Default gateway is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})",
+                            out_detail_lines[line_index],
+                        )
+                    if device.os == "iosxe":
+                        match = re.search(
+                            r"Gateway of last resort is (?P<default_gateway>[0-9]+(?:\.[0-9]+){3})",
+                            out_detail_lines[line_index],
+                        )
+
                     if match != None:
                         default_gateway = match.group("default_gateway")
                         found_default_gateway = True
@@ -109,9 +113,15 @@ class Ping_Default_GW(aetest.Testcase):
 
                         except Exception as e:
 
-                            match = re.search(r"(?P<success_rate_is>\d+) percent", str(e))
+                            match = re.search(
+                                r"(?P<success_rate_is>\d+) percent", str(e)
+                            )
                             success_rate = match.group("success_rate_is")
-                            self.failed("FAILED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
+                            self.failed(
+                                "FAILED: Ping default gateway {} from device {} with success rate of {}%".format(
+                                    default_gateway, device.name, success_rate
+                                )
+                            )
                             log.info(
                                 "FAILED: Ping default gateway {} from device {} with success rate of {}%".format(
                                     default_gateway, device.name, success_rate
@@ -119,11 +129,17 @@ class Ping_Default_GW(aetest.Testcase):
                             )
                         else:
                             # extract success rate from ping result with regular expression
-                            match = re.search(r"(?P<success_rate_is>\d+) percent", result)
+                            match = re.search(
+                                r"(?P<success_rate_is>\d+) percent", result
+                            )
                             success_rate = match.group("success_rate_is")
                             if float(success_rate) > 0:
                                 # ping responded
-                                self.passed("PASSED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
+                                self.passed(
+                                    "PASSED: Ping default gateway {} from device {} with success rate of {}%".format(
+                                        default_gateway, device.name, success_rate
+                                    )
+                                )
                                 log.info(
                                     "PASSED: Ping default gateway {} from device {} with success rate of {}%".format(
                                         default_gateway, device.name, success_rate
@@ -131,7 +147,11 @@ class Ping_Default_GW(aetest.Testcase):
                                 )
                             else:
                                 # packet loss was 100%
-                                self.failed("FAILED: Ping default gateway {} from device {} with success rate of {}%".format(default_gateway, device.name, success_rate))
+                                self.failed(
+                                    "FAILED: Ping default gateway {} from device {} with success rate of {}%".format(
+                                        default_gateway, device.name, success_rate
+                                    )
+                                )
                                 log.info(
                                     "FAILED: Ping default gateway {} from device {} with success rate of {}%".format(
                                         default_gateway, device.name, success_rate
@@ -140,12 +160,28 @@ class Ping_Default_GW(aetest.Testcase):
                     line_index += 1
 
                 if not found_default_gateway:
-                    self.failed("FAILED: Default gateway on device {} not found".format(device.name))
-                    log.info("FAILED: Default gateway on device {} not found".format(device.name))
+                    self.failed(
+                        "FAILED: Default gateway on device {} not found".format(
+                            device.name
+                        )
+                    )
+                    log.info(
+                        "FAILED: Default gateway on device {} not found".format(
+                            device.name
+                        )
+                    )
             else:
-                self.skipped("SKIPPED: Device {} is a switch (has SWC in hostname) ".format(device.name))
+                self.skipped(
+                    "SKIPPED: Device {} is a switch (has SWC in hostname) ".format(
+                        device.name
+                    )
+                )
         else:
-            self.failed("FAILED: Device OS type {} not handled in script for {}".format(device.os, device))
+            self.failed(
+                "FAILED: Device OS type {} not handled in script for {}".format(
+                    device.os, device
+                )
+            )
             log.info(
                 "FAILED: Device OS type {} not handled in script for {}".format(
                     device.os, device
@@ -162,6 +198,7 @@ class CommonCleanup(aetest.CommonCleanup):
     @aetest.subsection
     def subsection_cleanup_one(self):
         pass
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

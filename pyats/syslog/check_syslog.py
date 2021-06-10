@@ -66,16 +66,14 @@ class check_syslog(aetest.Testcase):
 
     @aetest.test
     def test(self, device):
-        syslog="172.22.192.56"
+        syslog = "172.22.192.56"
         "Check VTP Status for domain name & operation mode."
         if device.os == "iosxe" or device.os == "ios":
-            out1= device.api.get_running_config("logging host {0}".format(syslog))
+            out1 = device.api.get_running_config("logging host {0}".format(syslog))
             if out1:
                 self.passed("Syslog setting found for {0}".format(syslog))
-            else: 
+            else:
                 self.failed("Syslog setting not found.")
-
-                
 
 
 if __name__ == "__main__":

@@ -44,9 +44,9 @@ class CommonSetup(aetest.CommonSetup):
             log.error("NOT CONNECTED TO ALL DEVICES")
 
     @aetest.subsection
-    def verify_connected(self, testbed, steps): 
+    def verify_connected(self, testbed, steps):
         device_list = []
-        d_name=[]
+        d_name = []
         for device_name, device in testbed.devices.items():
 
             with steps.start(
@@ -61,20 +61,21 @@ class CommonSetup(aetest.CommonSetup):
                 else:
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
-                    
+
         # Pass list of devices to testcases
         if device_list:
-            #ADD NEW TESTS CASES HERE
-            aetest.loop.mark(eigrp, device=device_list,uids=d_name)
-            
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(eigrp, device=device_list, uids=d_name)
+
         else:
             self.failed()
 
 
 # Software versions:
-iosxe_os = ["16.12.5","16.09.06","16.12.4"]
+iosxe_os = ["16.12.5", "16.09.06", "16.12.4"]
 ios_os = ["15.2(7)E3"]
 nxos_os = ["9.3(9)"]
+
 
 class Version(aetest.Testcase):
     """

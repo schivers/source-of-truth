@@ -1,14 +1,13 @@
 """
-half_duplex_job.py
-
+Baku_test_job.py
 """
 # see https://pubhub.devnetcloud.com/media/pyats/docs/easypy/jobfile.html
 # for how job files work
 
-__author__ = "Oren Brigg"
-__copyright__ = "Copyright (c) 2020, Cisco Systems Inc."
-__contact__ = ["obrigg@cisco.com"]
-__credits__ = ["hapresto@cisco.com"]
+__author__ = "Shaun Chivers"
+__copyright__ = "NTT Global"
+__contact__ = ["shaun.chivers@global.ntt"]
+__credits__ = ["Hank Preston, Cisco Systems"]
 __version__ = 1.0
 
 import os
@@ -19,10 +18,9 @@ SCRIPT_PATH = os.path.dirname(__file__)
 
 
 def main(runtime):
-    """job file entrypoint"""
 
     run(
-        testscript=os.path.join(SCRIPT_PATH, "half_duplex.py"),
+        testscript=os.path.join(SCRIPT_PATH, "interface_errors.py"),
         runtime=runtime,
-        taskid="Half Duplex",
+        taskid="Interface Errors",
     )

@@ -33,29 +33,29 @@ def main(runtime):
         testscript=os.path.join(SCRIPT_PATH, "./interface_errors/interface_errors.py"),
         runtime=runtime,
         taskid="Interface Errors",
-     )
+    )
     run(
         testscript=os.path.join(SCRIPT_PATH, "./check_ntp/check_ntp_associations.py"),
         runtime=runtime,
         taskid="Check NTP Associations",
-     )
+    )
     run(
-       testscript=os.path.join(SCRIPT_PATH, "./eigrp/eigrp.py"),
-       runtime=runtime,
-       taskid="Check EIGRP Adjacencies",
-     )
+        testscript=os.path.join(SCRIPT_PATH, "./eigrp/eigrp.py"),
+        runtime=runtime,
+        taskid="Check EIGRP Adjacencies",
+    )
     run(
-      testscript=os.path.join(SCRIPT_PATH, "./half_duplex/half_duplex.py"),
-      runtime=runtime,
-      taskid="Check for Half Duplex Interfaces ",
-     )
+        testscript=os.path.join(SCRIPT_PATH, "./half_duplex/half_duplex.py"),
+        runtime=runtime,
+        taskid="Check for Half Duplex Interfaces ",
+    )
     run(
-      testscript=os.path.join(SCRIPT_PATH, "./interface_errors/interface_errors.py"),
-      runtime=runtime,
-      taskid="Check for Interface Errors",
-     )
+        testscript=os.path.join(SCRIPT_PATH, "./interface_errors/interface_errors.py"),
+        runtime=runtime,
+        taskid="Check for Interface Errors",
+    )
     run(
-      testscript=os.path.join(SCRIPT_PATH, "./ping_central_ntp/ping_central_ntp.py"),
-      runtime=runtime,
-      taskid="Ping IBC NTP Server",
-     )
+        testscript=os.path.join(SCRIPT_PATH, "./ping_central_ntp/ping_central_ntp.py"),
+        runtime=runtime,
+        taskid="Ping IBC NTP Server",
+    )
