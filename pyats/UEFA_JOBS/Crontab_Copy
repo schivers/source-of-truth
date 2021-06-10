@@ -1,0 +1,86 @@
+
+#AMS
+
+#PyATS jobs to test operational state of switches 
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/ops_test_job.py  --mail-to shaun.chivers@global.ntt --mail-html --submitter AMS -t tests/testbeds/AMS_testbed_switch.yaml  
+
+#PyATS jobs to test operational state of routers NOT IMPLEMENTED -> No router information
+##0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/router_ops_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter AMS -t tests/testbeds/AMS_testbed_router.yaml
+
+#PyATS jobs to test configuration of all devices
+0 */6 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/build_test_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter AMS -t tests/testbeds/AMS_testbed_switch_all.yaml
+
+#BUC
+#PyATS jobs to test operational state of switches
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/ops_test_job.py  --mail-to s.rabu@reditsolutions.ro a.savulescu@redisolutions.ro --mail-html --submitter BUC -t tests/testbeds/BUC_testbed_switch.yaml 
+
+#PyATS jobs to test operational state of routers
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/router_ops_job.py --mail-to s.rabu@reditsolutions.ro a.savulescu@redisolutions.ro --mail-html --submitter BUC -t tests/testbeds/BUC_testbed_router.yaml
+
+#PyATS jobs to test configuration of all devices
+0 */6 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/build_test_job.py --mail-to s.rabu@reditsolutions.ro a.savulescu@redisolutions.ro --mail-html --submitter BUC -t tests/testbeds/BUC_testbed_switch_all.yaml
+
+#BUD
+#PyATS jobs to test operational state of switches
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/ops_test_job.py  --mail-to shaun.chivers@global.ntt --mail-html --submitter BUD -t tests/testbeds/BUD_testbed_switch.yaml  
+
+#PyATS jobs to test operational state of routers
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/router_ops_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter BUD -t tests/testbeds/BUD_testbed_switch.yaml
+
+#PyATS jobs to test configuration of all devices
+0 */6 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/build_test_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter BUD -t tests/testbeds/BUD_testbed_switch.yaml
+
+#COP - NOT IMPLEMENTED -> NO IPS
+
+#GLA
+#PyATS jobs to test operational state of switches
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/ops_test_job.py  --mail-to chris.dlugokecki@global.ntt william.scottsouth@global.ntt Mike.Jackson@global.ntt --mail-html --submitter GLA -t tests/testbeds/GLA_testbed_switch.yaml 
+
+#PyATS jobs to test operational state of routers
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/router_ops_job.py --mail-to chris.dlugokecki@global.ntt william.scottsouth@global.ntt Mike.Jackson@global.ntt --mail-html --submitter GLA -t tests/testbeds/GLA_testbed_router.yaml
+
+#PyATS jobs to test configuration of all devices
+0 */6 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/build_test_job.py --mail-to chris.dlugokecki@global.ntt william.scottsouth@global.ntt Mike.Jackson@global.ntt --mail-html --submitter GLA -t tests/testbeds/GLA_testbed_switch_all.yaml
+
+#LON
+
+#PyATS jobs to test operational state of switches
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/ops_test_job.py  --mail-to shaun.chivers@global.ntt --mail-html --submitter LON -t tests/testbeds/LON_testbed_switch.yaml 
+
+#PyATS jobs to test operational state of routers
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/router_ops_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter LON -t tests/testbeds/LON_testbed_router.yaml
+
+#PyATS jobs to test configuration of all devices
+0 */6 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/build_test_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter LON -t tests/testbeds/LON_testbed_switch_all.yaml
+
+#MUC
+
+#PyATS jobs to test operational state of switches
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/ops_test_job.py  --mail-to shaun.chivers@global.ntt --mail-html --submitter MUC -t tests/testbeds/MUC_testbed_switch.yaml 
+
+#PyATS jobs to test operational state of routers
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/router_ops_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter MUC -t tests/testbeds/MUC_testbed_router.yaml
+
+#PyATS jobs to test configuration of all devices
+0 */6 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/build_test_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter MUC -t tests/testbeds/MUC_testbed_switch_all.yaml
+
+#ROM
+#PyATS jobs to test operational state of switches
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/ops_test_job.py  --mail-to shaun.chivers@global.ntt --mail-html --submitter ROM -t tests/testbeds/ROM_testbed_switch.yaml 
+
+#PyATS jobs to test operational state of routers
+0 */2 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/router_ops_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter ROM -t tests/testbeds/ROM_testbed_router.yaml
+
+#PyATS jobs to test configuration of all devices
+0 */6 * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/pyats/build_test_job.py --mail-to shaun.chivers@global.ntt --mail-html --submitter ROM -t tests/testbeds/ROM_testbed_switch_all.yaml
+
+#SEV - NOT IMPLEMENTED -> Device information was inaccurate.
+
+
+#SPB - NOT IMPLEMENTED -> Device form unusable
+
+#NLD - No Form
+
+# IBC - No Form  
+
+
