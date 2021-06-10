@@ -171,17 +171,6 @@ class CPU_utilisation_checks(aetest.Testcase):
                     )
 
 
-class CommonCleanup(aetest.CommonCleanup):
-    """CommonCleanup Section
-    < common cleanup docstring >
-    """
-
-    # uncomment to add new subsections
-    # @aetest.subsection
-    # def subsection_cleanup_one(self):
-    #     pass
-
-
 if __name__ == "__main__":
     # for stand-alone execution
     import argparse
