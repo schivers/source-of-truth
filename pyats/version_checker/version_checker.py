@@ -39,7 +39,9 @@ class CommonSetup(aetest.CommonSetup):
         assert testbed, "Testbed is not provided!"
 
         try:
-            testbed.connect(log_stdout=False)
+            testbed.connect(
+                learn_hostname=True, log_stdout=False, connection_timeout=60
+            )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
 
@@ -65,7 +67,7 @@ class CommonSetup(aetest.CommonSetup):
         # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
-            aetest.loop.mark(eigrp, device=device_list, uids=d_name)
+            aetest.loop.mark(Version, device=device_list, uids=d_name)
 
         else:
             self.failed()
@@ -90,8 +92,8 @@ class Version(aetest.Testcase):
         run version testcase for each device
         """
 
-        devices = self.parent.parameters["dev"]
-        aetest.loop.mark(self.version, device=devices)
+        #devices = self.parent.parameters["dev"]
+        #aetest.loop.mark(self.version, device=devices)
 
     @aetest.test
     def version(self, device):
@@ -107,7 +109,7 @@ class Version(aetest.Testcase):
             if os_version not in iosxe_os:
                 self.failed(f"{os_version} on {device} is not the correct version")
             else:
-                pass
+                self.passed(f"{os_version} on {device} is the correct version")
 
         elif device.os == "ios":
 
@@ -117,18 +119,18 @@ class Version(aetest.Testcase):
             if os_version not in ios_os:
                 self.failed(f"{os_version} on {device} is not the correct version")
             else:
-                pass
+                self.passed(f"{os_version} on {device} is the correct version")
 
         elif device.os == "nxos":
 
             out3 = device.parse("show version")
-            pprint.pprint(out3)
+            
             os_version = out3["platform"]["software"]["system_version"]
 
             if os_version not in nxos_os:
                 self.failed(f"{os_version} on {device} is not the correct version")
             else:
-                pass
+                self.passed(f"{os_version} on {device} is the correct version")
 
 
 if __name__ == "__main__":

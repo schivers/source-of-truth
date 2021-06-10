@@ -8,7 +8,7 @@ SCRIPT_PATH = os.path.dirname(__file__)
 def main(runtime):
 
     run(
-        testscript=os.path.join(SCRIPT_PATH, "cdp_enabled.py"),
+        testscript=os.path.join(SCRIPT_PATH, "version_checker_by_type.py"),
         runtime=runtime,
-        taskid="Validate CDP on Router Interfaces",
+        taskid="Ensure that the IOS / IOS-XE version matches with the agreed version",
     )

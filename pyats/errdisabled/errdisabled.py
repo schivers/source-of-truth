@@ -40,7 +40,9 @@ class MyCommonSetup(aetest.CommonSetup):
             log.info(device)
             log.info(banner(f"Connect to device '{device.name}'"))
             try:
-                device.connect(log_stdout=False)
+                testbed.connect(
+                    learn_hostname=True, log_stdout=False, connection_timeout=60
+                )
             except errors.ConnectionError:
                 self.failed(f"Failed to establish " f"connection to '{device.name}'")
             device_list.append(device)

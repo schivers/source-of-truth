@@ -30,9 +30,14 @@ def main(runtime):
         taskid="Version Checker",
     )
     run(
-        testscript=os.path.join(SCRIPT_PATH, "./check_cdp/cdp_enabled.py"),
+        testscript=os.path.join(SCRIPT_PATH, "./cdp_enabled/cdp_enabled.py"),
         runtime=runtime,
-        taskid="Check CDP is enabled",
+        taskid="Check CDP is enabled per interface",
+    )
+    run(
+        testscript=os.path.join(SCRIPT_PATH, "./cdp_enabled_globally/cdp_enabled_globally.py"),
+        runtime=runtime,
+        taskid="Check CDP is enabled globally",
     )
     run(
         testscript=os.path.join(SCRIPT_PATH, "./check_lldp/check_lldp.py"),

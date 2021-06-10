@@ -38,11 +38,6 @@ test_name = "Check SNMP Settings"
 
 
 class MyCommonSetup(aetest.CommonSetup):
-    """
-    CommonSetup class to prepare for testcases
-    Establishes connections to all devices in testbed
-    """
-
     @aetest.subsection
     def establish_connections(self, testbed):
         """
@@ -50,39 +45,48 @@ class MyCommonSetup(aetest.CommonSetup):
         :param testbed:
         :return:
         """
-        global test_status_string
-        global test_status
-        global pass_counter
 
-        genie_testbed = Genie.init(testbed)
-        self.parent.parameters["testbed"] = genie_testbed
+        # make sure testbed is provided
+        assert testbed, "Testbed is not provided!"
+
+        try:
+            testbed.connect(
+                learn_hostname=True, log_stdout=False, connection_timeout=60
+            )
+        except (TimeoutError, StateMachineError, ConnectionError) as e:
+            log.error("NOT CONNECTED TO ALL DEVICES")
+
+    @aetest.subsection
+    def verify_connected(self, testbed, steps):
         device_list = []
-        test_status_string = test_status_string + (
-            f"----START OF CONNECTION TESTS----\n"
-        )
-        for device in genie_testbed.devices.values():
 
-            try:
-                device.connect(log_stdout=False)
-                device_list.append(device)
-                test_status_string = test_status_string + (
-                    f"PASSED: Establish " f"connection to '{device.name}'\n"
-                )
-                pass_counter += 1
+        d_name = []
+        for device_name, device in testbed.devices.items():
 
-            except errors.ConnectionError:
-                # self.skipped(f"Failed to establish "f"connection to '{device.name}'")
-                test_status_string = test_status_string + (
-                    f"FAILED: Unable to establish " f"connection to '{device.name}'\n"
-                )
-                test_status = "Failed"
+            with steps.start(
+                f"Test Connection Status of {device_name}", continue_=True
+            ) as step:
+                # Test "connected" status
+                log.info(device)
+                if device.connected:
+                    log.info(f"{device_name} connected status: {device.connected}")
+                    device_list.append(device)
+                    d_name.append(device_name)
+                else:
+                    log.error(f"{device_name} connected status: {device.connected}")
+                    step.skipped()
 
         # Pass list of devices to testcases
-        test_status_string = test_status_string + (f"----END OF CONNECTION TESTS----\n")
-        self.parent.parameters.update(dev=device_list)
+
+        if device_list:
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(Check_SNMP_Settings, device=device_list, uids=d_name)
+
+        else:
+            self.failed()
 
 
-class Check_DNS_Server_Settings(aetest.Testcase):
+class Check_SNMP_Settings(aetest.Testcase):
 
     global test_status_string
     global test_status
@@ -97,29 +101,20 @@ class Check_DNS_Server_Settings(aetest.Testcase):
         run version testcase for each device
         """
 
-        devices = self.parent.parameters["dev"]
-        log.info(devices)
-        aetest.loop.mark(self.check_dns_server_settings, device=devices)
-
     @aetest.test
     def check_dns_server_settings(self, device):
         """
-
-
         """
-
         global test_status_string
         global test_status
         global pass_counter
         test_status_string = test_status_string + "----START OF {} TESTS----\n".format(
             test_name
         )
-
-        if device.os == "WIP":
-            pass
-
-        elif device.os == "nxos" or device.os == "ios":
-
+        if device.os in ("ios", "iosxe", "nxos", "iosxr"):
+            pass_counter = 0
+            test_status = "None"
+            test_status_string = ''
             for show_run_include_command in show_run_include_commands:
                 show_run_output = device.execute(
                     "show running-config | include " + show_run_include_command
@@ -153,6 +148,17 @@ class Check_DNS_Server_Settings(aetest.Testcase):
                             test_name, show_run_include_command, device
                         )
                     )
+
+                        
+            if test_status == "Failed":
+                self.failed(f"FAILED: {test_name}\n{test_status_string}")
+            if test_status == "None" and pass_counter == 0:
+                self.failed(
+                    f"FAILED: {test_name} anomaly, Nothing passed and it didnt fail either, check script\n{test_status_string}"
+                )
+            if test_status == "None" and pass_counter > 0:
+                self.passed(f"PASSED: {test_name}\n{test_status_string}")
+
         else:
             test_status_string = (
                 test_status_string
@@ -177,7 +183,7 @@ class CommonCleanup(aetest.CommonCleanup):
     @aetest.subsection
     def subsection_cleanup_one(self):
         #     pass
-
+        """
         global test_status_string
         global test_status
         global pass_counter
@@ -190,7 +196,7 @@ class CommonCleanup(aetest.CommonCleanup):
             )
         if test_status == "None" and pass_counter > 0:
             self.passed(f"PASSED: {test_name}\n{test_status_string}")
-
+        """
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

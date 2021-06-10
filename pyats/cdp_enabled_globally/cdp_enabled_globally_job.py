@@ -8,7 +8,7 @@ SCRIPT_PATH = os.path.dirname(__file__)
 def main(runtime):
 
     run(
-        testscript=os.path.join(SCRIPT_PATH, "cdp_enabled.py"),
+        testscript=os.path.join(SCRIPT_PATH, "cdp_enabled_globally.py"),
         runtime=runtime,
-        taskid="Validate CDP on Router Interfaces",
+        taskid="Check CDP is enabled globally",
     )
