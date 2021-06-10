@@ -4,16 +4,11 @@
 
 This test job attempts to verify the following:
 
-- Hostname
-- Configured credentials
-- Domain Name Configuration
-- Crypto Key Existence 
-- SSH Version
-- 'transport input ssh' under line vty 0
-- AAA settings
-- Enable Secret
+- Current 5 min CPU % of device
+- PIDs 5 min CPU %
+- 72 Hours of CPU % data
 
 # Running
 
 ```
-pyats run job remote_manage_job.py --testbed-file ../testbed.yaml
+pyats run job show_proc_cpu_job.py --testbed-file ../testbed.yaml
