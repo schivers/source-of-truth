@@ -39,7 +39,9 @@ class CommonSetup(aetest.CommonSetup):
         assert testbed, "Testbed is not provided!"
 
         try:
-            testbed.connect(log_stdout=False, learn_hostname=True)
+            testbed.connect(
+                learn_hostname=True, log_stdout=False, connection_timeout=60
+            )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             logger.error("NOT CONNECTED TO ALL DEVICES")
 
