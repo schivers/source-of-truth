@@ -93,5 +93,5 @@ def main(runtime):
     run(
         testscript=os.path.join(SCRIPT_PATH, "./running_vs_startup/run_vs_start.py"),
         runtime=runtime,
-        taskid="Compare runnning-config to startup-config",
+        taskid="Compare running-config to startup-config",
     )
