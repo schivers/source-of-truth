@@ -100,7 +100,7 @@ class Power_Check(aetest.Testcase):
             output= Dq(out1).contains('^[0-9]+$', regex= True).get_values('remaining')
             print(output)
             for i in output:
-                if i >=50:
+                if i <=50:
                     self.failed("Power remaining is less than 50W: {0}".format(output))
                 else:
                     next 
