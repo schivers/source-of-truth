@@ -80,7 +80,7 @@ class CPU_utilisation_checks(aetest.Testcase):
 
         for device_name, device in testbed.devices.items():
             # Only attempt to learn details on supported network operation systems
-            if device.os in ("iosxe","iosxr","ios","nxos"):
+            if device.os in ("iosxe","iosxr","ios","nxos") and device.connected:
                 log.info(f"{device_name} connected status: {device.connected}")
                 log.info(f"Running the show processes cpu command for {device_name}")
                 self.execute_cpu[device_name] = device.parse("show processes cpu")
