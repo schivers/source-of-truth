@@ -8,30 +8,57 @@ from genie.libs import ops  # noqa
 log = logging.getLogger(__name__)
 
 
-class common_setup(aetest.CommonSetup):
-    """ Common Setup section """
+class CommonSetup(aetest.CommonSetup):
+    """
+    CommonSetup class to prepare for testcases
+    Establishes connections to all devices in testbed
+    """
 
-    # Connect to each device in the testbed
     @aetest.subsection
-    def connect(self, testbed):
-        genie_testbed = Genie.init(testbed)
-        self.parent.parameters["testbed"] = genie_testbed
+    def establish_connections(self, testbed):
+        """
+        Establishes connections to all devices in testbed
+        :param testbed:
+        :return:
+        """
+
+        # make sure testbed is provided
+        assert testbed, "Testbed is not provided!"
+
+        try:
+            testbed.connect(
+                learn_hostname=True, log_stdout=False, connection_timeout=60
+            )
+        except (TimeoutError, StateMachineError, ConnectionError) as e:
+            log.error("NOT CONNECTED TO ALL DEVICES")
+
+    @aetest.subsection
+    def verify_connected(self, testbed, steps):
         device_list = []
-        for d in genie_testbed.devices.keys():
-            # Mark testcase with looping information
-            device = genie_testbed.devices[d]
+        d_name = []
+        for device_name, device in testbed.devices.items():
 
-            log.info(banner("Connect to device '{d}'".format(d=device.name)))
-            try:
-                device.connect()
-                device_list.append(d)
+            with steps.start(
+                f"Test Connection Status of {device_name}", continue_=True
+            ) as step:
+                # Test "connected" status
+                log.info(device)
+                if device.connected:
+                    log.info(f"{device_name} connected status: {device.connected}")
+                    device_list.append(device)
+                    d_name.append(device_name)
+                else:
+                    log.error(f"{device_name} connected status: {device.connected}")
+                    step.skipped()
 
-            except Exception as e:
-                msg = "Failed to connect to {} will not be checked!"
-                log.info(msg.format(device.name))
+        # Pass list of devices to testcases
+        if device_list:
+            # ADD NEW TESTS CASES HERE
+            aetest.loop.mark(local_user_check, device=device_list,uids=d_name)
+            
 
-        # run local_user_check against each device in the list
-        aetest.loop.mark(local_user_check, dev_name=device_list)
+        else:
+            self.failed()
 
 
 class local_user_check(aetest.Testcase):
@@ -39,14 +66,14 @@ class local_user_check(aetest.Testcase):
     groups = ["aaa", "golden_config"]
 
     @aetest.test
-    def compare_local_users(self, steps, dev_name, expected_local_users):
+    def compare_local_users(self, steps, device, expected_local_users):
         """Local User Database checks
 
         Given a list of expected usernames validates they
         are present on the device
 
         """
-        device = self.parent.parameters["testbed"].devices[dev_name]
+        #device = self.parent.parameters["testbed"].devices[dev_name]
         with steps.start("Getting Configured Usernames"):
             usernames = device.execute("show run | inc username")
             lines = usernames.split("\r\n")
