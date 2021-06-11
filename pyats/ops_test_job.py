@@ -30,11 +30,6 @@ def main(runtime):
         taskid="Validate Connectivity",
     )
     run(
-        testscript=os.path.join(SCRIPT_PATH, "./interface_errors/interface_errors.py"),
-        runtime=runtime,
-        taskid="Interface Errors",
-    )
-    run(
         testscript=os.path.join(SCRIPT_PATH, "./check_ntp/check_ntp_associations.py"),
         runtime=runtime,
         taskid="Check NTP Associations",
