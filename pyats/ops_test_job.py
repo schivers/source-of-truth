@@ -59,3 +59,18 @@ def main(runtime):
         runtime=runtime,
         taskid="Ping IBC NTP Server",
     )
+    run(
+        testscript=os.path.join(SCRIPT_PATH, "./show_env_all/show_env.py"),
+        runtime=runtime,
+        taskid="Validate Environment Temp/Fan/Power",
+    )
+    run(
+        testscript=os.path.join(SCRIPT_PATH, "./show_power/show_power.py"),
+        runtime=runtime,
+        taskid="Checking remaining Power",
+    )
+    run(
+        testscript=os.path.join(SCRIPT_PATH, "./show_proc_cpu/show_proc_cpu.py"),
+        runtime=runtime,
+        taskid="Check CPU processes",
+    )
