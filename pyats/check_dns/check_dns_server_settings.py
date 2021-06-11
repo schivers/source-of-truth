@@ -52,7 +52,9 @@ class MyCommonSetup(aetest.CommonSetup):
         assert testbed, "Testbed is not provided!"
 
         try:
-            testbed.connect(log_stdout=False)
+            testbed.connect(
+                learn_hostname=True, log_stdout=False, connection_timeout=60
+            )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
 
@@ -155,11 +157,6 @@ class Check_DNS_Server_Settings(aetest.Testcase):
             )
             log.info(
                 "FAILED: Device OS type {} not handled in script for {}".format(
-                    device.os, device
-                )
-            )
-            log.info(
-                "FAILED: Device OS type {} not handled in script for device {}".format(
                     device.os, device
                 )
             )

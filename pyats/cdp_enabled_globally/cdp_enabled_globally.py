@@ -60,16 +60,15 @@ class MyCommonSetup(aetest.CommonSetup):
         # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
-            aetest.loop.mark(check_syslog, device=device_list, uids=d_name)
+            aetest.loop.mark(Check_CDP_Enabled_Globally, device=device_list, uids=d_name)
 
         else:
             self.failed()
 
 
-
-class check_syslog(aetest.Testcase):
+class Check_CDP_Enabled_Globally(aetest.Testcase):
     """
-    Check Syslog settings
+    Check CDP Enabled
     """
 
     @aetest.setup
@@ -79,19 +78,14 @@ class check_syslog(aetest.Testcase):
         run version testcase for each device
         """
 
-
     @aetest.test
     def test(self, device):
-        syslog = "172.22.192.56"
-        "Check VTP Status for domain name & operation mode."
-        if device.os == "iosxe" or device.os == "ios":
-            out1 = device.api.get_running_config("logging host {0}".format(syslog))
+        if device.os in ("ios", "iosxe", "nxos", "iosxr"):
+            out1 = device.api.verify_cdp_in_state()
             if out1:
-                self.passed("Syslog setting found for {0}".format(syslog))
+                self.passed("CDP is enabled globally on the device")
             else:
-                self.failed("Syslog setting not found.")
-        else:
-            self.failed('Device OS {} not catered for in script syslog'.format(device.name))
+                self.failed("CDP is not enabled on this device")
 
 
 if __name__ == "__main__":

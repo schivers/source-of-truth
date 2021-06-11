@@ -43,7 +43,9 @@ class MyCommonSetup(aetest.CommonSetup):
         assert testbed, "Testbed is not provided!"
 
         try:
-            testbed.connect(log_stdout=False)
+            testbed.connect(
+                learn_hostname=True, log_stdout=False, connection_timeout=60
+            )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
 
@@ -91,19 +93,20 @@ class Check_LLDP(aetest.Testcase):
 
     @aetest.test
     def check_lldp(self, device):
-        if (
-            device.os == "ios"
-            or device.os == "iosxe"
-            or device.os == "iosxr"
-            or device.os == "nxos"
-        ):
+        if device.os in ("ios", "iosxe", "nxos", "iosxr"):
 
-            test = device.api.verify_lldp_in_state(device)
-            if test:
-                self.passed("lldp is enabled on device {}".format(device))
-            else:
-                self.failed("lldp is not enabled on device {}".format(device))
-
+            try:
+                out = device.parse('show lldp')
+                #pprint.pprint(out)
+                #return True
+                #print('out enabeld was {}'.format(out['enabled']))
+                if out['enabled']:
+                    self.passed("lldp is enabled on device {}".format(device))
+                else:
+                    self.failed("lldp is not enabled on device {}".format(device))
+            except Exception as e:
+                print(e)
+            
         else:
             self.failed(
                 "FAILED: Device OS type {} not handled in script for device {}".format(

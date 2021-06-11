@@ -1,16 +1,12 @@
 # Overview
 
-Verify that CDP is enabled globally
-
-## Command:
-  
-`Show cdp neighbors` - note: The test uses the Pyats API `verify_cdp_in_state` which supports (IOS,XE,XR,NXOS)
+Checks the CDP is enabled on ASR router interfaces
 
 ## Checks:
-The API call returns a boolean(true/false) to verify if CDP is enabled.
+TODO
 
 
 # Running
 
 ```
-pyats run job cdp_enabled.py --testbed-file ../testbed.yaml
+pyats run job cdp_enabled_job.py --testbed-file ../testbed.yaml
