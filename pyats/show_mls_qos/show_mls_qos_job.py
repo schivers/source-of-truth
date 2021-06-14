@@ -23,3 +23,5 @@ def main(runtime):
         runtime=runtime,
         taskid="Check mls_qos",
     )
+    runtime.mail_report.contents.insert('NTT Test',"http://172.26.232.11:8005/results",position=0)
+    print(runtime.mail_report.contents)

@@ -20,7 +20,7 @@ SCRIPT_PATH = os.path.dirname(__file__)
 def main(runtime):
 
     run(
-        testscript=os.path.join(SCRIPT_PATH, "remote_manage_tests.py"),
+        testscript=os.path.join(SCRIPT_PATH, "remote_manage.py"),
         runtime=runtime,
         taskid="Remote Management Access Settings",
     )

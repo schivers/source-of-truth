@@ -100,4 +100,5 @@ def main(runtime):
         runtime=runtime,
         taskid="Check mls_qos is in Config",
     )
-    runtime.mail_report.contents['NTT Test'] = "http://172.26.232.11:8005/results"
+    runtime.mail_report.contents.insert('NTT Test',"http://172.26.232.11:8005/results",position=1)
+    print(runtime.mail_report.contents)
