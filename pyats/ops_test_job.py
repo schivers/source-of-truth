@@ -69,3 +69,4 @@ def main(runtime):
         runtime=runtime,
         taskid="Check CPU processes",
     )
+    runtime.mail_report.contents.insert('NTT Links',"Log viewer - http://172.26.232.11:8005/results \nNetbox - http://172.26.232.11:8000/ \nBackups - http://172.26.232.11:8008/ ", position=0)
