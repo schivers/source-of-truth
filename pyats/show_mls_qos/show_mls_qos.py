@@ -59,7 +59,7 @@ class CommonSetup(aetest.CommonSetup):
       # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Power_Check, device=device_list, uids=d_name)
+            aetest.loop.mark(check_mls_qos, device=device_list, uids=d_name)
 
         else:
             self.failed()
@@ -67,11 +67,9 @@ class CommonSetup(aetest.CommonSetup):
     
 
 
-class Power_Check(aetest.Testcase):
+class check_mls_qos(aetest.Testcase):
     """
-    Check the CPU Utilisation of all the devices in the testbed.yaml
-    Report a failure if a CPU Process exceeds 75 Percent for more
-    than 5 minutes
+    Find mls_qos in running config.
     """
 
     # List of counters keys to check for errors
@@ -82,29 +80,26 @@ class Power_Check(aetest.Testcase):
         Get list of all devices in testbed and
         run version testcase for each device
         """
-        self.parse_power = {}
+        self.mls_qos = []
         
         if device.os in ("ios","iosxe"):
             try:
-                out = device.parse("show power inline")
+                out = device.api.get_running_config("mls_qos")
 
             except Exception as e:
                 self.failed("Exception occured ".format(str(e)))
             print(out)
-            self.execute_env=out
+            self.mls_qos=out
     
     @aetest.test
-    def Check_Power(self,device):
+    def Check_mls_qos(self,device):
         if device.os in ("ios","iosxe"):
-            out1= self.execute_env
-            output= Dq(out1).contains('^[0-9]+$', regex= True).get_values('remaining')
-            print(output)
-            for i in output:
-                if i <=24:
-                    self.failed("Power remaining is less than 24W: {0}".format(output))
-                else:
-                    next 
-            self.passed("Power remaining is sufficient.")
+            out1= self.mls_qos
+            print(out1)
+            if out1:
+                self.passed("mls_qos was found in the config.")
+            else:
+                self.failed("mls_qos was not found in the config.")
            
         
     
