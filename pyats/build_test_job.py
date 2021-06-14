@@ -100,3 +100,5 @@ def main(runtime):
         runtime=runtime,
         taskid="Check mls_qos is in Config",
     )
+    runtime.mail_report.contents.insert('NTT Links',"Log viewer - http://172.26.232.11:8005/results \n Netbox - http://172.26.232.11:8000/ \n Backups - http://172.26.232.11:8008/ ",position=0)
+
