@@ -1,5 +1,3 @@
-# WORK IN PROGRESS 
-
 # Overview
 
 This test job attempts to verify the following:
