@@ -88,10 +88,15 @@ def main(runtime):
     run(
         testscript=os.path.join(SCRIPT_PATH, "./syslog/check_syslog.py"),
         runtime=runtime,
-        taskid="Check Syslog)",
+        taskid="Check Syslog",
     )
     run(
         testscript=os.path.join(SCRIPT_PATH, "./running_vs_startup/run_vs_start.py"),
         runtime=runtime,
         taskid="Compare running-config to startup-config",
+    )
+    run(
+        testscript=os.path.join(SCRIPT_PATH, "./show_mls_qos/show_mls_qos.py"),
+        runtime=runtime,
+        taskid="Check mls_qos is in Config",
     )
