@@ -4,6 +4,7 @@ from pyats import aetest
 from pyats.log.utils import banner
 from genie.conf import Genie
 from genie.libs import ops  # noqa
+from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 
 log = logging.getLogger(__name__)
 

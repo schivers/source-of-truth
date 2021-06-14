@@ -11,6 +11,7 @@ from genie.conf import Genie
 
 # To handle errors with connections to devices
 from unicon.core import errors
+from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
 
 import pprint
 import argparse
