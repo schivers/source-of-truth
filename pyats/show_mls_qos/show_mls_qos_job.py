@@ -12,7 +12,6 @@ __version__ = 1.0
 
 import os
 from pyats.easypy import run
-
 # compute the script path from this location
 SCRIPT_PATH = os.path.dirname(__file__)
 
