@@ -34,7 +34,11 @@ if __name__ == "__main__":
     
     #Netbox Bot Webex
     at= "OGI2NWYyZWEtNDU1Ny00ZGZmLThhMDYtZTQ0ZDUyODY2MjExOTBmZjM4MTMtMmY3_PF84_0198f08a-3880-4871-b55e-4863ccf723d5"
+<<<<<<< HEAD
     roomId="Y2lzY29zcGFyazovL3VzL1JPT00vZjY1MGZhYzAtY2VhNS0xMWViLTg2ODUtYjMzYTEwY2ZjZGVj"
+=======
+    roomId="Y2lzY29zcGFyazovL3VzL1JPT00vZjI0YmY0ODAtNjg5NS0xMWU4LTkwNDUtOTMzYTUwMmYyZTJj"
+>>>>>>> 7690fbcc2f49466d04ee6d68b2288a9a7f178f7b
 
     r= requests.get(url,headers=headers)
 

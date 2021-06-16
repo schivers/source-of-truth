@@ -62,13 +62,6 @@ def main(runtime):
         taskid="Check Errdisabled Configuration",
     )
     run(
-        testscript=os.path.join(
-            SCRIPT_PATH, "./check_dns_server_settings/check_dns_server_settings.py"
-        ),
-        runtime=runtime,
-        taskid="Check DNS Server Settings",
-    )
-    run(
         testscript=os.path.join(SCRIPT_PATH, "./check_ntp/check_ntp_associations.py"),
         runtime=runtime,
         taskid="Check NTP Settings",
@@ -100,5 +93,5 @@ def main(runtime):
         runtime=runtime,
         taskid="Check mls_qos is in Config",
     )
-    runtime.mail_report.contents.insert('NTT Links',"Log viewer - http://172.26.232.11:8005/results \n Netbox - http://172.26.232.11:8000/ \n Backups - http://172.26.232.11:8008/ ",position=0)
+    runtime.mail_report.contents.insert('NTT Links',"Log viewer - http://172.26.232.11:8005/results \nNetbox - http://172.26.232.11:8000/ \nBackups - http://172.26.232.11:8008/ ", position=0)
 
