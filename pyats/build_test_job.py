@@ -67,7 +67,7 @@ def main(runtime):
         taskid="Check NTP Settings",
     )
     run(
-        testscript=os.path.join(SCRIPT_PATH, "./local_users/local_user_check.py"),
+        testscript=os.path.join(SCRIPT_PATH, "./local_users_v2/local_user_check.py"),
         runtime=runtime,
         taskid="Check Local Users",
     )
