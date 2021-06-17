@@ -197,6 +197,7 @@ class RemoteManagement(aetest.Testcase):
                 "aaa authentication login default local",
                 "aaa authorization exec default local if-authenticated ",
             ]
+            log.info("Expected config:\n{0}".format(aaaTestCase))
             out1 = device.api.get_running_config_section("aaa")
             log.info("AAA Settings:\n {0}".format(out1))
             result = all(elem in out1 for elem in aaaTestCase)
