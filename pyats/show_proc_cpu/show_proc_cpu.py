@@ -113,13 +113,15 @@ class CPU_utilisation_checks(aetest.Testcase):
             ) as device_step:
 
                 print(device_name)
+                log.info("Checking PIDS are not exceeding 75 percent for more than 5 minutes.")
                 output = self.execute_cpu[device_name]
                 output = output["sort"]
                 cpu_bad = (
-                    Dq(output).value_operator("five_min_cpu", ">=", 5).reconstruct()
+                    Dq(output).value_operator("five_min_cpu", ">=", 75).reconstruct()
                 )
                 #print(output)
                 process_id = str(cpu_bad.keys())
+                #print(process_id)
                 if cpu_bad != {}:
                     device_step.failed(
                         f"Very High 5 Minute CPU detected on {device_name} with the following Process ID {process_id}"
@@ -127,7 +129,7 @@ class CPU_utilisation_checks(aetest.Testcase):
 
                 else:
                     device_step.passed(
-                        f"No issues found with the CPU Utilisation on {device_name}"
+                        f"No issues found with the PIDS CPU Utilisation on {device_name}"
                     )
 
     @aetest.test
@@ -135,7 +137,7 @@ class CPU_utilisation_checks(aetest.Testcase):
         for device_name, device in self.execute_cpu_history.items():
         
             output = self.execute_cpu_history[device_name]
-            print(output)
+            #print(output)
             output = output["72h"]
 
             cpu_max_bad = (

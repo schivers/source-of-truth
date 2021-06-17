@@ -84,18 +84,18 @@ class Power_Check(aetest.Testcase):
         """
         self.parse_power = {}
         
-        if device.os in ("ios","iosxe"):
+        if device.os in ("ios"):
             try:
                 out = device.parse("show power inline")
 
             except Exception as e:
-                self.failed("Exception occured ".format(str(e)))
+                self.failed("Exception occured {0} ".format(str(e)))
             print(out)
             self.execute_env=out
     
     @aetest.test
     def Check_Power(self,device):
-        if device.os in ("ios","iosxe"):
+        if device.os in ("ios"):
             out1= self.execute_env
             output= Dq(out1).contains('^[0-9]+$', regex= True).get_values('remaining')
             print(output)
