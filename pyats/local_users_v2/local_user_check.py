@@ -1,24 +1,16 @@
-#!/usr/bin/env python3
-
-# To get a logger for the script
+#!/bin/env python
 import logging
 from pyats import aetest
 from pyats.log.utils import banner
-
-# Genie Imports
 from genie.conf import Genie
-
-# To handle errors with connections to devices
-from unicon.core import errors
+from genie.libs import ops  # noqa
 from unicon.core.errors import TimeoutError, StateMachineError, ConnectionError
-import argparse
 from pyats.topology import loader
 
-# Get your logger for your script
-global log
+import argparse
+
 log = logging.getLogger(__name__)
 log.level = logging.INFO
-
 
 class CommonSetup(aetest.CommonSetup):
     """
@@ -66,49 +58,47 @@ class CommonSetup(aetest.CommonSetup):
         # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
-            aetest.loop.mark(err_disabled, device=device_list, uids=d_name)
+            aetest.loop.mark(local_user_check, device=device_list,uids=d_name)
+            
 
         else:
             self.failed()
-            
-class err_disabled(aetest.Testcase):
-    
-    @aetest.setup
-    def setup(self):
-        """
-        Get list of all devices in testbed and
-        run version testcase for each device
-        """
-        pass
-        
+
+
+class local_user_check(aetest.Testcase):
+
+    groups = ["aaa", "golden_config"]
 
     @aetest.test
-    def test(self, device):
-        "Check errdisabled recovery feature set up correctly"
-        if device.os == "iosxe" or device.os == "ios":
-            errDisabledCase = [
-                "errdisable recovery cause udld",
-                "errdisable recovery cause bpduguard",
-                "errdisable recovery cause mac-limit",
-                "errdisable recovery cause storm-control",
-                "errdisable recovery interval 900",
-            ]
-            log.info("Expected config:{0}".format(errDisabledCase))
-            out1 = device.api.get_running_config("errdisable")
-            log.info("ErrDisabled:{0}".format(out1))
-            # List comprehension checking all elements of a list are present
-            result = all(elem in out1 for elem in errDisabledCase)
+    def compare_local_users(self, steps, device, expected_local_users):
+        """Local User Database checks
 
-            if result:
-                self.passed("ErrDisabled Recovery configuration is valid.")
+        Given a list of expected usernames validates they
+        are present on the device
+
+        """
+        #device = self.parent.parameters["testbed"].devices[dev_name]
+        with steps.start("Getting Configured Usernames"):
+            usernames = device.execute("show run | inc username")
+            lines = usernames.split("\r\n")
+            cfg_local_users = [w.split(" ")[1] for w in lines]
+            log.info("Configured Users: {}".format(cfg_local_users))
+
+        with steps.start("Comparing Configured Usernames"):
+            msg = "Checking for {} in local user database"
+            log.info(msg.format(expected_local_users))
+            validated_users= all(elem in cfg_local_users for elem in expected_local_users)
+            if validated_users:
+                self.passed("Users found in Configuration")
             else:
-                self.failed("ErrDisabled Recovery configuration is invalid.")
+                self.failed("User(s) not found in existing configuration. Current users are : {0}".format(cfg_local_users))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     parser = argparse.ArgumentParser()
     parser.add_argument("--testbed", dest="testbed", type=loader.load)
 
     args, unknown = parser.parse_known_args()
 
     aetest.main(**vars(args))
+
