@@ -70,6 +70,7 @@ def main(runtime):
         testscript=os.path.join(SCRIPT_PATH, "./local_users_v2/local_user_check.py"),
         runtime=runtime,
         taskid="Check Local Users",
+        expected_local_users=['netbox','solarwinds','admin'] #REQUIRED
     )
     run(
         testscript=os.path.join(
