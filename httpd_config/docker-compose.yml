@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  httpd:
+    image: httpd:2.4
+    volumes:
+             - ./my-httpd.conf:/usr/local/apache2/conf/httpd.conf:rw
+             - /home/root_uefa_ops/www/:/usr/local/apache2/htdocs/:rw
+    ports:
+             - "8008:80"

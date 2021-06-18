@@ -1,0 +1,9 @@
+.page-wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: left;
+    color: #ffffff;
+    background: url(../img/src_core_img_jumbo-bg-ntt.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
