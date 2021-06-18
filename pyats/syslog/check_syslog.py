@@ -34,7 +34,10 @@ class MyCommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -67,7 +70,6 @@ class MyCommonSetup(aetest.CommonSetup):
             self.failed()
 
 
-
 class check_syslog(aetest.Testcase):
     """
     Check Syslog settings
@@ -80,7 +82,6 @@ class check_syslog(aetest.Testcase):
         run version testcase for each device
         """
 
-
     @aetest.test
     def test(self, device):
         syslog = "172.22.192.56"
@@ -92,7 +93,9 @@ class check_syslog(aetest.Testcase):
             else:
                 self.failed("Syslog setting not found.")
         else:
-            self.failed('Device OS {} not catered for in script syslog'.format(device.name))
+            self.failed(
+                "Device OS {} not catered for in script syslog".format(device.name)
+            )
 
 
 if __name__ == "__main__":

@@ -18,6 +18,7 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
+
 class CommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def connect(self, testbed):
@@ -31,8 +32,11 @@ class CommonSetup(aetest.CommonSetup):
         #   By default ANY error in the CommonSetup will fail the entire test run
         #   Here we catch common exceptions if a device is unavailable to allow test to continue
         try:
-           testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+            testbed.connect(
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError):
             log.error("Unable to connect to all devices")
@@ -56,15 +60,13 @@ class CommonSetup(aetest.CommonSetup):
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
 
-      # Pass list of devices to testcases
+        # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
             aetest.loop.mark(check_mls_qos, device=device_list, uids=d_name)
 
         else:
             self.failed()
-    
-    
 
 
 class check_mls_qos(aetest.Testcase):
@@ -75,36 +77,31 @@ class check_mls_qos(aetest.Testcase):
     # List of counters keys to check for errors
     #   Model details: https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/_models/interface.pdf
     @aetest.setup
-    def setup(self,device):
+    def setup(self, device):
         """
         Get list of all devices in testbed and
         run version testcase for each device
         """
         self.mls_qos = []
-        
-        if device.os in ("ios","iosxe"):
+
+        if device.os in ("ios", "iosxe"):
             try:
                 out = device.api.get_running_config("mls_qos")
 
             except Exception as e:
                 self.failed("Exception occured ".format(str(e)))
             print(out)
-            self.mls_qos=out
-    
+            self.mls_qos = out
+
     @aetest.test
-    def Check_mls_qos(self,device):
-        if device.os in ("ios","iosxe"):
-            out1= self.mls_qos
+    def Check_mls_qos(self, device):
+        if device.os in ("ios", "iosxe"):
+            out1 = self.mls_qos
             print(out1)
             if out1:
                 self.passed("mls_qos was found in the config.")
             else:
                 self.failed("mls_qos was not found in the config.")
-           
-        
-    
-
-    
 
 
 if __name__ == "__main__":

@@ -40,7 +40,10 @@ class MyCommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")

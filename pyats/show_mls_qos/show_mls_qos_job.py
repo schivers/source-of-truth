@@ -12,6 +12,7 @@ __version__ = 1.0
 
 import os
 from pyats.easypy import run
+
 # compute the script path from this location
 SCRIPT_PATH = os.path.dirname(__file__)
 
@@ -23,5 +24,7 @@ def main(runtime):
         runtime=runtime,
         taskid="Check mls_qos",
     )
-    runtime.mail_report.contents.insert('NTT Test',"http://172.26.232.11:8005/results",position=0)
+    runtime.mail_report.contents.insert(
+        "NTT Test", "http://172.26.232.11:8005/results", position=0
+    )
     print(runtime.mail_report.contents)

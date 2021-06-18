@@ -18,6 +18,7 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
+
 class CommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def connect(self, testbed):
@@ -31,8 +32,11 @@ class CommonSetup(aetest.CommonSetup):
         #   By default ANY error in the CommonSetup will fail the entire test run
         #   Here we catch common exceptions if a device is unavailable to allow test to continue
         try:
-           testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+            testbed.connect(
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError):
             log.error("Unable to connect to all devices")
@@ -56,15 +60,13 @@ class CommonSetup(aetest.CommonSetup):
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
 
-      # Pass list of devices to testcases
+        # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
             aetest.loop.mark(Power_Check, device=device_list, uids=d_name)
 
         else:
             self.failed()
-    
-    
 
 
 class Power_Check(aetest.Testcase):
@@ -77,13 +79,13 @@ class Power_Check(aetest.Testcase):
     # List of counters keys to check for errors
     #   Model details: https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/_models/interface.pdf
     @aetest.setup
-    def setup(self,device):
+    def setup(self, device):
         """
         Get list of all devices in testbed and
         run version testcase for each device
         """
         self.parse_power = {}
-        
+
         if device.os in ("ios"):
             try:
                 out = device.parse("show power inline")
@@ -91,25 +93,20 @@ class Power_Check(aetest.Testcase):
             except Exception as e:
                 self.failed("Exception occured {0} ".format(str(e)))
             print(out)
-            self.execute_env=out
-    
+            self.execute_env = out
+
     @aetest.test
-    def Check_Power(self,device):
+    def Check_Power(self, device):
         if device.os in ("ios"):
-            out1= self.execute_env
-            output= Dq(out1).contains('^[0-9]+$', regex= True).get_values('remaining')
+            out1 = self.execute_env
+            output = Dq(out1).contains("^[0-9]+$", regex=True).get_values("remaining")
             print(output)
             for i in output:
-                if i <=24:
+                if i <= 24:
                     self.failed("Power remaining is less than 24W: {0}".format(output))
                 else:
-                    next 
+                    next
             self.passed("Power remaining is sufficient.")
-           
-        
-    
-
-    
 
 
 if __name__ == "__main__":

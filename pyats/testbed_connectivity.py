@@ -32,7 +32,7 @@ class CommonSetup(aetest.CommonSetup):
         #   By default ANY error in the CommonSetup will fail the entire test run
         #   Here we catch common exceptions if a device is unavailable to allow test to continue
         try:
-           testbed.connect(
+            testbed.connect(
                 learn_hostname=True, log_stdout=False, connection_timeout=60
             )
         except (TimeoutError, StateMachineError, ConnectionError):
