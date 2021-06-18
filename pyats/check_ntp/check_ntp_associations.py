@@ -41,7 +41,10 @@ class MyCommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -94,7 +97,7 @@ class Check_NTP_Associations(aetest.Testcase):
         """
 
         if device.os in ("ios", "iosxe", "nxos", "iosxr"):
-            test_status_string = ''
+            test_status_string = ""
             ntp_details = device.execute("show running-config | include ntp server")
             if ntp_details == "":
                 # self.failed(f'NTP Server on {device} not found')
@@ -118,11 +121,11 @@ class Check_NTP_Associations(aetest.Testcase):
                             )
                         )
                         test_status = "Failed"
-                        #self.failed(
+                        # self.failed(
                         #    "FAILED: NTP Server {} not configured on {}".format(
                         #        ntp_server_ip, device
                         #    )
-                        #)
+                        # )
                         log.info(
                             "FAILED: NTP Server {} not configured on {}".format(
                                 ntp_server_ip, device
@@ -132,16 +135,18 @@ class Check_NTP_Associations(aetest.Testcase):
                         # ntp server found
                         test_status_string = (
                             test_status_string
-                            + "PASSED: NTP Server {} configured on {}\n".format(ntp_server_ip, device)
+                            + "PASSED: NTP Server {} configured on {}\n".format(
+                                ntp_server_ip, device
+                            )
                         )
-                                
+
                         ntp_server_count += 1
-                        #pass_counter += 1
-                        #self.passed(
+                        # pass_counter += 1
+                        # self.passed(
                         #    "PASSED: NTP Server {} configured on {}".format(
                         #        ntp_server_ip, device
                         #    )
-                        #)
+                        # )
                         log.info(
                             "PASSED: NTP Server {} configured on {}".format(
                                 ntp_server_ip, device
@@ -169,8 +174,12 @@ class Check_NTP_Associations(aetest.Testcase):
                         self.passed("PASSED: NTP synchronised on {}".format(device))
                         log.info("PASSED: NTP synchronised on {}".format(device))
                 else:
-                    #not all of the ntp servers were found
-                    self.failed('Not all NTP servers found on device {}\n{}'.format(device.name,test_status_string))
+                    # not all of the ntp servers were found
+                    self.failed(
+                        "Not all NTP servers found on device {}\n{}".format(
+                            device.name, test_status_string
+                        )
+                    )
         else:
             # test_status_string = (
             #    test_status_string

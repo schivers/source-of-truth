@@ -52,7 +52,10 @@ class MyCommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -115,7 +118,7 @@ class Check_SNMP_Settings(aetest.Testcase):
         if device.os in ("ios", "iosxe", "nxos", "iosxr"):
             pass_counter = 0
             test_status = "None"
-            test_status_string = ''
+            test_status_string = ""
             for show_run_include_command in show_run_include_commands:
                 show_run_output = device.execute(
                     "show running-config | include " + show_run_include_command
@@ -150,7 +153,6 @@ class Check_SNMP_Settings(aetest.Testcase):
                         )
                     )
 
-                        
             if test_status == "Failed":
                 self.failed(f"FAILED: {test_name}\n{test_status_string}")
             if test_status == "None" and pass_counter == 0:
@@ -198,6 +200,7 @@ class CommonCleanup(aetest.CommonCleanup):
         if test_status == "None" and pass_counter > 0:
             self.passed(f"PASSED: {test_name}\n{test_status_string}")
         """
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
