@@ -12,6 +12,7 @@ import argparse
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
+
 class CommonSetup(aetest.CommonSetup):
     """
     CommonSetup class to prepare for testcases
@@ -31,7 +32,10 @@ class CommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -58,8 +62,7 @@ class CommonSetup(aetest.CommonSetup):
         # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
-            aetest.loop.mark(local_user_check, device=device_list,uids=d_name)
-            
+            aetest.loop.mark(local_user_check, device=device_list, uids=d_name)
 
         else:
             self.failed()
@@ -77,7 +80,7 @@ class local_user_check(aetest.Testcase):
         are present on the device
 
         """
-        #device = self.parent.parameters["testbed"].devices[dev_name]
+        # device = self.parent.parameters["testbed"].devices[dev_name]
         with steps.start("Getting Configured Usernames"):
             usernames = device.execute("show run | inc username")
             lines = usernames.split("\r\n")
@@ -87,18 +90,23 @@ class local_user_check(aetest.Testcase):
         with steps.start("Comparing Configured Usernames"):
             msg = "Checking for {} in local user database"
             log.info(msg.format(expected_local_users))
-            validated_users= all(elem in cfg_local_users for elem in expected_local_users)
+            validated_users = all(
+                elem in cfg_local_users for elem in expected_local_users
+            )
             if validated_users:
                 self.passed("Users found in Configuration")
             else:
-                self.failed("User(s) not found in existing configuration. Current users are : {0}".format(cfg_local_users))
+                self.failed(
+                    "User(s) not found in existing configuration. Current users are : {0}".format(
+                        cfg_local_users
+                    )
+                )
 
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--testbed", dest="testbed", type=loader.load)
 
     args, unknown = parser.parse_known_args()
 
     aetest.main(**vars(args))
-

@@ -39,7 +39,10 @@ class CommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -70,9 +73,9 @@ class CommonSetup(aetest.CommonSetup):
 
         else:
             self.failed()
-            
+
+
 class err_disabled(aetest.Testcase):
-    
     @aetest.setup
     def setup(self):
         """
@@ -80,7 +83,6 @@ class err_disabled(aetest.Testcase):
         run version testcase for each device
         """
         pass
-        
 
     @aetest.test
     def test(self, device):

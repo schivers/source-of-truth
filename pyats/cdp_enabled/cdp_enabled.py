@@ -42,7 +42,10 @@ class MyCommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -92,13 +95,12 @@ class CDP_Enabled(aetest.Testcase):
         """
         if device.os == "ios" or device.os == "iosxe":
             all_interfaces_cdp_enabled = True
-            cdp_interface_detail_string = ''
+            cdp_interface_detail_string = ""
             out = device.parse("show interfaces")
             for interface in out.items():
                 for interfaces_types_to_check in interface_types_to_check_list:
                     if interface[0].find(interfaces_types_to_check) != -1:
-                        
-                        
+
                         interface_detail = device.execute(
                             "show cdp interface " + interface[0]
                         )
@@ -115,7 +117,12 @@ class CDP_Enabled(aetest.Testcase):
                                 cdp_enabled = True
                             line_index += 1
                         if cdp_enabled:
-                            cdp_interface_detail_string = cdp_interface_detail_string + "PASSED: cdp enabled {} on {}\n".format(interface[0], device)
+                            cdp_interface_detail_string = (
+                                cdp_interface_detail_string
+                                + "PASSED: cdp enabled {} on {}\n".format(
+                                    interface[0], device
+                                )
+                            )
                             log.info(
                                 "PASSED: cdp enabled {} on {}".format(
                                     interface[0], device
@@ -123,7 +130,12 @@ class CDP_Enabled(aetest.Testcase):
                             )
                         else:
                             all_interfaces_cdp_enabled = False
-                            cdp_interface_detail_string = cdp_interface_detail_string + "FAILED: cdp not enabled {} on {}\n".format(interface[0], device)                                
+                            cdp_interface_detail_string = (
+                                cdp_interface_detail_string
+                                + "FAILED: cdp not enabled {} on {}\n".format(
+                                    interface[0], device
+                                )
+                            )
                             log.info(
                                 "FAILED: cdp not enabled {} on {}".format(
                                     interface[0], device

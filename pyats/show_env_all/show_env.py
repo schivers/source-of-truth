@@ -18,6 +18,7 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
+
 class CommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def connect(self, testbed):
@@ -31,8 +32,11 @@ class CommonSetup(aetest.CommonSetup):
         #   By default ANY error in the CommonSetup will fail the entire test run
         #   Here we catch common exceptions if a device is unavailable to allow test to continue
         try:
-           testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+            testbed.connect(
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError):
             log.error("Unable to connect to all devices")
@@ -56,100 +60,95 @@ class CommonSetup(aetest.CommonSetup):
                     log.error(f"{device_name} connected status: {device.connected}")
                     step.skipped()
 
-      # Pass list of devices to testcases
+        # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
             aetest.loop.mark(Environment_Checks, device=device_list, uids=d_name)
 
         else:
             self.failed()
-    
-    
 
 
 class Environment_Checks(aetest.Testcase):
-    """
-    Check the CPU Utilisation of all the devices in the testbed.yaml
-    Report a failure if a CPU Process exceeds 75 Percent for more
-    than 5 minutes
-    """
 
     # List of counters keys to check for errors
     #   Model details: https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/_models/interface.pdf
     @aetest.setup
-    def setup(self,device):
+    def setup(self, device):
         """
         Get list of all devices in testbed and
         run version testcase for each device
         """
         self.execute_env = []
-        
+
         if device.os == "ios":
             try:
                 out = device.execute("show env all")
 
             except Exception as e:
                 self.failed("Exception occured ".format(str(e)))
-            #print(out)
-            out= out.splitlines()
-            #print(out1)
-            self.execute_env=out
+            # print(out)
+            out = out.splitlines()
+            # print(out1)
+            self.execute_env = out
         if device.os == "iosxe":
             out = device.execute("show environment")
             print(out)
-            self.execute_env= out
+            self.execute_env = out
             print(self.execute_env)
 
     @aetest.test
-    def Check_Temp(self,device):
+    def Check_Temp(self, device):
         if device.os == "ios":
-            out1= [i for i in self.execute_env if "SYSTEM TEMPERATURE is" in i ]
+            out1 = [i for i in self.execute_env if "SYSTEM TEMPERATURE is" in i]
             print(self.execute_env)
-            if not "SYSTEM TEMPERATURE is OK" in self.execute_env: 
+            if not "SYSTEM TEMPERATURE is OK" in self.execute_env:
                 self.failed("System Temperature not healthy:{0}".format(out1))
-            else: 
+            else:
                 self.passed("System Temperature is healthy")
         if device.os == "iosxe":
-             self.skipped("XE device not compatible with test.")
-        
-    @aetest.test
-    def Check_Temp_State(self,device):
-        if device.os == "ios":
-            out1= [i for i in self.execute_env if "System Temperature State" in i ]
-            print(self.execute_env)
-            if not "System Temperature State: GREEN" in self.execute_env: 
-                self.failed("System Temperature State not healthy:{0}".format(out1))
-            else: 
-                self.passed("System Temperature State is healthy")
-        if device.os == "iosxe":
-             self.skipped("XE device not compatible with test.")
+            self.skipped("XE device not compatible with test.")
 
     @aetest.test
-    def Check_Power_State(self,device):
+    def Check_Temp_State(self, device):
         if device.os == "ios":
-            out1= [i for i in self.execute_env if "Power Supply Status:" in i ]
+            out1 = [i for i in self.execute_env if "System Temperature State" in i]
             print(self.execute_env)
-            if not "Power Supply Status: Good" in self.execute_env: 
-                self.failed("System Power Supply Status is not healthy:{0}".format(out1))
-            else: 
+            if not "System Temperature State: GREEN" in self.execute_env:
+                self.failed("System Temperature State not healthy:{0}".format(out1))
+            else:
+                self.passed("System Temperature State is healthy")
+        if device.os == "iosxe":
+            self.skipped("XE device not compatible with test.")
+
+    @aetest.test
+    def Check_Power_State(self, device):
+        if device.os == "ios":
+            out1 = [i for i in self.execute_env if "Power Supply Status:" in i]
+            print(self.execute_env)
+            if not "Power Supply Status: Good" in self.execute_env:
+                self.failed(
+                    "System Power Supply Status is not healthy:{0}".format(out1)
+                )
+            else:
                 self.passed("System Power Supply Status is healthy")
         if device.os == "iosxe":
-             self.skipped("XE device not compatible with test.")
-    
+            self.skipped("XE device not compatible with test.")
+
     @aetest.test
-    def Check_Fan_State(self,device):
+    def Check_Fan_State(self, device):
         if device.os == "ios":
-            out1= [i for i in self.execute_env if "SYSTEM FAN SPEED is" in i ]
+            out1 = [i for i in self.execute_env if "SYSTEM FAN SPEED is" in i]
             print(self.execute_env)
-            if not "SYSTEM FAN SPEED is" in self.execute_env: 
+            if not "SYSTEM FAN SPEED is" in self.execute_env:
                 self.skipped("Device has no Fan information")
-            elif not "SYSTEM FAN SPEED is OK": 
+            elif not "SYSTEM FAN SPEED is OK":
                 self.failed("System Fan Speed is not healthy:{0}".format(out1))
             else:
                 self.passed("System Fan Speed is healthy")
         if device.os == "iosxe":
-             self.skipped("XE device not compatible with test.")
-    
+            self.skipped("XE device not compatible with test.")
+
     # @aetest.test
     # def Check_XE_State(self,device):
     #     if device.os == "ios":
@@ -166,13 +165,6 @@ class Environment_Checks(aetest.Testcase):
     #         XE_State= Dq(output).contains('Current State').not_contains('Normal').reconstruct()
     #         print(XE_State)
 
-
-    
-            
-                
-                
-
-    
 
 if __name__ == "__main__":
     # for stand-alone execution

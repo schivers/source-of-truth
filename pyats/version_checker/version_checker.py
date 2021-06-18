@@ -40,7 +40,10 @@ class CommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -92,8 +95,8 @@ class Version(aetest.Testcase):
         run version testcase for each device
         """
 
-        #devices = self.parent.parameters["dev"]
-        #aetest.loop.mark(self.version, device=devices)
+        # devices = self.parent.parameters["dev"]
+        # aetest.loop.mark(self.version, device=devices)
 
     @aetest.test
     def version(self, device):
@@ -124,7 +127,7 @@ class Version(aetest.Testcase):
         elif device.os == "nxos":
 
             out3 = device.parse("show version")
-            
+
             os_version = out3["platform"]["software"]["system_version"]
 
             if os_version not in nxos_os:

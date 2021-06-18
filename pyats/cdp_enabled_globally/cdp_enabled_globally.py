@@ -34,7 +34,10 @@ class MyCommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -61,7 +64,9 @@ class MyCommonSetup(aetest.CommonSetup):
         # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
-            aetest.loop.mark(Check_CDP_Enabled_Globally, device=device_list, uids=d_name)
+            aetest.loop.mark(
+                Check_CDP_Enabled_Globally, device=device_list, uids=d_name
+            )
 
         else:
             self.failed()

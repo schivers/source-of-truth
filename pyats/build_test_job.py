@@ -35,7 +35,9 @@ def main(runtime):
         taskid="Check CDP is enabled per interface",
     )
     run(
-        testscript=os.path.join(SCRIPT_PATH, "./cdp_enabled_globally/cdp_enabled_globally.py"),
+        testscript=os.path.join(
+            SCRIPT_PATH, "./cdp_enabled_globally/cdp_enabled_globally.py"
+        ),
         runtime=runtime,
         taskid="Check CDP is enabled globally",
     )
@@ -70,7 +72,7 @@ def main(runtime):
         testscript=os.path.join(SCRIPT_PATH, "./local_users_v2/local_user_check.py"),
         runtime=runtime,
         taskid="Check Local Users",
-        expected_local_users=['netbox','solarwinds','admin'] #REQUIRED
+        expected_local_users=["netbox", "solarwinds", "admin"],  # REQUIRED
     )
     run(
         testscript=os.path.join(
@@ -94,5 +96,8 @@ def main(runtime):
         runtime=runtime,
         taskid="Check mls_qos is in Config",
     )
-    runtime.mail_report.contents.insert('NTT Links',"Log viewer - http://172.26.232.11:8005/results \nNetbox - http://172.26.232.11:8000/ \nBackups - http://172.26.232.11:8008/ ", position=0)
-
+    runtime.mail_report.contents.insert(
+        "NTT Links",
+        "Log viewer - http://172.26.232.11:8005/results \nNetbox - http://172.26.232.11:8000/ \nBackups - http://172.26.232.11:8008/ ",
+        position=0,
+    )

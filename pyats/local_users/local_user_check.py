@@ -28,7 +28,10 @@ class CommonSetup(aetest.CommonSetup):
 
         try:
             testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError) as e:
             log.error("NOT CONNECTED TO ALL DEVICES")
@@ -55,8 +58,7 @@ class CommonSetup(aetest.CommonSetup):
         # Pass list of devices to testcases
         if device_list:
             # ADD NEW TESTS CASES HERE
-            aetest.loop.mark(local_user_check, device=device_list,uids=d_name)
-            
+            aetest.loop.mark(local_user_check, device=device_list, uids=d_name)
 
         else:
             self.failed()
@@ -74,7 +76,7 @@ class local_user_check(aetest.Testcase):
         are present on the device
 
         """
-        #device = self.parent.parameters["testbed"].devices[dev_name]
+        # device = self.parent.parameters["testbed"].devices[dev_name]
         with steps.start("Getting Configured Usernames"):
             usernames = device.execute("show run | inc username")
             lines = usernames.split("\r\n")

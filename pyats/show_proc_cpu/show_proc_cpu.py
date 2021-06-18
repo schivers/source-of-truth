@@ -18,6 +18,7 @@ global log
 log = logging.getLogger(__name__)
 log.level = logging.INFO
 
+
 class CommonSetup(aetest.CommonSetup):
     @aetest.subsection
     def connect(self, testbed):
@@ -31,8 +32,11 @@ class CommonSetup(aetest.CommonSetup):
         #   By default ANY error in the CommonSetup will fail the entire test run
         #   Here we catch common exceptions if a device is unavailable to allow test to continue
         try:
-           testbed.connect(
-                learn_hostname=True, log_stdout=False, connection_timeout=60
+            testbed.connect(
+                learn_hostname=True,
+                log_stdout=False,
+                connection_timeout=60,
+                init_config_commands=[],
             )
         except (TimeoutError, StateMachineError, ConnectionError):
             log.error("Unable to connect to all devices")
@@ -53,8 +57,6 @@ class CommonSetup(aetest.CommonSetup):
 
     def set_store_num(self, store):
         aetest.loop.mark
-    
-    
 
 
 class CPU_utilisation_checks(aetest.Testcase):
@@ -70,21 +72,23 @@ class CPU_utilisation_checks(aetest.Testcase):
     def setup(self, testbed):
         """Check the Network OS matches the Testbed.yaml file"""
         self.execute_cpu = {}
-        self.execute_cpu_history={}
+        self.execute_cpu_history = {}
         self.output = {}
-        #MODIFY
-        #CPU Max 
-        self.cpu_max=90
-        self.cpu_max_pids=60
-        self.cpu_avg= 80
+        # MODIFY
+        # CPU Max
+        self.cpu_max = 90
+        self.cpu_max_pids = 60
+        self.cpu_avg = 80
 
         for device_name, device in testbed.devices.items():
             # Only attempt to learn details on supported network operation systems
-            if device.os in ("iosxe","iosxr","ios","nxos") and device.connected:
+            if device.os in ("iosxe", "iosxr", "ios", "nxos") and device.connected:
                 log.info(f"{device_name} connected status: {device.connected}")
                 log.info(f"Running the show processes cpu command for {device_name}")
                 self.execute_cpu[device_name] = device.parse("show processes cpu")
-                self.execute_cpu_history[device_name] = device.parse("show processes cpu history")
+                self.execute_cpu_history[device_name] = device.parse(
+                    "show processes cpu history"
+                )
 
     @aetest.test
     def Check_CPU(self, steps):
@@ -94,7 +98,7 @@ class CPU_utilisation_checks(aetest.Testcase):
             ) as device_step:
                 output = self.execute_cpu[device_name]
                 output = output["five_min_cpu"]
-                if output>=self.cpu_max:
+                if output >= self.cpu_max:
                     device_step.failed(
                         f"Very High 5 Minute CPU detected on {device_name}"
                     )
@@ -103,7 +107,6 @@ class CPU_utilisation_checks(aetest.Testcase):
                     device_step.passed(
                         f"No issues found with the CPU Utilisation on {device_name}"
                     )
-                
 
     @aetest.test
     def Check_CPU_PIDS(self, steps):
@@ -113,15 +116,17 @@ class CPU_utilisation_checks(aetest.Testcase):
             ) as device_step:
 
                 print(device_name)
-                log.info("Checking PIDS are not exceeding 75 percent for more than 5 minutes.")
+                log.info(
+                    "Checking PIDS are not exceeding 75 percent for more than 5 minutes."
+                )
                 output = self.execute_cpu[device_name]
                 output = output["sort"]
                 cpu_bad = (
                     Dq(output).value_operator("five_min_cpu", ">=", 75).reconstruct()
                 )
-                #print(output)
+                # print(output)
                 process_id = str(cpu_bad.keys())
-                #print(process_id)
+                # print(process_id)
                 if cpu_bad != {}:
                     device_step.failed(
                         f"Very High 5 Minute CPU detected on {device_name} with the following Process ID {process_id}"
@@ -135,9 +140,9 @@ class CPU_utilisation_checks(aetest.Testcase):
     @aetest.test
     def Check_History(self, steps):
         for device_name, device in self.execute_cpu_history.items():
-        
+
             output = self.execute_cpu_history[device_name]
-            #print(output)
+            # print(output)
             output = output["72h"]
 
             cpu_max_bad = (
@@ -149,8 +154,8 @@ class CPU_utilisation_checks(aetest.Testcase):
             max_cpu_hours = str(list(cpu_max_bad.keys()))
             avg_cpu_hours = str(list(cpu_avg_bad.keys()))
             with steps.start(
-            f"Checking Max CPU(%) 72 HR History {device_name}", continue_=True
-        ) as max_step:
+                f"Checking Max CPU(%) 72 HR History {device_name}", continue_=True
+            ) as max_step:
                 if cpu_max_bad != {}:
                     max_step.failed(
                         f"Very High MAX CPU detected on {device_name} in the last {max_cpu_hours} hours "
@@ -160,13 +165,13 @@ class CPU_utilisation_checks(aetest.Testcase):
                         f"No issues found with the CPU Utilisation on {device_name}"
                     )
             with steps.start(
-            f"Checking Avg CPU(%) 72 HR History {device_name}", continue_=True
-        ) as avg_step:
+                f"Checking Avg CPU(%) 72 HR History {device_name}", continue_=True
+            ) as avg_step:
                 if cpu_avg_bad != {}:
                     avg_step.failed(
-                    f"Very High AVG CPU detected on {device_name} in the last {avg_cpu_hours} hours"
-                )
-                    
+                        f"Very High AVG CPU detected on {device_name} in the last {avg_cpu_hours} hours"
+                    )
+
                 else:
                     avg_step.passed(
                         f"No issues found with the average CPU Utilisation on {device_name} in last 72 Hours."

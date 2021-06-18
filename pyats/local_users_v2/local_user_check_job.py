@@ -10,7 +10,10 @@ from pyats.datastructures.logic import Or
 def main(runtime):
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--local_users", dest="expected_local_users", nargs="+", default=['netbox','solarwinds','admin']
+        "--local_users",
+        dest="expected_local_users",
+        nargs="+",
+        default=["netbox", "solarwinds", "admin"],
     )
     args, unknown = parser.parse_known_args()
     # Find the location of the script in relation to the job file
