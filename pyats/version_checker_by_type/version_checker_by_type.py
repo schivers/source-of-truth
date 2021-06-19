@@ -33,7 +33,7 @@ software_version_dictionary = {
     "Catalyst WS-C2960L-24PS-LL": "15.2(7)E3",
     "Catalyst WS-C2960L-48PS-LL": "15.2(7)E3",
     "Catalyst WS-C2960L-48PQ-LL": "15.2(7)E3",
-    "Catalyst WS-C3650-12X48UR": "16.09.06",
+    "Catalyst WS-C3650-12X48UR": "16.9.6",
     "Catalyst WS-C3650-48PQ-L": "15.2(7)E3",
     "ASR1001-HX": "16.12.5",
 }
