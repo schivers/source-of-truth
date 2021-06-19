@@ -86,7 +86,7 @@ class check_mls_qos(aetest.Testcase):
 
         if device.os in ("ios", "iosxe"):
             try:
-                out = device.api.get_running_config("mls_qos")
+                out = device.api.get_running_config("mls qos")
 
             except Exception as e:
                 self.failed("Exception occured ".format(str(e)))
