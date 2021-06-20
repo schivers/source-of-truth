@@ -33,8 +33,8 @@ access_switch_config = (
     "spanning-tree vlan 1-4094 priority 24576"
 )  # what to look for in show running-config if its an access switch
 distribution_switch = [
-    "WS-C3650-12X48UR"
-]  # like above, This might need the word 'Catalyst in there'
+    "Catalyst WS-C3650-12X48UR"
+]  # list of distribution switches
 distribution_switch_config = "spanning-tree vlan 1-4093 priority 8192"
 core_switch = [
     "Catalyst 9500-40X"
