@@ -26,6 +26,7 @@ log.level = logging.INFO
 # device types and STP commands to check
 access_switch = [
     "Catalyst WS-C2960L-24PS-LL",
+    "Catalyst WS-C3650-48PQ-L",
     "Catalyst WS-C2960L-48PS-LL",
 ]  # list of access switches
 access_switch_config = (
@@ -35,9 +36,12 @@ distribution_switch = [
     "WS-C3650-12X48UR"
 ]  # like above, This might need the word 'Catalyst in there'
 distribution_switch_config = "spanning-tree vlan 1-4093 priority 8192"
-core_switch = ["tbc"]  # for Shaun to complete
-core_switch_config = "tbc"
-
+core_switch = [
+    "Catalyst 9500-40X"
+]  # list of core switches
+core_switch_config = (
+    "spanning-tree vlan 1-4093 priority 0"
+)
 
 class MyCommonSetup(aetest.CommonSetup):
     @aetest.subsection
